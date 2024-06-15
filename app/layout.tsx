@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Inter, Montserrat } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -50,7 +51,10 @@ export default function RootLayout({
       className={`scroll-smooth ${inter.variable} ${satoshi.variable} ${manrope.variable} ${montserrat.variable}`}
     >
       <body className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900">
-        <div>{children}</div>
+        <div>
+          {children}
+          <Analytics />
+        </div>
       </body>
     </html>
   );
