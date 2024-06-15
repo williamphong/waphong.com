@@ -1,0 +1,57 @@
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import { Inter, Montserrat } from 'next/font/google';
+import './globals.css';
+
+export const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+export const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
+
+export const satoshi = localFont({
+  src: [
+    {
+      path: '/../public/fonts/Satoshi-Variable.ttf',
+      style: 'normal',
+    },
+    {
+      path: '/../public/fonts/Satoshi-VariableItalic.ttf',
+      style: 'italic',
+    },
+  ],
+  display: 'swap',
+  variable: '--font-satoshi',
+});
+
+export const manrope = localFont({
+  src: '/../public/fonts/Manrope.ttf',
+  display: 'swap',
+  variable: '--font-manrope',
+});
+
+export const metadata: Metadata = {
+  title: 'William Phong',
+  description: "William Phong's personal website",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html
+      lang="en"
+      className={`scroll-smooth ${inter.className} ${satoshi.variable} ${manrope.variable} ${montserrat.variable} `}
+    >
+      <body className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900">
+        <div>{children}</div>
+      </body>
+    </html>
+  );
+}
