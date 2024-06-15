@@ -3,19 +3,19 @@ import localFont from 'next/font/local';
 import { Inter, Montserrat } from 'next/font/google';
 import './globals.css';
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 });
 
-export const montserrat = Montserrat({
+const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-montserrat',
 });
 
-export const satoshi = localFont({
+const satoshi = localFont({
   src: [
     {
       path: '/../public/fonts/Satoshi-Variable.ttf',
@@ -30,7 +30,7 @@ export const satoshi = localFont({
   variable: '--font-satoshi',
 });
 
-export const manrope = localFont({
+const manrope = localFont({
   src: '/../public/fonts/Manrope.ttf',
   display: 'swap',
   variable: '--font-manrope',
@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${inter.className} ${satoshi.variable} ${manrope.variable} ${montserrat.variable} `}
+      className={`scroll-smooth ${inter.variable} ${satoshi.variable} ${manrope.variable} ${montserrat.variable}`}
     >
       <body className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900">
         <div>{children}</div>
