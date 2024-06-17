@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { links, aboutMe, experiencesData, projectsData } from './lib/data';
-import Spotlight, {
-  SpotlightCard,
-} from '../app/components/spotlight';
+//import Spotlight, { SpotlightCard } from '../app/components/spotlight';
 
 export default function Home() {
   return (

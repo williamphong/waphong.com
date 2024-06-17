@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "prettier.requireConfig": true,
+    "prettier.resolveGlobalModules": true,
+    "prettier.useEditorConfig": false,
+    "prettier.prettierPath": "./node_modules/prettier",
+    "prettier.configPath": ".prettierrc"
+}
