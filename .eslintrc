@@ -3,8 +3,6 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "no-unused-vars": 1, 
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }], // allow jsx syntax in js and tsx files (for next.js project)
-    "react/react-in-jsx-scope": "warn",
   }
 }
 

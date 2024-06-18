@@ -128,6 +128,14 @@ export default function Home() {
               </div>
             ))}
           </section>
+
+          <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+            <p>
+              This website was inspired by https://brittanychiang.com,
+              https://carlbeaverson.com. It is built using Next.js, Tailwind
+              CSS, and was deployed using Vercel.
+            </p>
+          </footer>
         </main>
       </div>
     </div>
