@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Dashboard = () => {
   const { data: session } = useSession();
-
+  const imageUrl = session?.user?.image ?? '/images/please_do_not_the_cat.png';
   return (
     <>
       {session ? (
@@ -15,7 +15,7 @@ const Dashboard = () => {
             Signed in as {session.user?.name} {session.user?.email}
           </p>
           <Image
-            src={session.user?.image}
+            src={imageUrl}
             alt="asd"
             width="100"
             height="100"
