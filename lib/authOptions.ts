@@ -13,7 +13,7 @@ const params = {
 
 const LOGIN_URL = "https://accounts.spotify.com/authorize?" + new URLSearchParams(params).toString();
 
-// @ts-ignore
+// @ts-expect-error token any type
 async function refreshAccessToken(token) {
     const params = new URLSearchParams()
     params.append("grant_type", "refresh_token")
