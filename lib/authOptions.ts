@@ -8,7 +8,11 @@ const scopes = [
 ].join(",")
 
 const params = {
-    scope: scopes
+    response_type: 'code',
+    client_id: process.env.SPOTIFY_CLIENT_ID as string,
+    scope: scopes,
+    redirect_uri: 'http://localhost:3000/api/auth/callback/spotify',
+    //state: 'your_state_here'
 }
 
 const LOGIN_URL = "https://accounts.spotify.com/authorize?" + new URLSearchParams(params).toString();
