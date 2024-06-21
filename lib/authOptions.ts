@@ -13,6 +13,7 @@ const params = {
 
 const LOGIN_URL = "https://accounts.spotify.com/authorize?" + new URLSearchParams(params).toString();
 
+// @ts-ignore
 async function refreshAccessToken(token) {
     const params = new URLSearchParams()
     params.append("grant_type", "refresh_token")
@@ -20,6 +21,7 @@ async function refreshAccessToken(token) {
     const response = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
+            // @ts-expect-error new buffer has any type
             'Authorization': 'Basic ' + (new Buffer.from(process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_SECRET).toString('base64'))
         },
         body: params
@@ -27,8 +29,11 @@ async function refreshAccessToken(token) {
     const data = await response.json()
     return {
         ...token,
+        // @ts-expect-error data type unknown
         accessToken: data.access_token,
+        // @ts-expect-error data type unknown
         refreshToken: data.refresh_token ?? token.refreshToken,
+        // @ts-expect-error data type unknown
         accessTokenExpires: Date.now() + data.expires_in * 1000
     }
 }
@@ -53,6 +58,7 @@ export const authOptions: NextAuthOptions = {
                 return token
             }
             // access token has not expired
+            // @ts-expect-error The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
             if (token.accessTokenExpires && Date.now() < token.accessTokenExpires * 1000) {
                 return token
             }
@@ -62,6 +68,7 @@ export const authOptions: NextAuthOptions = {
         },
         async session({ session, token, user }) {
             // Send properties to the client, like an access_token from a provider.
+            // @ts-expect-error accessToken doesnt exist on session
             session.accessToken = token.accessToken
             return session
         }
