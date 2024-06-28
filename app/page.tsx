@@ -15,12 +15,16 @@ export default function Home() {
       <div className="lg:flex lg:justify-between lg:gap-4">
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
           <div>
-            <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold text-slate-200 sm:text-3xl md:text-6xl">
+            <h1 className="font-manrope text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold text-slate-200 sm:text-3xl md:text-6xl">
               <a href="/">William Phong</a>
             </h1>
             <h2 className="text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-              B.S. Computer Science @ CSU San Marcos
+              B.S. in Computer Science
             </h2>
+            <p className="mt-4 max-w-xs leading-normal">
+              My focuses are in backend and fullstack programming as well as
+              data analysis, but I am open to all opportunities!
+            </p>
 
             <nav
               className="nav hidden lg:block"
@@ -54,6 +58,15 @@ export default function Home() {
                   title={img.name}
                 >
                   <span className="sr-only">{img.name}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox={img.viewbox}
+                    fill="currentColor"
+                    className="h-6 w-6"
+                    aria-hidden="true"
+                  >
+                    <path d={img.path}></path>
+                  </svg>
                 </a>
               </li>
             ))}
@@ -73,8 +86,18 @@ export default function Home() {
               </div>
             ))}
             <p className="mb-4 text-slate-400">
-              In my free time, I enjoy listening to music, going on walks and
-              taking
+              In my free time, I enjoy listening to{' '}
+              <a
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                href="https://open.spotify.com/user/william.phong"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="letterboxd"
+              >
+                {' '}
+                music
+              </a>
+              , taking
               <a
                 className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                 href="/gallery"
@@ -85,8 +108,7 @@ export default function Home() {
                 {' '}
                 pictures{' '}
               </a>
-              with my film camera, learning the guitar, playing video games, and
-              watching
+              with my film camera, playing video games, and watching
               <a
                 className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                 href="https://letterboxd.com/andjuly/"
@@ -185,6 +207,9 @@ export default function Home() {
                           <div>
                             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                             <span>{exp.title}</span>
+                          </div>
+                          <div>
+                            <div className="text-slate-500">{exp.company}</div>
                           </div>
                         </h3>
                         <p className="mt-2 text-sm leading-normal">
