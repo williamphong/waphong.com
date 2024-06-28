@@ -16,14 +16,23 @@ export const links = [
     hash: '#about',
   },
   {
+    name: 'Projects',
+    hash: '#projects',
+    
+  },
+  {
     name: 'Experience',
     hash: '#experience',
   },
-  {
-    name: 'Projects',
-    hash: '#projects',
-  },
 ] as const;
+
+export const socialMedia = [
+  {
+    name:'GitHub',
+    imageUrl: '@/public/images/please_do_not_the_cat.png',
+    link:'github.com'
+  }
+];
 
 export const aboutMe = [
   {
@@ -51,7 +60,7 @@ export const education = [
 
 export const experiencesData = [
   {
-    title: 'Debate Coach and Judge',
+    title: 'HS Debate Coach and Judge',
     location: 'CA, NV, MD',
     description:
       'Worked with students individually and in groups of 3-8, Created curriculum modules and preparation documents for novice/jv/varsity debaters, Coordinated with high schools, colleges, and staff for tournament logistics, Judged tournament rounds from preliminaries to finals rounds',
@@ -80,7 +89,9 @@ interface Project {
   title: string;
   description: string;
   tags: string[];
+  link: string;
   imageUrl: StaticImageData;
+  date: string;
 }
 
 export const projectsData: Project[] = [
@@ -89,34 +100,44 @@ export const projectsData: Project[] = [
     description:
       "Unity Virtual Reality demo that teaching users astrology concepts through a simulation of the Earth's Orbit around the sun. Users can select lectures to listen to or walk around and interact with the Earth, Moon, and Sun objects along the orbit. ",
     tags: ['Unity', 'MATLAB', 'C#'],
+    link: "https://github.com/williamphong/CS490-VR-Orbit",
     imageUrl: vrOrbitImg,
+    date:'Jan 2024 - Present',
   },
   {
-    title: 'Personal website',
+    title: 'Portfolio website',
     description: 'Personal website developed using Next.JS.',
     tags: ['Next.JS', 'TypeScript', 'CSS'],
+    link: "https://github.com/williamphong/PersonalWebsite",
     imageUrl: websiteImg,
+    date:'May 2024 - Present',
   },
   {
     title: 'Spotify Daylist Word Cloud',
     description:
       "Creates a word cloud from a user's spotify daylist. The title is exported into a spreadsheet which is used to generate a word cloud.",
     tags: ['Python', 'Spotipy'],
+    link: "https://github.com/williamphong/Spotify-Daylist-Word-Cloud",
     imageUrl: daylistCloud,
+    date:'June 2024 - Present',
   },
   {
     title: 'CSUSM Student Application',
     description:
       'Interviewed faculty administrators and students of CSUSM to determine a customer story and requirements. Utilized Java and Android Studio to develop front-end, employed a MySQL database and connector to communicate data between server and application, Used SHA256 hashing to encrypt user data',
     tags: ['Java', 'Android Studio', 'SQL'],
+    link: "https://github.com/williamphong/CSUSMStudentApp",
     imageUrl: csusmAppImg,
+    date:'Jan 2023 - May 2023',
   },
   {
     title: 'Discord Bot',
     description:
       'Implemented a Discord bot into servers with 200+ users. Utilized youtube-dl and ffmpeg to play video audio in voice channels, custom chat responses and bot behavior triggered through user inputs, hosted on a UNIX local machine with 24/7 up-time.',
     tags: ['Java', 'Android Studio', 'SQL', 'Tailwind', 'Framer'],
+    link: "https://localhost:3000",
     imageUrl: discordBotImg,
+    date:'Jan 2019 - 2021',
   },
 ] as const;
 

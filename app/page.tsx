@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
-import { links, aboutMe, experiencesData, projectsData } from '../lib/data';
+import {
+  links,
+  aboutMe,
+  experiencesData,
+  projectsData,
+  socialMedia,
+} from '../lib/data';
 //import Spotlight, { SpotlightCard } from '../app/components/spotlight';
 
 export default function Home() {
@@ -37,6 +43,21 @@ export default function Home() {
               </ul>
             </nav>
           </div>
+
+          <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+            {socialMedia.map((img, index) => (
+              <li key={index} className="mr-5 shrink-0 text-xs">
+                <a
+                  className="block hover:text-slate-200"
+                  href={img.link}
+                  target="blank"
+                  title={img.name}
+                >
+                  <span className="sr-only">{img.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </header>
 
         <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
@@ -91,49 +112,118 @@ export default function Home() {
             </p>
           </section>
 
-          <section id="experience" className="mt-16 items-center">
-            <h2>Experience</h2>
-            {experiencesData.map((exp, index) => (
-              <div key={index}>
-                <h3>{exp.title}</h3>
-                <p>{exp.description}</p>
-              </div>
-            ))}
+          <section
+            id="projects"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="my projects"
+          >
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                Projects
+              </h2>
+            </div>
+            <div>
+              <ol>
+                {projectsData.map((project, index) => (
+                  <li key={index} className="mb-12">
+                    <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                      <div className="z-10 sm:order-2 sm:col-span-6">
+                        <h3>
+                          <a
+                            className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                            href={project.link}
+                            aria-label={project.title}
+                            target="blank"
+                          >
+                            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                            <span>{project.title}</span>
+                          </a>
+                        </h3>
+                        <p className="mt-2 text-sm leading-normal">
+                          {project.description}
+                        </p>
+                      </div>
+                      <Image
+                        src={project.imageUrl}
+                        alt="image"
+                        loading="lazy"
+                        decoding="async"
+                        width={200}
+                        height={48}
+                        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                      ></Image>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </section>
 
-          <section id="projects" className="mt-16">
-            <h2>Projects</h2>
-            {projectsData.map((project, index) => (
-              <div key={index} className="project-card mb-8">
-                <div className="relative h-64 w-full">
-                  <Image
-                    src={project.imageUrl}
-                    alt={project.title || 'Project Image'}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-                <h3>{project.title || 'Untitled Project'}</h3>
-                <p>{project.description}</p>
-                <ul className="flex space-x-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <li
-                      key={tagIndex}
-                      className="rounded bg-gray-200 px-2 py-1"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <section
+            id="experience"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="Work Experience"
+          >
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                Experience
+              </h2>
+            </div>
+
+            <div>
+              <ol>
+                {experiencesData.map((exp, index) => (
+                  <li key={index} className="mb-12">
+                    <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                      <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+                        {exp.date}
+                      </header>
+                      <div className="z-10 sm:col-span-6">
+                        <h3 className="font-medium leading-snug text-slate-200">
+                          <div>
+                            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                            <span>{exp.title}</span>
+                          </div>
+                        </h3>
+                        <p className="mt-2 text-sm leading-normal">
+                          {exp.description}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </section>
 
           <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
             <p>
-              This website was inspired by https://brittanychiang.com,
-              https://carlbeaverson.com. It is built using Next.js, Tailwind
-              CSS, and was deployed using Vercel.
+              This website was inspired by{' '}
+              <a
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                href="https://brittanychiang.com"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="letterboxd"
+              >
+                {' '}
+                https://brittanychiang.com
+              </a>{' '}
+              and{' '}
+              <a
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                href="https://carlbeaverson.com"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="letterboxd"
+              >
+                {' '}
+                https://carlbeaverson.com
+              </a>
+              . It is built using Next.js, Tailwind CSS, and was deployed using
+              Vercel.
             </p>
           </footer>
         </main>
