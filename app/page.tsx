@@ -1,11 +1,12 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
-  links,
+  navigation,
   aboutMe,
   experiencesData,
   projectsData,
-  socialMedia,
+  svg,
 } from '../lib/data';
 //import Spotlight, { SpotlightCard } from '../app/components/spotlight';
 
@@ -22,8 +23,8 @@ export default function Home() {
               B.S. in Computer Science
             </h2>
             <p className="mt-4 max-w-xs leading-normal">
-              My focuses are in backend and fullstack programming as well as
-              data analysis, but I am open to all opportunities!
+              Hi! My interests are in backend and fullstack development as well
+              as data analysis, but I am open to all opportunities!
             </p>
 
             <nav
@@ -31,9 +32,9 @@ export default function Home() {
               aria-label="In-page jump links"
             >
               <ul className="mt-16 w-max">
-                {links.map((item, index) => (
+                {navigation.map((item, index) => (
                   <li key={index}>
-                    <a
+                    <Link
                       className="group flex items-center py-3"
                       href={`${item.hash}`}
                     >
@@ -41,7 +42,7 @@ export default function Home() {
                       <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
                         {item.name}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -49,7 +50,7 @@ export default function Home() {
           </div>
 
           <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
-            {socialMedia.map((img, index) => (
+            {svg.map((img, index) => (
               <li key={index} className="mr-5 shrink-0 text-xs">
                 <a
                   className="block hover:text-slate-200"
@@ -78,13 +79,10 @@ export default function Home() {
             id="about"
             className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           >
-            {aboutMe.map((item, index) => (
-              <div key={index}>
-                <p className="mb-4 text-slate-400">{item.p1}</p>
-                <p className="mb-4 text-slate-400">{item.p2}</p>
-                <p className="mb-4 text-slate-400">{item.p3}</p>
-              </div>
-            ))}
+            <div>
+              <p className="mb-4 text-slate-400">{aboutMe.p2}</p>
+              <p className="mb-4 text-slate-400">{aboutMe.p3}</p>
+            </div>
             <p className="mb-4 text-slate-400">
               In my free time, I enjoy listening to{' '}
               <a
@@ -225,7 +223,7 @@ export default function Home() {
 
           <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
             <p>
-              This website was inspired by{' '}
+              This website was largely inspired by{' '}
               <a
                 className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                 href="https://brittanychiang.com"
@@ -247,8 +245,7 @@ export default function Home() {
                 {' '}
                 https://carlbeaverson.com
               </a>
-              . It is built using Next.js, Tailwind CSS, and was deployed using
-              Vercel.
+              . Developed using Next.js, Tailwind CSS, and deployed with Vercel.
             </p>
           </footer>
         </main>
