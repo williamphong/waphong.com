@@ -51,9 +51,11 @@ export default function Home() {
             <h1 className="font-manrope text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold text-slate-200 sm:text-3xl md:text-6xl">
               <a href="/">William Phong</a>
             </h1>
+
             <h2 className="text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               B.S. in Computer Science
             </h2>
+
             <p className="mt-4 max-w-xs leading-normal">
               Hi! My interests are in backend and fullstack development as well
               as data analysis, but I am open to all opportunities!
@@ -108,7 +110,7 @@ export default function Home() {
 
         <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
           <section
-            id="About"
+            id="about"
             className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             ref={sectionRefs.current[0]}
           >
@@ -116,6 +118,7 @@ export default function Home() {
               <p className="mb-4 text-slate-400">{aboutMe.p2}</p>
               <p className="mb-4 text-slate-400">{aboutMe.p3}</p>
             </div>
+
             <p className="mb-4 text-slate-400">
               In my free time, I enjoy listening to{' '}
               <a
@@ -152,6 +155,7 @@ export default function Home() {
               </a>
               .
             </p>
+
             <p className="mb-4 text-slate-400">
               <a
                 className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
@@ -166,7 +170,7 @@ export default function Home() {
           </section>
 
           <section
-            id="Projects"
+            id="projects"
             className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             aria-label="my projects"
             ref={sectionRefs.current[1]}
@@ -176,6 +180,7 @@ export default function Home() {
                 Projects
               </h2>
             </div>
+
             <div>
               <ol>
                 {projectsData.map((project, index) => (
@@ -194,10 +199,12 @@ export default function Home() {
                             <span>{project.title}</span>
                           </a>
                         </h3>
+
                         <p className="mt-2 text-sm leading-normal">
                           {project.description}
                         </p>
                       </div>
+
                       <Image
                         src={project.imageUrl}
                         alt="image"
@@ -215,7 +222,7 @@ export default function Home() {
           </section>
 
           <section
-            id="Experience"
+            id="experience"
             className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             aria-label="Work Experience"
             ref={sectionRefs.current[2]}
@@ -232,9 +239,11 @@ export default function Home() {
                   <li key={index} className="mb-12">
                     <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                       <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+
                       <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
                         {exp.date}
                       </header>
+
                       <div className="z-10 sm:col-span-6">
                         <h3 className="font-medium leading-snug text-slate-200">
                           <div>
@@ -245,6 +254,7 @@ export default function Home() {
                             <div className="text-slate-500">{exp.company}</div>
                           </div>
                         </h3>
+
                         <p className="mt-2 text-sm leading-normal">
                           {exp.description}
                         </p>

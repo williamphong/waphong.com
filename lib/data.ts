@@ -11,16 +11,16 @@ import discordBotImg from '@/public/images/discord-bot.webp';
 
 export const navigation = [
   {
-    name: 'About',
+    name: 'about',
     hash: '#about',
   },
   {
-    name: 'Projects',
+    name: 'projects',
     hash: '#projects',
     
   },
   {
-    name: 'Experience',
+    name: 'experience',
     hash: '#experience',
   },
 ] as const;
