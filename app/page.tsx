@@ -48,7 +48,7 @@ export default function Home() {
       <div className="lg:flex lg:justify-between lg:gap-4">
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
           <div>
-            <h1 className="font-manrope text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold text-slate-200 sm:text-3xl md:text-6xl">
+            <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 font-manrope text-4xl font-bold text-slate-200 sm:text-3xl md:text-6xl">
               <a href="/">William Phong</a>
             </h1>
 
@@ -69,7 +69,7 @@ export default function Home() {
                 {navigation.map((item, index) => (
                   <li key={index}>
                     <Link
-                      href={`${item.hash}`}
+                      href={`#${item.name}`}
                       className={`group flex items-center py-3 ${activeSection === item.name ? 'active' : ''}`}
                     >
                       <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
@@ -263,6 +263,23 @@ export default function Home() {
                   </li>
                 ))}
               </ol>
+            </div>
+          </section>
+
+          <section
+            id="more"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="more"
+            ref={sectionRefs.current[3]}
+          >
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                more
+              </h2>
+            </div>
+
+            <div>
+              <p className="mt-2 text-sm leading-normal">More sites</p>
             </div>
           </section>
 
