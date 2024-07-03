@@ -3,7 +3,7 @@ import { CgWorkAlt } from 'react-icons/cg';
 import { FaReact } from 'react-icons/fa';
 import { LuGraduationCap } from 'react-icons/lu';
 
-import vrOrbitImg from '@/public/images/vrdemo.gif';
+import vrOrbitImg from '@/public/images/vrorbit.gif';
 import websiteImg from '@/public/images/website.png';
 import daylistWordcloudImg from '@/public/images/wordcloud.png';
 import csusmAppImg from '@/public/images/csusm.jpg';
