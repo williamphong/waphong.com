@@ -286,6 +286,7 @@ export default function Home() {
           </section>
 
           <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+            {/*
             <p>
               This website was largely inspired by{' '}
               <a
@@ -308,9 +309,9 @@ export default function Home() {
               >
                 {' '}
                 https://carlbeaverson.com
-              </a>
-              . Developed using Next.js, Tailwind CSS, and deployed with Vercel.
+              </a>.
             </p>
+            */}
           </footer>
         </main>
       </div>
