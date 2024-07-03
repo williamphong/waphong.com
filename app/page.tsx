@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {
   navigation,
   aboutMe,
-  experiencesData,
+  //experiencesData,
   projectsData,
   svg,
 } from '../lib/data';
