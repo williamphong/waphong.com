@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        manrope: ['var(--font-manrope)'],
+        montserrat: ['var(--font-montserrat)'],
+        satoshi: ['var(--font-satoshi)'],
+      },
       backgroundImage: {},
       colors: {
         purple: {
