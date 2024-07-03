@@ -221,6 +221,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* 
           <section
             id="experience"
             className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -265,6 +266,7 @@ export default function Home() {
               </ol>
             </div>
           </section>
+          */}
 
           <section
             id="more"
@@ -279,7 +281,7 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="mt-2 text-sm leading-normal">More sites</p>
+              <p className="mt-2 text-sm leading-normal">More</p>
             </div>
           </section>
 

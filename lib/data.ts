@@ -20,10 +20,12 @@ export const navigation = [
     hash: '#projects',
     
   },
+  /*
   {
     name: 'experience',
     hash: '#experience',
   },
+  */
   {
     name: 'more',
     hash: '#more',
