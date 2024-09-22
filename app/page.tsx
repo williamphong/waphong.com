@@ -56,10 +56,7 @@ export default function Home() {
               B.S. in Computer Science
             </h2>
 
-            <p className="mt-4 max-w-xs leading-normal">
-              Hi! My interests are in backend and fullstack development as well
-              as data analysis, but I am open to all opportunities!
-            </p>
+            <p className="mt-4 max-w-xs leading-normal">{aboutMe.p2}</p>
 
             <nav
               className="nav hidden lg:block"
