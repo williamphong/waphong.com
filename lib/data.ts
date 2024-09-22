@@ -5,6 +5,7 @@ import { LuGraduationCap } from 'react-icons/lu';
 
 import vrOrbitImg from '@/public/images/vrorbit.gif';
 import websiteImg from '@/public/images/website.png';
+import f1Img from '@/public/images/f1.jpg';
 import daylistWordcloudImg from '@/public/images/wordcloud.png';
 import csusmAppImg from '@/public/images/csusm.jpg';
 import discordBotImg from '@/public/images/discord-bot.webp';
@@ -71,18 +72,20 @@ export const svg = [
     path: 'M83.7 0C37.5 0 0 37.5 0 83.7c0 46.3 37.5 83.7 83.7 83.7 46.3 0 83.7-37.5 83.7-83.7S130 0 83.7 0zM122 120.8c-1.4 2.5-4.6 3.2-7 1.7-19.8-12-44.5-14.7-73.7-8-2.8.5-5.6-1.2-6.2-4-.2-2.8 1.5-5.6 4-6.2 32-7.3 59.6-4.2 81.6 9.3 2.6 1.5 3.4 4.7 1.8 7.2zM132.5 98c-2 3-6 4-9 2.2-22.5-14-56.8-18-83.4-9.8-3.2 1-7-1-8-4.3s1-7 4.6-8c30.4-9 68.2-4.5 94 11 3 2 4 6 2 9zm1-23.8c-27-16-71.6-17.5-97.4-9.7-4 1.3-8.2-1-9.5-5.2-1.3-4 1-8.5 5.2-9.8 29.6-9 78.8-7.2 109.8 11.2 3.7 2.2 5 7 2.7 10.7-2 3.8-7 5-10.6 2.8z',
     link:'https://open.spotify.com/user/william.phong'
   },
+  /*
   {
     name:'Discord',
     viewbox: '0 0 16 16',
     path: 'M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612',
     link:'https://discord.com/users/146099021151338497'
   },
+  */
 ] as const;
 
 export const aboutMe = {
-  p1: 'Hi! My name is William Phong and I graduated from CSU San Marcos with a B.S. in Computer Science. My focuses and interests are in fullstack/backend programming as well as data analysis, but I am open to all opportunities!',
+  p1: 'Hi! My name is William Phong and I am a graduate from CSU San Marcos with a B.S. in Computer Science. My focuses and interests are in backend software development and data analysis, but I am open to all opportunities!',
   p2: "My first interaction with a computer was my dad's ThinkPad when I was 5 years old. At the time, playing games on the Lego and Disney websites brought me joy and exposed me to a realm of interactive spaces. Fast forward 17 years to today, and I've graduated with a degree in CS and several projects under my belt.",
-  p3: "I've always been interested in developing software that has a material impact on people's lives. My first project was in middle school developing a mobile app assisting dyslexic students. I've recently contributed to a VR Earth Orbit project that incorporates published research into a demo that teaches astrological concepts to students.",
+  p3: "I've always been interested in developing software that has a material impact on people's lives. My first project was in middle school developing a mobile app assisting dyslexic students. I've recently contributed to a VR Earth Orbit project that incorporates published research into a demo that assists in explaining astrological concepts to students.",
 } as const;
 
 export const education = [
@@ -90,7 +93,7 @@ export const education = [
     title: 'CSU San Marcos',
     date: '2023 - 2024',
     degree: 'Bachelors of Science, Computer Science',
-    awards: 'Deans List Spring 2023 & Spring 2024 (4.0, 3.75), Magna Cum Laude',
+    awards: 'Deans List Spring 2023 & Spring 2024 (4.0, 3.75), Cum Laude',
     classes:
       'Data Structures and Algorithms, Operating Systems, Databases, Cloud Computing, Networking, Security, Architecture, Embedded Systems, Software Engineering, Probability and Statistics, Discrete Mathematics, Linear Algebra',
   },
@@ -118,6 +121,14 @@ export const projectsData= [
     tags: ['Python', 'Spotipy'],
     link: "https://github.com/williamphong/Spotify-Daylist-Word-Cloud",
     imageUrl: daylistWordcloudImg,
+    date:'June 2024 - Present',
+  },
+  {
+    title: 'Formula1 Result Prediction Algorithm',
+    description: 'Predicts race results from qualifying data using linear and multinomial regression',
+    tags: ['Python', 'MatPlotLib', 'Pandas'],
+    link: "https://github.com/williamphong/F1DataVisualization",
+    imageUrl: f1Img,
     date:'June 2024 - Present',
   },
   {
