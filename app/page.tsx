@@ -56,7 +56,7 @@ export default function Home() {
               B.S. in Computer Science
             </h2>
 
-            <p className="mt-4 max-w-xs leading-normal">{aboutMe.p2}</p>
+            <p className="mt-4 max-w-xs leading-normal">{aboutMe.p1}</p>
 
             <nav
               className="nav hidden lg:block"
