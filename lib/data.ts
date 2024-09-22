@@ -108,7 +108,7 @@ export const projectsData= [
   {
     title: 'VR Earth Orbit Simulation',
     description:
-      "Provides a solution to an educational problem explaining astrological concepts with a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.",
+      "Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.",
     tags: ['C#', 'MATLAB', 'Unity'],
     link: "https://github.com/williamphong/CS490-VR-Orbit",
     imageUrl: vrOrbitImg,
@@ -117,7 +117,7 @@ export const projectsData= [
   {
     title: 'Spotify Daylist Word Cloud',
     description:
-      "Generates a word cloud from a user's spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
+      "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
     tags: ['Python', 'Spotipy'],
     link: "https://github.com/williamphong/Spotify-Daylist-Word-Cloud",
     imageUrl: daylistWordcloudImg,
@@ -140,6 +140,15 @@ export const projectsData= [
     date:'May 2024 - Present',
   },
   {
+    title: 'Discord Bot',
+    description:
+      'Implemented a Discord bot into servers with over 200 users. Deployed on a Linux machine using Docker with 24/7 up-time.',
+    tags: ['Java', 'Python', 'C++' ],
+    link: "https://localhost:3000",
+    imageUrl: discordBotImg,
+    date:'Jan 2019 - Present',
+  },
+  {
     title: 'CSUSM Android Student Application',
     description:
       'Provides personalized and focused information to students. Faculty admin and students of CSUSM were interviewed to determine a customer story and requirements.',
@@ -147,15 +156,6 @@ export const projectsData= [
     link: "https://github.com/williamphong/CSUSMStudentApp",
     imageUrl: csusmAppImg,
     date:'Jan 2023 - May 2023',
-  },
-  {
-    title: 'Discord Bot',
-    description:
-      'Implemented a Discord bot into servers with 200+ users. Hosted on a UNIX local machine with 24/7 up-time.',
-    tags: ['Java', 'Python', 'C++' ],
-    link: "https://localhost:3000",
-    imageUrl: discordBotImg,
-    date:'Jan 2019 - Present',
   },
 ] as const;
 
