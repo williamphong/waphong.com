@@ -1,6 +1,6 @@
 ## Personal Website
 
-Hi, my name is William Phong and this is my portfolio website! This was a project done to learn Next.js and Typescript. As such, much of the designing and coding comes from the websites that have inspired me - https://brittanychiang.com and https://carlbeaverson.com. ESLint and Prettier were also utilized to streamline my development process. Testing was done on my test branch and local npm server. This readme will go through my process and thoughts as I built this site.
+Hi, my name is William Phong and this is my portfolio website! This was a project done to learn Next.js, Typescript, and Tailwind. The design and coding comes from the websites that have inspired me - https://brittanychiang.com and https://carlbeaverson.com. ESLint and Prettier were also utilized to streamline my development process. Testing was done on my test branch and local npm server. This readme will go through my process and thoughts as I built this site.
 
 ## Vercel Deployment
 
