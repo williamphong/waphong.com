@@ -285,8 +285,7 @@ export default function Home() {
           <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
             {
               <p>
-                The design and code for this website is from or largely inspired
-                by{' '}
+                The design and code for this website is largely inspired or from{' '}
                 <a
                   className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                   href="https://brittanychiang.com"
