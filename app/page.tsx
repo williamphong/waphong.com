@@ -283,32 +283,35 @@ export default function Home() {
           </section>
 
           <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
-            {/*
-            <p>
-              This website was largely inspired by{' '}
-              <a
-                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
-                href="https://brittanychiang.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="letterboxd"
-              >
-                {' '}
-                https://brittanychiang.com
-              </a>{' '}
-              and{' '}
-              <a
-                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
-                href="https://carlbeaverson.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="letterboxd"
-              >
-                {' '}
-                https://carlbeaverson.com
-              </a>.
-            </p>
-            */}
+            {
+              <p>
+                The design and code for this website is from or largely inspired
+                by{' '}
+                <a
+                  className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                  href="https://brittanychiang.com"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="letterboxd"
+                >
+                  {' '}
+                  https://brittanychiang.com
+                </a>{' '}
+                and{' '}
+                <a
+                  className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                  href="https://carlbeaverson.com"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="letterboxd"
+                >
+                  {' '}
+                  https://carlbeaverson.com
+                </a>
+                . It is developed with Next.js, Typescript, and deployed using
+                Vercel.
+              </p>
+            }
           </footer>
         </main>
       </div>
