@@ -278,7 +278,7 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="mt-2 text-sm leading-normal">More</p>
+              <p className="mt-2 text-sm leading-normal">More coming soon</p>
             </div>
           </section>
 
@@ -294,7 +294,7 @@ export default function Home() {
                   aria-label="letterboxd"
                 >
                   {' '}
-                  https://brittanychiang.com
+                  brittanychiang.com
                 </a>{' '}
                 and{' '}
                 <a
@@ -305,10 +305,10 @@ export default function Home() {
                   aria-label="letterboxd"
                 >
                   {' '}
-                  https://carlbeaverson.com
+                  carlbeaverson.com
                 </a>
-                . It is developed with Next.js, Typescript, and deployed using
-                Vercel.
+                . It is developed with Next.js, Typescript, Tailwind CSS, and
+                deployed with Vercel.
               </p>
             }
           </footer>
