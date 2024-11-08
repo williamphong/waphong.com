@@ -1,6 +1,11 @@
 import { NextAuthOptions } from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify"
+import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import prisma from "./connect";
 import fetch from "node-fetch";
+import { getServerSession } from "next-auth";
 
 const scopes = [
     "user-read-email",
@@ -44,22 +49,31 @@ async function refreshAccessToken(token) {
 
 export const authOptions: NextAuthOptions = {
     // Configure one or more authentication providers
+    adapter: PrismaAdapter(prisma),
     providers: [
         SpotifyProvider({
             clientId: process.env.SPOTIFY_CLIENT_ID as string,
             clientSecret: process.env.SPOTIFY_SECRET as string,
             authorization: LOGIN_URL,
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_SECRET as string,
+        }),
+        GithubProvider({
+            clientId: process.env.GITHUB_CLIENT_ID as string,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+        }),
     ],
     secret: process.env.JWT_SECRET,
     callbacks: {
         async jwt({ token, account }) {
             // Persist the OAuth access_token to the token right after signin
+            console.log("JWT Callback:", { token, account });
             if (account) {
-                token.accessToken = account.access_token
-                token.refreshToken = account.refresh_token
-                token.accessTokenExpires = account.expires_at
-                return token
+                token.accessToken = account.access_token;
+                token.refreshToken = account.refresh_token;
+                token.accessTokenExpires = account.expires_at;
             }
             // access token has not expired
             // @ts-expect-error The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
@@ -70,12 +84,19 @@ export const authOptions: NextAuthOptions = {
             // access token has expired
             return await refreshAccessToken(token)
         },
-        async session({ session, token, user }) {
+        async session({ session, token }) {
+            console.log("Session Callback:", { session, token });
             // Send properties to the client, like an access_token from a provider.
-            // @ts-expect-error accessToken doesnt exist on session
-            session.accessToken = token.accessToken
-            return session
+            if (token && token.accessToken) {
+                // @ts-expect-error accessToken doesnt exist on session
+                session.accessToken = token.accessToken;
+            } else {
+                console.error("Token is undefined or missing accessToken");
+            }
+            return session;
         }
     }
 
 }
+
+export const getAuthSession = () => getServerSession(authOptions);

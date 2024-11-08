@@ -1,9 +1,37 @@
 {
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "plugins": ["react", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true // Enable JSX parsing
+    }
+  },
   "rules": {
-    "no-unused-vars": 1, 
+    "no-unused-vars": 1,
     "@typescript-eslint/no-unused-vars": 1,
-  }
+    "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.jsx", "*.tsx"],
+      "rules": {
+        // Specify any additional rules for JSX/TSX files here
+      }
+    }
+  ]
 }
-
