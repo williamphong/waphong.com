@@ -7,17 +7,16 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "import", "next"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true // Enable JSX parsing
+      "jsx": true
     }
   },
   "rules": {
-    "no-unused-vars": 1,
     "@typescript-eslint/no-unused-vars": 1,
     "react/react-in-jsx-scope": "off"
   },
@@ -25,13 +24,5 @@
     "react": {
       "version": "detect"
     }
-  },
-  "overrides": [
-    {
-      "files": ["*.jsx", "*.tsx"],
-      "rules": {
-        // Specify any additional rules for JSX/TSX files here
-      }
-    }
-  ]
+  }
 }
