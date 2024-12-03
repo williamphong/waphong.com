@@ -82,7 +82,7 @@ export const svg = [
 ] as const;
 
 export const aboutMe = {
-  p1: 'Hi! My focuses are in backend software development and data analysis, but I am open to all opportunities!',
+  p1: 'Hi! I am currently looking for backend software dev and/or data analysis roles, but I am open to all opportunities!',
   p2: "My first interaction with a computer was my dad's ThinkPad when I was 5 years old. At the time, playing games on the Lego and Disney websites brought me joy and exposed me to a realm of interactive spaces. Fast forward 17 years to today, and I've graduated with a degree in CS and several projects under my belt.",
   p3: "I've always been interested in developing software that has a material impact on people's lives. My first project was in middle school developing a mobile app assisting dyslexic students. I've recently contributed to a VR Earth Orbit project that incorporates published research into a demo that assists in explaining astrological concepts to students.",
 } as const;
