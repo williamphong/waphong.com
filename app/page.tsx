@@ -53,7 +53,7 @@ export default function Home() {
             </h1>
 
             <h2 className="text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-              B.S. in Computer Science
+              BSc in Computer Science
             </h2>
 
             <p className="mt-4 max-w-xs leading-normal">{aboutMe.p1}</p>

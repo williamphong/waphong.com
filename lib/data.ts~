@@ -19,6 +19,7 @@ export const navigation = [
   {
     name: 'projects',
     hash: '#projects',
+    
   },
   /*
   {
@@ -34,22 +35,22 @@ export const navigation = [
 
 export const svg = [
   {
-    name: 'Email',
+    name:'Email',
     viewbox: '0 0 8 6',
     path: 'm0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z',
-    link: 'mailto:williamphong10@gmail.com',
+    link:'mailto:williamphong10@gmail.com'
   },
   {
-    name: 'GitHub',
+    name:'GitHub',
     viewbox: '0 0 16 16',
     path: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z',
-    link: 'https://github.com/williamphong',
+    link:'https://github.com/williamphong'
   },
   {
-    name: 'LinkedIn',
+    name:'LinkedIn',
     viewbox: '0 0 24 24',
     path: 'M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66zM20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z',
-    link: 'https://www.linkedin.com/in/williamphong/',
+    link:'https://www.linkedin.com/in/williamphong/'
   },
   /*
   {
@@ -66,10 +67,10 @@ export const svg = [
   },
   */
   {
-    name: 'Spotify',
+    name:'Spotify',
     viewbox: '0 0 167.5 167.5',
     path: 'M83.7 0C37.5 0 0 37.5 0 83.7c0 46.3 37.5 83.7 83.7 83.7 46.3 0 83.7-37.5 83.7-83.7S130 0 83.7 0zM122 120.8c-1.4 2.5-4.6 3.2-7 1.7-19.8-12-44.5-14.7-73.7-8-2.8.5-5.6-1.2-6.2-4-.2-2.8 1.5-5.6 4-6.2 32-7.3 59.6-4.2 81.6 9.3 2.6 1.5 3.4 4.7 1.8 7.2zM132.5 98c-2 3-6 4-9 2.2-22.5-14-56.8-18-83.4-9.8-3.2 1-7-1-8-4.3s1-7 4.6-8c30.4-9 68.2-4.5 94 11 3 2 4 6 2 9zm1-23.8c-27-16-71.6-17.5-97.4-9.7-4 1.3-8.2-1-9.5-5.2-1.3-4 1-8.5 5.2-9.8 29.6-9 78.8-7.2 109.8 11.2 3.7 2.2 5 7 2.7 10.7-2 3.8-7 5-10.6 2.8z',
-    link: 'https://open.spotify.com/user/william.phong',
+    link:'https://open.spotify.com/user/william.phong'
   },
   /*
   {
@@ -82,7 +83,7 @@ export const svg = [
 ] as const;
 
 export const aboutMe = {
-  p1: 'Hi! I am currently looking for backend software dev and/or data analysis roles, but I am open to all opportunities!',
+  p1: 'Hi! My name is William Phong and I am a graduate from CSU San Marcos with a B.S. in Computer Science. My focuses and interests are in backend software development and data analysis, but I am open to all opportunities!',
   p2: "My first interaction with a computer was my dad's ThinkPad when I was 5 years old. At the time, playing games on the Lego and Disney websites brought me joy and exposed me to a realm of interactive spaces. Fast forward 17 years to today, and I've graduated with a degree in CS and several projects under my belt.",
   p3: "I've always been interested in developing software that has a material impact on people's lives. My first project was in middle school developing a mobile app assisting dyslexic students. I've recently contributed to a VR Earth Orbit project that incorporates published research into a demo that assists in explaining astrological concepts to students.",
 } as const;
@@ -103,60 +104,58 @@ export const education = [
   },
 ] as const;
 
-export const projectsData = [
+export const projectsData= [
   {
     title: 'VR Earth Orbit Simulation',
     description:
-      'Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
+      "Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.",
     tags: ['C#', 'MATLAB', 'Unity'],
-    link: 'https://github.com/williamphong/CS490-VR-Orbit',
+    link: "https://github.com/williamphong/CS490-VR-Orbit",
     imageUrl: vrOrbitImg,
-    date: 'Jan 2024 - Present',
+    date:'Jan 2024 - Present',
   },
   {
     title: 'Spotify Daylist Word Cloud',
     description:
       "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
     tags: ['Python', 'Spotipy'],
-    link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
+    link: "https://github.com/williamphong/Spotify-Daylist-Word-Cloud",
     imageUrl: daylistWordcloudImg,
-    date: 'June 2024 - Present',
+    date:'June 2024 - Present',
   },
   {
     title: 'Formula1 Result Prediction Algorithm',
-    description:
-      'Predicts race results from qualifying data using linear and multinomial regression',
+    description: 'Predicts race results from qualifying data using linear and multinomial regression',
     tags: ['Python', 'MatPlotLib', 'Pandas'],
-    link: 'https://github.com/williamphong/F1DataVisualization',
+    link: "https://github.com/williamphong/F1DataVisualization",
     imageUrl: f1Img,
-    date: 'June 2024 - Present',
+    date:'June 2024 - Present',
   },
   {
     title: 'Portfolio Website',
-    description:
-      'Personal website developed using Next.JS, Typescript, and deployed using Vercel.',
+    description: 'Personal website developed using Next.JS, Typescript, and deployed using Vercel.',
     tags: ['Next.JS', 'TypeScript', 'Vercel'],
-    link: 'https://github.com/williamphong/PersonalWebsite',
+    link: "https://github.com/williamphong/PersonalWebsite",
     imageUrl: websiteImg,
-    date: 'May 2024 - Present',
+    date:'May 2024 - Present',
   },
   {
     title: 'Discord Bot',
     description:
       'Implemented a Discord bot into servers with over 200 users. Deployed on a Linux machine using Docker with 24/7 up-time.',
-    tags: ['Java', 'Python', 'C++'],
-    link: 'https://localhost:3000',
+    tags: ['Java', 'Python', 'C++' ],
+    link: "https://localhost:3000",
     imageUrl: discordBotImg,
-    date: 'Jan 2019 - Present',
+    date:'Jan 2019 - Present',
   },
   {
     title: 'CSUSM Android Student Application',
     description:
       'Provides personalized and focused information to students. Faculty admin and students of CSUSM were interviewed to determine a customer story and requirements.',
     tags: ['Java', 'Android Studio', 'SQL'],
-    link: 'https://github.com/williamphong/CSUSMStudentApp',
+    link: "https://github.com/williamphong/CSUSMStudentApp",
     imageUrl: csusmAppImg,
-    date: 'Jan 2023 - May 2023',
+    date:'Jan 2023 - May 2023',
   },
 ] as const;
 
@@ -181,7 +180,7 @@ export const experiencesData = [
   },
   {
     title: 'Team Member',
-    company: "Einstein Bro's",
+    company: 'Einstein Bro\'s',
     location: 'San Diego, CA',
     description:
       'Efficiently processed transactions and exceeded customer experience expectations based on feedback/reviews. Trained new employees with use of point of sales system and day-to-day protocols',
