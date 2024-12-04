@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // GET SINGLE POST
 export const GET = async (req: NextRequest, context: { params: { slug: string } }) => {
-  const { slug } = context.params; // Extract slug from context.params
+  const { slug } = context.params; // Correctly access params from context
 
   try {
     const post = await prisma.post.update({
