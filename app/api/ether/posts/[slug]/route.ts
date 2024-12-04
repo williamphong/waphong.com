@@ -1,23 +1,22 @@
 import prisma from "@/lib/connect";
 import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from 'next';
 
-// GET SINGLE POST
-export const GET = async (req, { params }) => {
-  const { slug } = params;
+export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { slug } = req.query;  // `slug` is part of the query parameters
 
   try {
-    const post = await prisma.post.update({
-      where: { slug },
-      data: { views: { increment: 1 } },
-      include: { user: true },
+    // Assuming `prisma` is set up correctly
+    const post = await prisma.post.findUnique({
+      where: { slug: slug as string },
     });
 
-    return NextResponse.json(post, { status: 200 });
+    if (post) {
+      return res.status(200).json(post);
+    } else {
+      return res.status(404).json({ error: "Post not found" });
+    }
   } catch (err) {
-    console.log(err);
-    return NextResponse.json(
-      { message: "Something went wrong!" },
-      { status: 500 }
-    );
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
