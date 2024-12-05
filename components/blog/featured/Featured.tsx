@@ -27,7 +27,7 @@ const Featured = () => {
       <div className={styles.post}>
         <div className={styles.imgContainer}>
           <Image
-            src="/images/ether.jpg"
+            src="@/public/images/ether.jpg"
             alt=""
             fill
             className={styles.image}
