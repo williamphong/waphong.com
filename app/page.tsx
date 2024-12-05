@@ -56,7 +56,11 @@ export default function Home() {
               BSc in Computer Science
             </h2>
 
-            <p className="mt-4 max-w-xs leading-normal">{aboutMe.p1}</p>
+            <p className="mt-4 max-w-xs leading-normal">
+              {' '}
+              Hi! I am currently looking for backend software dev and/or data
+              analysis roles, but I am open to all opportunities!{' '}
+            </p>
 
             <nav
               className="nav hidden lg:block"
@@ -112,8 +116,8 @@ export default function Home() {
             ref={sectionRefs.current[0]}
           >
             <div>
+              <p className="mb-4 text-slate-400">{aboutMe.p1}</p>
               <p className="mb-4 text-slate-400">{aboutMe.p2}</p>
-              <p className="mb-4 text-slate-400">{aboutMe.p3}</p>
             </div>
 
             <p className="mb-4 text-slate-400">
@@ -202,15 +206,30 @@ export default function Home() {
                         </p>
                       </div>
 
-                      <Image
-                        src={project.imageUrl}
-                        alt="image"
-                        loading="lazy"
-                        decoding="async"
-                        width={200}
-                        height={48}
-                        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-                      ></Image>
+                      {project.imageUrl.endsWith('.webm') ? (
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          width="200"
+                          height="48"
+                          preload="auto"
+                          className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                        >
+                          <source src={project.imageUrl} type="video/webm" />
+                        </video>
+                      ) : (
+                        <Image
+                          src={project.imageUrl}
+                          alt="image"
+                          loading="lazy"
+                          decoding="async"
+                          width={200}
+                          height={48}
+                          className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                        ></Image>
+                      )}
                     </div>
                   </li>
                 ))}
