@@ -1,20 +1,19 @@
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from "./categorylist.module.css"
+import styles from './categorylist.module.css';
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/ether/categories", {
-    cache: "no-store",
+  const res = await fetch('http://localhost:3000/api/ether/categories', {
+    cache: 'no-store',
   });
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error('Failed');
   }
 
   return res.json();
 };
-
 
 export const CategoryList = async () => {
   const data = await getData();
@@ -42,8 +41,7 @@ export const CategoryList = async () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CategoryList
-
+export default CategoryList;

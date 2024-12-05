@@ -22,7 +22,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "lru-cache": "^10.2.2",
     "next": "^15.0.2",
-    "next-auth": "^4.24.7",
+    "next-auth": "^4.24.10",
     "node-fetch": "^3.3.2",
     "prisma-client": "^0.0.0",
     "prop-types": "^15.8.1",

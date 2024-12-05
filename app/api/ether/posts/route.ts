@@ -1,4 +1,4 @@
-import {prisma} from '@/lib/connect';
+import { prisma } from '@/lib/connect';
 import { NextResponse } from 'next/server';
 import { getAuthSession } from '@/lib/authOptions';
 
@@ -37,10 +37,9 @@ export async function POST(req: Request) {
 
   // Check if session or session.user is undefined
   if (!session || !session.user) {
-    return new NextResponse(
-      JSON.stringify({ message: 'Not Authenticated!' }),
-      { status: 401 }
-    );
+    return new NextResponse(JSON.stringify({ message: 'Not Authenticated!' }), {
+      status: 401,
+    });
   }
 
   try {
@@ -57,4 +56,4 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
-};
+}

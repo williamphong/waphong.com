@@ -3,7 +3,7 @@ import SpotifyProvider from 'next-auth/providers/spotify';
 import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import { prisma } from "@/lib/connect"; 
+import { prisma } from '@/lib/connect';
 import fetch from 'node-fetch';
 import { getServerSession } from 'next-auth';
 
@@ -81,8 +81,7 @@ export const authOptions: NextAuthOptions = {
       if (
         token.accessTokenExpires &&
         Date.now() < (token.accessTokenExpires as number) * 1000
-      )
-       {
+      ) {
         return token;
       }
 

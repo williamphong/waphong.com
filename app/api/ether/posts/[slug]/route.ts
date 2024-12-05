@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
-import {prisma} from "@/lib/connect";
+import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/connect';
 
 export async function GET(
   req: Request,
   { params }: { params: Promise<{ slug: any }> }
 ) {
-  const slug = (await params).slug // 'a', 'b', or 'c'
+  const slug = (await params).slug; // 'a', 'b', or 'c'
 
   try {
     const post = await prisma.post.update({
@@ -18,9 +18,8 @@ export async function GET(
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { message: "Something went wrong!" },
+      { message: 'Something went wrong!' },
       { status: 500 }
     );
   }
 }
-

@@ -1,14 +1,14 @@
 /* global localStorage */
-"use client";
-import React, { createContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+'use client';
+import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const ThemeContext = createContext();
 
 const getFromLocalStorage = () => {
-  if (typeof window !== "undefined") {
-    const value = localStorage.getItem("theme");
-    return value || "light";
+  if (typeof window !== 'undefined') {
+    const value = localStorage.getItem('theme');
+    return value || 'light';
   }
 };
 
@@ -18,11 +18,11 @@ export const ThemeContextProvider = ({ children }) => {
   });
 
   const toggle = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
