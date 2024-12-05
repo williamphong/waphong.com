@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './featured.module.css';
 import Image from 'next/image';
-import featureImg from '@/public/images/ether.jpg';
+import featureImg from '@/public/images/ether/ether.jpg';
 
 const Featured = () => {
   return (
@@ -21,8 +21,8 @@ const Featured = () => {
           <i>ether</i>
         </b>{' '}
         describes a state of mind — a stream of emotions or feelings. it
-        resembles the word ethereal — dreamy, nostalgic, yet leaning neither
-        positive nor negative.
+        resembles the word ethereal — dreamy, nostalgic, but neither positive
+        nor negative.
       </h2>
       <div className={styles.post}>
         <div className={styles.imgContainer}>

@@ -3,12 +3,12 @@ import { CgWorkAlt } from 'react-icons/cg';
 import { FaReact } from 'react-icons/fa';
 import { LuGraduationCap } from 'react-icons/lu';
 
-import vrOrbitImg from '@/public/images/vrorbit.gif';
-import websiteImg from '@/public/images/website.png';
-import f1Img from '@/public/images/f1.jpg';
-import daylistWordcloudImg from '@/public/images/wordcloud.png';
-import csusmAppImg from '@/public/images/csusm.jpg';
-import discordBotImg from '@/public/images/discord-bot.webp';
+import vrOrbitImg from '@/public/images/projects/vrorbit.gif';
+import websiteImg from '@/public/images/projects/website.png';
+import f1Img from '@/public/images/projects/f1.jpg';
+import daylistWordcloudImg from '@/public/images/projects/wordcloud.png';
+import csusmAppImg from '@/public/images/projects/csusm.jpg';
+import discordBotImg from '@/public/images/projects/discord-bot.webp';
 
 export const navigation = [
   //dont need hash i think
