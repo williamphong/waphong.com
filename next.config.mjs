@@ -2,7 +2,16 @@
 
 const nextConfig = {
   images: {
-    domains: ['i.scdn.co', 'lh3.googleusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.co',
+      },
+    ],
   },
 };
 

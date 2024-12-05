@@ -1,7 +1,7 @@
+/* global localStorage */
 "use client";
-import React from "react";
-
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 export const ThemeContext = createContext();
 
@@ -30,4 +30,8 @@ export const ThemeContextProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
+};
+
+ThemeContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
