@@ -5,8 +5,5 @@
   "prettier.useEditorConfig": false,
   "prettier.prettierPath": "./node_modules/prettier",
   "prettier.configPath": ".prettierrc",
-  "cSpell.words": [
-    "satoshi",
-    "tailwindcss"
-  ]
+  "cSpell.words": ["satoshi", "tailwindcss"]
 }

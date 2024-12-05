@@ -1,23 +1,20 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
+import pluginReact from 'eslint-plugin-react';
+//import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-  { 
-    languageOptions: { 
-      globals: globals.browser, 
-      parserOptions: {
-        ecmaVersion: 2021,
-        ecmaFeatures: { jsx: true }, // Enables JSX globally
-        sourceType: 'module',
-      },
-    },
-  },
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
+  { ignores: ['.next/'] },
+  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['**/*.jsx', '**/*.tsx'], // Specifies both .jsx and .tsx files
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'warn',
+    },
   },
-  pluginReactConfig,
+  pluginReact.configs.flat.recommended,
 ];

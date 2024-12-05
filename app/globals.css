@@ -20,8 +20,9 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Variable.ttf') format('truetype'),
-       url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  src:
+    url('/fonts/Satoshi-Variable.ttf') format('truetype'),
+    url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -29,12 +30,12 @@
 .active .nav-indicator {
   width: 4rem;
   --tw-bg-opacity: 1;
-  background-color:rgb(226 232 240/var(--tw-bg-opacity))
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .active .nav-text {
   --tw-text-opacity: 1;
-  color:rgb(226 232 240/var(--tw-text-opacity))
+  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 body {
@@ -42,5 +43,3 @@ body {
   margin: 0; /* Remove any default margin */
   overflow-x: hidden;
 }
-
-
