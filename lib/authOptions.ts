@@ -3,7 +3,7 @@ import SpotifyProvider from 'next-auth/providers/spotify';
 import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import prisma from './connect';
+import { prisma } from "@/lib/connect"; 
 import fetch from 'node-fetch';
 import { getServerSession } from 'next-auth';
 
@@ -29,10 +29,9 @@ async function refreshAccessToken(token) {
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
-      // @ts-expect-error new buffer has any type
       Authorization:
         'Basic ' +
-        new Buffer.from(
+        Buffer.from(
           process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_SECRET
         ).toString('base64'),
     },
@@ -79,11 +78,11 @@ export const authOptions: NextAuthOptions = {
         token.accessTokenExpires = account.expires_at;
       }
       // access token has not expired
-      // @ts-expect-error The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
       if (
         token.accessTokenExpires &&
-        Date.now() < token.accessTokenExpires * 1000
-      ) {
+        Date.now() < (token.accessTokenExpires as number) * 1000
+      )
+       {
         return token;
       }
 

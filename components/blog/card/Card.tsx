@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ item }) => {
+const Card = ({ item }: any) => {
   return (
     <div className={styles.container}>
       {item.img && (

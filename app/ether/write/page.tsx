@@ -1,6 +1,5 @@
 'use client';
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './write.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -9,10 +8,13 @@ import { useSession } from 'next-auth/react';
 const WritePage = () => {
   const [open, setOpen] = useState(false);
 
-  const [file, setFile] = useState(null);
+  // Explicitly type the state to allow File or null
+  const [file, setFile] = useState<File | null>(null);
+
   const { status } = useSession();
   const router = useRouter();
 
+  // Handle loading and unauthenticated state
   if (status === 'loading') {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -34,7 +36,11 @@ const WritePage = () => {
             <input
               type="file"
               id="image"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                  setFile(e.target.files[0]);
+                }
+              }}
               style={{ display: 'none' }}
             />
 
