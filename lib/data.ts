@@ -3,13 +3,6 @@ import { CgWorkAlt } from 'react-icons/cg';
 import { FaReact } from 'react-icons/fa';
 import { LuGraduationCap } from 'react-icons/lu';
 
-import vrOrbitImg from '@/public/images/projects/vrorbit.gif';
-import websiteImg from '@/public/images/projects/website.png';
-import f1Img from '@/public/images/projects/f1.jpg';
-import daylistWordcloudImg from '@/public/images/projects/wordcloud.png';
-import csusmAppImg from '@/public/images/projects/csusm.jpg';
-import discordBotImg from '@/public/images/projects/discord-bot.webp';
-
 export const navigation = [
   //dont need hash i think
   {
@@ -82,24 +75,18 @@ export const svg = [
 ] as const;
 
 export const aboutMe = {
-  p1: 'Hi! I am currently looking for backend software dev and/or data analysis roles, but I am open to all opportunities!',
-  p2: "My first interaction with a computer was my dad's ThinkPad when I was 5 years old. At the time, playing games on the Lego and Disney websites brought me joy and exposed me to a realm of interactive spaces. Fast forward 17 years to today, and I've graduated with a degree in CS and several projects under my belt.",
-  p3: "I've always been interested in developing software that has a material impact on people's lives. My first project was in middle school developing a mobile app assisting dyslexic students. I've recently contributed to a VR Earth Orbit project that incorporates published research into a demo that assists in explaining astrological concepts to students.",
+  p1: "My first interaction with a computer was my dad's ThinkPad when I was 5 years old. At the time, playing games on the Lego and Disney websites brought me joy and exposed me to a realm of interactive spaces. Fast forward 17 years to today, and I've graduated with a degree in CS and several projects under my belt.",
+  p2: "I've always been interested in developing software that has a material impact on people's lives. My first project was in middle school developing a mobile app assisting dyslexic students. I've recently contributed to a VR Earth Orbit project that incorporates published research into a demo that assists in explaining astrological concepts to students.",
 } as const;
 
 export const education = [
   {
-    title: 'CSU San Marcos',
-    date: '2023 - 2024',
-    degree: 'Bachelors of Science, Computer Science',
-    awards: 'Deans List Spring 2023 & Spring 2024 (4.0, 3.75), Cum Laude',
+    title: 'California State University San Marcos',
+    date: 'August 2024',
+    degree: 'Bachelors of Science in Computer Science',
+    awards: 'Deans List Spring 2023 & Spring 2024, Cum Laude',
     classes:
       'Data Structures and Algorithms, Operating Systems, Databases, Cloud Computing, Networking, Security, Architecture, Embedded Systems, Software Engineering, Probability and Statistics, Discrete Mathematics, Linear Algebra',
-  },
-  {
-    title: 'Miracosta College',
-    date: '2019 - 2022',
-    degree: 'Asc',
   },
 ] as const;
 
@@ -110,7 +97,7 @@ export const projectsData = [
       'Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
     tags: ['C#', 'MATLAB', 'Unity'],
     link: 'https://github.com/williamphong/CS490-VR-Orbit',
-    imageUrl: vrOrbitImg,
+    imageUrl: "/images/projects/vrorbit.webm",
     date: 'Jan 2024 - Present',
   },
   {
@@ -119,7 +106,7 @@ export const projectsData = [
       "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
     tags: ['Python', 'Spotipy'],
     link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
-    imageUrl: daylistWordcloudImg,
+    imageUrl: "/images/projects/wordcloud.png",
     date: 'June 2024 - Present',
   },
   {
@@ -128,7 +115,7 @@ export const projectsData = [
       'Predicts race results from qualifying data using linear and multinomial regression',
     tags: ['Python', 'MatPlotLib', 'Pandas'],
     link: 'https://github.com/williamphong/F1DataVisualization',
-    imageUrl: f1Img,
+    imageUrl: "/images/projects/f1.jpg",
     date: 'June 2024 - Present',
   },
   {
@@ -136,8 +123,8 @@ export const projectsData = [
     description:
       'Personal website developed using Next.JS, Typescript, and deployed using Vercel.',
     tags: ['Next.JS', 'TypeScript', 'Vercel'],
-    link: 'https://github.com/williamphong/PersonalWebsite',
-    imageUrl: websiteImg,
+    link: 'https://github.com/williamphong/personalwebsite',
+    imageUrl: "/images/projects/website.png",
     date: 'May 2024 - Present',
   },
   {
@@ -145,8 +132,8 @@ export const projectsData = [
     description:
       'Implemented a Discord bot into servers with over 200 users. Deployed on a Linux machine using Docker with 24/7 up-time.',
     tags: ['Java', 'Python', 'C++'],
-    link: 'https://localhost:3000',
-    imageUrl: discordBotImg,
+    link: '',
+    imageUrl: "/images/projects/discord-bot.webp",
     date: 'Jan 2019 - Present',
   },
   {
@@ -155,7 +142,7 @@ export const projectsData = [
       'Provides personalized and focused information to students. Faculty admin and students of CSUSM were interviewed to determine a customer story and requirements.',
     tags: ['Java', 'Android Studio', 'SQL'],
     link: 'https://github.com/williamphong/CSUSMStudentApp',
-    imageUrl: csusmAppImg,
+    imageUrl: "/images/projects/csusm.jpg",
     date: 'Jan 2023 - May 2023',
   },
 ] as const;
