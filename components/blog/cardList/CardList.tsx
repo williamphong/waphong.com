@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './cardlist.module.css';
-import Pagination from '@/components/blog/pagination/Pagination';
+//import Pagination from '@/components/blog/pagination/Pagination';
 import Card from '@/components/blog/card/Card';
 
 const getData = async (page, cat) => {

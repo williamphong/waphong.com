@@ -1,8 +1,11 @@
-import prisma from "@/lib/connect";
-import { NextRequest, NextResponse } from "next/server";
+import prisma from '@/lib/connect';
+import { NextRequest, NextResponse } from 'next/server';
 
 // GET SINGLE POST
-export const GET = async (req: NextRequest, context: { params: { slug: string } }) => {
+export const GET = async (
+  req: NextRequest,
+  context: { params: { slug: string } }
+) => {
   const { slug } = context.params; // Correctly access params from context
 
   try {
@@ -16,7 +19,7 @@ export const GET = async (req: NextRequest, context: { params: { slug: string } 
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { message: "Something went wrong!" },
+      { message: 'Something went wrong!' },
       { status: 500 }
     );
   }
