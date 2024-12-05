@@ -2,6 +2,7 @@
 import React from 'react';
 import styles from './featured.module.css';
 import Image from 'next/image';
+import featureImg from '@/public/images/ether.jpg';
 
 const Featured = () => {
   return (
@@ -19,15 +20,14 @@ const Featured = () => {
         <b>
           <i>ether</i>
         </b>{' '}
-        describes a state of mind — a stream of emotions or feelings — a sense
-        of floating. it resembles the word ethereal — dreamy, nostalgic, yet
-        leaning neither positive nor negative. words alone cannot explain
-        (something something images music)
+        describes a state of mind — a stream of emotions or feelings. it
+        resembles the word ethereal — dreamy, nostalgic, yet leaning neither
+        positive nor negative.
       </h2>
       <div className={styles.post}>
         <div className={styles.imgContainer}>
           <Image
-            src="@/public/images/ether.jpg"
+            src={featureImg}
             alt=""
             fill
             className={styles.image}
