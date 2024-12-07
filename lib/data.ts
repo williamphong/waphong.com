@@ -18,6 +18,11 @@ export const navigation = [
     name: 'experience',
     hash: '#experience',
   },
+  
+  {
+    name: 'education',
+    hash: '#education',
+  },
   */
   {
     name: 'more',
