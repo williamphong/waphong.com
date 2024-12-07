@@ -36,7 +36,7 @@ const Featured = () => {
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>a moment in time</h1>
-          <p className={styles.postDesc}>somethingsomething film photography</p>
+          <p className={styles.postDesc}>life captured through film</p>
           <button className={styles.button}>Read More</button>
         </div>
       </div>

@@ -11,22 +11,6 @@
   }
 }
 
-@font-face {
-  font-family: 'Manrope';
-  src: url('/fonts/Manrope.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src:
-    url('/fonts/Satoshi-Variable.ttf') format('truetype'),
-    url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .active .nav-indicator {
   width: 4rem;
   --tw-bg-opacity: 1;
@@ -38,8 +22,40 @@
   color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
-body {
-  width: 100%;
-  margin: 0; /* Remove any default margin */
-  overflow-x: hidden;
+/* Define Inter Font */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Define Montserrat Font */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Define Satoshi Font */
+@font-face {
+  font-family: 'Satoshi';
+  src:
+    url('/fonts/Satoshi-Variable.ttf') format('truetype'),
+    url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal, italic;
+  font-display: swap;
+}
+
+/* Adding custom font (local font example) */
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrop.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }

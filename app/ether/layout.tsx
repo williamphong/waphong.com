@@ -4,8 +4,6 @@ import type { Metadata } from 'next';
 
 import Navbar from '@/components/blog/navbar/Navbar';
 import Footer from '@/components/blog/footer/Footer';
-import { ThemeContextProvider } from '@/app/context/ThemeContext';
-import ThemeProvider from '@/app/providers/ThemeProvider';
 import SessionWrapper from '@/components/SessionWrapper';
 
 export const metadata: Metadata = {
@@ -54,17 +52,11 @@ export default function BlogLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <SessionWrapper>
-      <ThemeContextProvider>
-        <ThemeProvider>
-          <div className="container">
-            <div className="wrapper">
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-          </div>
-        </ThemeProvider>
-      </ThemeContextProvider>
+      <div className="">
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
     </SessionWrapper>
   );
 }

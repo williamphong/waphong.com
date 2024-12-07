@@ -15,19 +15,19 @@ export const ThemeToggle = () => {
       className={styles.container}
       onClick={toggle}
       style={
-        theme === 'dark' ? { background: 'white' } : { background: '#0f172a' }
+        theme === 'dark' ? { background: '#f4f0e8' } : { background: '#0f172a' }
       }
     >
-      <Image src="/images/blog/moon.png" alt="" width={14} height={14} />
+      <Image src="/images/ether/util/moon.png" alt="" width={14} height={14} />
       <div
         className={styles.ball}
         style={
           theme === 'dark'
             ? { left: 1, background: '#0f172a' }
-            : { right: 1, background: 'white' }
+            : { right: 1, background: '#f4f0e8' }
         }
       ></div>
-      <Image src="/images/blog/sun.png" alt="" width={14} height={14} />
+      <Image src="/images/ether/util/sun.png" alt="" width={14} height={14} />
     </div>
   );
 };

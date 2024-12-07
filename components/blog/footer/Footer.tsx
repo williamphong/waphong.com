@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './footer.module.css';
-//import Image from 'next/image';
+import Image from 'next/image';
 import { svg } from '@/lib/data';
 
 export const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.social}>
-        <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+        {/*
+        <ul className="flex items-center" aria-label="Social media">
           {svg.map((img, index) => (
             <li key={index} className="mr-5 shrink-0 text-xs">
               <a
@@ -30,16 +31,23 @@ export const Footer = () => {
             </li>
           ))}
         </ul>
+      */}
       </div>
-      <div className={styles.info}>
-        {/*
-        <div className={styles.logo}>
-          <Image src="/favicon.ico" alt="waphong blog" width={30} height={30} />
-          <h1 className={styles.logoText}>william phong</h1>
-        </div>
-        */}
-        <p className={styles.desc}>william phong</p>
+
+      <div className={styles.main}>
+        <a href="/" className={styles.logoText}>
+          <div className={styles.logo}>
+            <Image
+              src="/favicon.ico"
+              alt="waphong blog"
+              width={30}
+              height={30}
+            />
+            © 2024 william an phong
+          </div>
+        </a>
       </div>
+
       <div className={styles.links}></div>
     </div>
   );
