@@ -10,7 +10,7 @@ export const AuthLinks = () => {
 
   // Handle loading state
   if (status === 'loading') {
-    return <span>Loading...</span>; // You can customize this as needed
+    return <span>loading...</span>;
   }
 
   return (
@@ -30,7 +30,7 @@ export const AuthLinks = () => {
             tabIndex={0} // Allow keyboard navigation
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                signOut({ callbackUrl: '/ether' }); // Allow signing out with Enter key
+                signOut({ callbackUrl: '/ether' }); // Allow signing out with Enter key, callback to main ether page
               }
             }}
           >

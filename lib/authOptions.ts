@@ -71,7 +71,7 @@ export const authOptions: NextAuthOptions = {
       if (account) {
         if (account.provider === 'google') {
           // Only allow specific Google accounts
-          const allowedGoogleEmails = ['williamphong10@gmail.com'];
+          const allowedGoogleEmails = process.env.ALLOWED_GOOGLE_EMAILS?.split(',');
           if (user && user.email && allowedGoogleEmails.includes(user.email)) {
             return true;
           } else {
@@ -81,24 +81,34 @@ export const authOptions: NextAuthOptions = {
       }
       return true;
     },
-    async jwt({ token, account }) {
-      // Persist the OAuth access_token to the token right after signin
+    async jwt({ user, token, account }) {
       console.log('JWT Callback:', { token, account });
+    
+      // Persist the OAuth access_token to the token right after signin
       if (account) {
+        console.log('Account Object:', account); 
         token.accessToken = account.access_token;
         token.refreshToken = account.refresh_token;
         token.accessTokenExpires = account.expires_at;
+    
+        // Ensure that `expires_at` is a number
+        if (typeof token.accessTokenExpires === 'string') {
+          token.accessTokenExpires = Number(token.accessTokenExpires);
+        }
       }
-      // access token has not expired
-      if (
-        token.accessTokenExpires &&
-        Date.now() < (token.accessTokenExpires as number) * 1000
-      ) {
+    
+      // If the access token has not expired, return the token
+      if (token.accessTokenExpires && Date.now() < (token.accessTokenExpires as number) * 1000) {
         return token;
       }
-
-      // access token has expired
-      return await refreshAccessToken(token);
+    
+      // If the access token has expired, refresh it
+      if (token.refreshToken) {
+        return await refreshAccessToken(token);
+      }
+    
+      // If no valid token, return the current token (even if it's incomplete)
+      return token;
     },
     async session({ session, token }) {
       console.log('Session Callback:', { session, token });
