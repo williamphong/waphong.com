@@ -65,6 +65,42 @@ const NavigationLink = ({
   </li>
 );
 
+const ProjectList = () => {
+  return (
+    <div>
+      <ol>
+        {projectsData.map((project, index) => (
+          <li key={index} className="mb-12">
+            <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+              <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+              <div className="z-10 sm:order-2 sm:col-span-6">
+                <h3>
+                  <a
+                    className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-700 hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
+                    href={project.link}
+                    aria-label={project.title}
+                    target="_blank"
+                    rel="noopener noreferrer" // Added rel for security
+                  >
+                    <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                    <span>{project.title}</span>
+                  </a>
+                </h3>
+
+                <p className="mt-2 text-sm leading-normal">
+                  {project.description}
+                </p>
+              </div>
+
+              <ProjectImage url={project.imageUrl} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+};
+
 export default function Home() {
   const sectionRefs = useRef<RefObject<HTMLElement>[]>(
     navigation.map(() => React.createRef<HTMLElement>())
@@ -100,6 +136,7 @@ export default function Home() {
 
   return (
     <div className="lg:flex lg:justify-between lg:gap-4">
+      {/* Left side  */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div>
           <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold sm:text-3xl md:text-6xl dark:text-slate-200">
@@ -129,6 +166,7 @@ export default function Home() {
           </nav>
         </div>
 
+        {/* Left side footer */}
         <ul
           className="ml-1 mt-8 flex items-center gap-5"
           aria-label="Social media"
@@ -158,7 +196,9 @@ export default function Home() {
         </ul>
       </header>
 
+      {/* Right side  */}
       <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
+        {/* About me section */}
         <section
           id="about"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -219,6 +259,7 @@ export default function Home() {
           </p>
         </section>
 
+        {/* Project Section */}
         <section
           id="projects"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -231,131 +272,10 @@ export default function Home() {
             </h2>
           </div>
 
-          <div>
-            <ol>
-              {projectsData.map((project, index) => (
-                <li key={index} className="mb-12">
-                  <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                    <div className="z-10 sm:order-2 sm:col-span-6">
-                      <h3>
-                        <a
-                          className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-700 hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
-                          href={project.link}
-                          aria-label={project.title}
-                          target="blank"
-                        >
-                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                          <span>{project.title}</span>
-                        </a>
-                      </h3>
-
-                      <p className="mt-2 text-sm leading-normal">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    <ProjectImage url={project.imageUrl} />
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <ProjectList />
         </section>
 
-        {/* 
-          <section
-            id="experience"
-            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-            aria-label="Work Experience"
-            ref={sectionRefs.current[2]}
-          >
-            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                Experience
-              </h2>
-            </div>
-
-            <div>
-              <ol>
-                {experiencesData.map((exp, index) => (
-                  <li key={index} className="mb-12">
-                    <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-
-                      <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-                        {exp.date}
-                      </header>
-
-                      <div className="z-10 sm:col-span-6">
-                        <h3 className="font-medium leading-snug text-slate-200">
-                          <div>
-                            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                            <span>{exp.title}</span>
-                          </div>
-                          <div>
-                            <div className="text-slate-500">{exp.company}</div>
-                          </div>
-                        </h3>
-
-                        <p className="mt-2 text-sm leading-normal">
-                          {exp.description}
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
-          
-
-          <section
-            id="education"
-            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-            aria-label="Education"
-            ref={sectionRefs.current[2]}
-          >
-            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                Education
-              </h2>
-            </div>
-
-            <div>
-              <ol>
-                {education.map((exp, index) => (
-                  <li key={index} className="mb-12">
-                    <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-
-                      <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-                        {exp.date}
-                      </header>
-
-                      <div className="z-10 sm:col-span-6">
-                        <h3 className="font-medium leading-snug text-slate-200">
-                          <div>
-                            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                            <span>{exp.title}</span>
-                          </div>
-                          <div>
-                            <div className="text-slate-500">{exp.degree}</div>
-                          </div>
-                        </h3>
-
-                        <p className="mt-2 text-sm leading-normal">
-                          {exp.awards}
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
-          */}
-
+        {/* More section */}
         <section
           id="more"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -373,6 +293,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Right side footer */}
         <footer className="max-w-md pb-16 pt-96 text-sm sm:pb-0">
           {
             <p>
