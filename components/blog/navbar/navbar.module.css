@@ -13,9 +13,7 @@
   left: 50%; /* Center the logo horizontally */
   transform: translateX(-50%); /* Adjust for half the width of the logo */
   font-size: 42px;
-  font-weight: bold;
   text-align: center;
-  font-family: 'Satoshi', sans-serif;
 }
 
 .links {
@@ -23,6 +21,7 @@
   align-items: center;
   gap: 20px; /* Adjust the gap between the links */
   margin-left: auto; /* Pushes the links to the right */
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1280px) {

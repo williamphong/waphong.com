@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './footer.module.css';
 import Image from 'next/image';
 import { svg } from '@/lib/data';
+import Link from 'next/link';
 
 export const Footer = () => {
   return (
@@ -35,7 +36,7 @@ export const Footer = () => {
       </div>
 
       <div className={styles.main}>
-        <a href="/" className={styles.logoText}>
+        <Link href="/" className={styles.logoText}>
           <div className={styles.logo}>
             <Image
               src="/favicon.ico"
@@ -45,7 +46,7 @@ export const Footer = () => {
             />
             © 2024 william an phong
           </div>
-        </a>
+        </Link>
       </div>
 
       <div className={styles.links}></div>

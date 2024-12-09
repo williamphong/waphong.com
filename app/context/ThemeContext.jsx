@@ -8,7 +8,7 @@ export const ThemeContext = createContext();
 const getInitialTheme = () => {
   if (typeof window !== 'undefined') {
     const storedTheme = localStorage.getItem('theme');
-    return storedTheme || 'light'; // Default to 'light' theme
+    return storedTheme || 'dark'; // Default to 'light' theme
   }
   return 'light';
 };

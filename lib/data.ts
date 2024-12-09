@@ -102,7 +102,7 @@ export const projectsData = [
       'Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
     tags: ['C#', 'MATLAB', 'Unity'],
     link: 'https://github.com/williamphong/CS490-VR-Orbit',
-    imageUrl: "/images/projects/vrorbit.webm",
+    imageUrl: '/images/projects/vrorbit.webm',
     date: 'Jan 2024 - Present',
   },
   {
@@ -111,7 +111,7 @@ export const projectsData = [
       "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
     tags: ['Python', 'Spotipy'],
     link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
-    imageUrl: "/images/projects/wordcloud.png",
+    imageUrl: '/images/projects/wordcloud.png',
     date: 'June 2024 - Present',
   },
   {
@@ -120,7 +120,7 @@ export const projectsData = [
       'Predicts race results from qualifying data using linear and multinomial regression',
     tags: ['Python', 'MatPlotLib', 'Pandas'],
     link: 'https://github.com/williamphong/F1DataVisualization',
-    imageUrl: "/images/projects/f1.jpg",
+    imageUrl: '/images/projects/f1.jpg',
     date: 'June 2024 - Present',
   },
   {
@@ -129,7 +129,7 @@ export const projectsData = [
       'Personal website developed using Next.JS, Typescript, and deployed using Vercel.',
     tags: ['Next.JS', 'TypeScript', 'Vercel'],
     link: 'https://github.com/williamphong/personalwebsite',
-    imageUrl: "/images/projects/website.png",
+    imageUrl: '/images/projects/website.png',
     date: 'May 2024 - Present',
   },
   {
@@ -138,7 +138,7 @@ export const projectsData = [
       'Implemented a Discord bot into servers with over 200 users. Deployed on a Linux machine using Docker with 24/7 up-time.',
     tags: ['Java', 'Python', 'C++'],
     link: '',
-    imageUrl: "/images/projects/discord-bot.webp",
+    imageUrl: '/images/projects/discord-bot.webp',
     date: 'Jan 2019 - Present',
   },
   {
@@ -147,7 +147,7 @@ export const projectsData = [
       'Provides personalized and focused information to students. Faculty admin and students of CSUSM were interviewed to determine a customer story and requirements.',
     tags: ['Java', 'Android Studio', 'SQL'],
     link: 'https://github.com/williamphong/CSUSMStudentApp',
-    imageUrl: "/images/projects/csusm.jpg",
+    imageUrl: '/images/projects/csusm.jpg',
     date: 'Jan 2023 - May 2023',
   },
 ] as const;
