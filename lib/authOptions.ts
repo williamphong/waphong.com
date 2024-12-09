@@ -61,14 +61,26 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
-    }),
-    GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      authorization:
+        'https://accounts.google.com/o/oauth2/auth?response_type=code&hd=gmail.com'
     }),
   ],
   secret: process.env.JWT_SECRET,
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      if (account) {
+        if (account.provider === 'google') {
+          // Only allow specific Google accounts
+          const allowedGoogleEmails = ['williamphong10@gmail.com'];
+          if (user && user.email && allowedGoogleEmails.includes(user.email)) {
+            return true;
+          } else {
+            return false; // Deny login for this account
+          }
+        }
+      }
+      return true;
+    },
     async jwt({ token, account }) {
       // Persist the OAuth access_token to the token right after signin
       console.log('JWT Callback:', { token, account });
@@ -98,6 +110,23 @@ export const authOptions: NextAuthOptions = {
         console.error('Token is undefined or missing accessToken');
       }
       return session;
+    },
+  },
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax', // SameSite should be 'lax' or 'strict' for security
+        path: '/',
+      },
+    },
+    callbackUrl: {
+      name: `next-auth.callback-url`,
+      options: {
+        path: '/',
+        httpOnly: true,
+      },
     },
   },
 };
