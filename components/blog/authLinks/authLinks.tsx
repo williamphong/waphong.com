@@ -30,7 +30,7 @@ export const AuthLinks = () => {
             tabIndex={0} // Allow keyboard navigation
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                signOut(); // Allow signing out with Enter key
+                signOut({ callbackUrl: '/ether' }); // Allow signing out with Enter key
               }
             }}
           >
