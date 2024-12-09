@@ -12,6 +12,59 @@ import {
 } from '../lib/data';
 import ThemeToggle from '@/components/blog/themeToggle/ThemeToggle';
 
+// Project Image Component
+const ProjectImage = ({ url }: { url: string }) => {
+  const isWebm = url.endsWith('.webm');
+  if (isWebm) {
+    return (
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        width="200"
+        height="48"
+        preload="auto"
+        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+      >
+        <source src={url} type="video/webm" />
+      </video>
+    );
+  }
+  return (
+    <Image
+      src={url}
+      alt="image"
+      loading="lazy"
+      decoding="async"
+      width={200}
+      height={48}
+      className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+    />
+  );
+};
+
+// Navigation
+const NavigationLink = ({
+  item,
+  isActive,
+}: {
+  item: { name: string };
+  isActive: boolean;
+}) => (
+  <li>
+    <Link
+      href={`#${item.name}`}
+      className={`group flex items-center py-3 ${isActive ? 'active dark:activedark' : ''}`}
+    >
+      <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-800 group-focus-visible:w-16 group-focus-visible:bg-slate-800 motion-reduce:transition-none dark:group-hover:bg-slate-200 dark:group-focus-visible:bg-slate-200"></span>
+      <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-800 group-focus-visible:text-slate-800 dark:group-hover:text-slate-200 dark:group-focus-visible:text-slate-700">
+        {item.name}
+      </span>
+    </Link>
+  </li>
+);
+
 export default function Home() {
   const sectionRefs = useRef<RefObject<HTMLElement>[]>(
     navigation.map(() => React.createRef<HTMLElement>())
@@ -49,7 +102,7 @@ export default function Home() {
     <div className="lg:flex lg:justify-between lg:gap-4">
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div>
-          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 font-manrope text-4xl font-bold sm:text-3xl md:text-6xl dark:text-slate-200">
+          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold sm:text-3xl md:text-6xl dark:text-slate-200">
             <Link href="/">William Phong</Link>
           </h1>
 
@@ -66,25 +119,23 @@ export default function Home() {
           <nav className="nav hidden lg:block" aria-label="In-page jump links">
             <ul className="mt-16 w-max">
               {navigation.map((item, index) => (
-                <li key={index}>
-                  <Link
-                    href={`#${item.name}`}
-                    className={`group flex items-center py-3 ${activeSection === item.name ? 'active' : ''}`}
-                  >
-                    <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 dark:group-hover:text-slate-200 dark:group-focus-visible:text-slate-200">
-                      {item.name}
-                    </span>
-                  </Link>
-                </li>
+                <NavigationLink
+                  key={index}
+                  item={item}
+                  isActive={activeSection === item.name}
+                />
               ))}
             </ul>
           </nav>
         </div>
 
-        <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+        <ul
+          className="ml-1 mt-8 flex items-center gap-5"
+          aria-label="Social media"
+        >
+          <ThemeToggle />
           {svg.map((img, index) => (
-            <li key={index} className="mr-5 shrink-0 text-xs">
+            <li key={index} className="shrink-0 text-xs">
               <a
                 className="block hover:text-slate-200"
                 href={img.link}
@@ -121,7 +172,7 @@ export default function Home() {
           <p className="mb-4">
             In my free time, I enjoy listening to{' '}
             <a
-              className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
               href="https://open.spotify.com/user/william.phong"
               target="_blank"
               rel="noreferrer noopener"
@@ -132,7 +183,7 @@ export default function Home() {
             </a>
             , taking
             <a
-              className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
               href="/gallery"
               target="_blank"
               rel="noreferrer noopener"
@@ -143,7 +194,7 @@ export default function Home() {
             </a>
             with my film camera, playing video games, and watching
             <a
-              className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
               href="https://letterboxd.com/andjuly/"
               target="_blank"
               rel="noreferrer noopener"
@@ -157,7 +208,7 @@ export default function Home() {
 
           <p className="mb-4 text-slate-400">
             <a
-              className="font-medium hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
+              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
               href="/files/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
@@ -189,7 +240,7 @@ export default function Home() {
                     <div className="z-10 sm:order-2 sm:col-span-6">
                       <h3>
                         <a
-                          className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                          className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-700 hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
                           href={project.link}
                           aria-label={project.title}
                           target="blank"
@@ -204,30 +255,7 @@ export default function Home() {
                       </p>
                     </div>
 
-                    {project.imageUrl.endsWith('.webm') ? (
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        width="200"
-                        height="48"
-                        preload="auto"
-                        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-                      >
-                        <source src={project.imageUrl} type="video/webm" />
-                      </video>
-                    ) : (
-                      <Image
-                        src={project.imageUrl}
-                        alt="image"
-                        loading="lazy"
-                        decoding="async"
-                        width={200}
-                        height={48}
-                        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-                      ></Image>
-                    )}
+                    <ProjectImage url={project.imageUrl} />
                   </div>
                 </li>
               ))}
@@ -350,7 +378,7 @@ export default function Home() {
             <p>
               The design and code for this website is largely inspired or from{' '}
               <a
-                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
                 href="https://brittanychiang.com"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -361,7 +389,7 @@ export default function Home() {
               </a>{' '}
               and{' '}
               <a
-                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
                 href="https://carlbeaverson.com"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -374,8 +402,6 @@ export default function Home() {
               deployed with Vercel.
             </p>
           }
-
-          <ThemeToggle />
         </footer>
       </main>
     </div>

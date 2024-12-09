@@ -8,10 +8,11 @@ export const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <Link href="/ether" ><h1 className='font-bold font-satoshi'>ether</h1></Link>
+        <Link href="/ether">
+          <h1 className="font-satoshi font-bold">ether</h1>
+        </Link>
       </div>
       <div className={styles.links}>
-        
         <AuthLinks />
         <ThemeToggle />
       </div>
