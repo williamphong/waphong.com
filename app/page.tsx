@@ -49,11 +49,11 @@ export default function Home() {
     <div className="lg:flex lg:justify-between lg:gap-4">
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div>
-          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 font-manrope text-4xl font-bold text-slate-200 sm:text-3xl md:text-6xl">
-            <a href="/">William Phong</a>
+          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 font-manrope text-4xl font-bold sm:text-3xl md:text-6xl dark:text-slate-200">
+            <Link href="/">William Phong</Link>
           </h1>
 
-          <h2 className="text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+          <h2 className="text-lg font-medium tracking-tight sm:text-xl dark:text-slate-200">
             BSc in Computer Science
           </h2>
 
@@ -72,7 +72,7 @@ export default function Home() {
                     className={`group flex items-center py-3 ${activeSection === item.name ? 'active' : ''}`}
                   >
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 dark:group-hover:text-slate-200 dark:group-focus-visible:text-slate-200">
                       {item.name}
                     </span>
                   </Link>
@@ -114,11 +114,11 @@ export default function Home() {
           ref={sectionRefs.current[0]}
         >
           <div>
-            <p className="mb-4 text-slate-400">{aboutMe.p1}</p>
-            <p className="mb-4 text-slate-400">{aboutMe.p2}</p>
+            <p className="mb-4">{aboutMe.p1}</p>
+            <p className="mb-4">{aboutMe.p2}</p>
           </div>
 
-          <p className="mb-4 text-slate-400">
+          <p className="mb-4">
             In my free time, I enjoy listening to{' '}
             <a
               className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
@@ -157,7 +157,7 @@ export default function Home() {
 
           <p className="mb-4 text-slate-400">
             <a
-              className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+              className="font-medium hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
               href="/files/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
@@ -175,7 +175,7 @@ export default function Home() {
           ref={sectionRefs.current[1]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+            <h2 className="text-sm font-bold uppercase tracking-widest lg:sr-only dark:text-slate-200">
               Projects
             </h2>
           </div>
@@ -345,7 +345,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="max-w-md pb-16 pt-96 text-sm text-slate-500 sm:pb-0">
+        <footer className="max-w-md pb-16 pt-96 text-sm sm:pb-0">
           {
             <p>
               The design and code for this website is largely inspired or from{' '}
@@ -374,6 +374,8 @@ export default function Home() {
               deployed with Vercel.
             </p>
           }
+
+          <ThemeToggle />
         </footer>
       </main>
     </div>

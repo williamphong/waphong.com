@@ -54,7 +54,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`dark scroll-smooth`}>
-      <body className="bg-paper text-grey leading-relaxed antialiased selection:bg-teal-300 selection:text-teal-900 dark:bg-slate-900 dark:text-slate-400">
+      <body className="bg-paper leading-relaxed text-slate-700 antialiased selection:bg-teal-300 selection:text-teal-900 dark:bg-slate-900 dark:text-slate-400">
         <ThemeContextProvider>
           <ThemeProvider>
             <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">

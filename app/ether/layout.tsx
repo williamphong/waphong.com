@@ -7,12 +7,17 @@ import Footer from '@/components/blog/footer/Footer';
 import SessionWrapper from '@/components/SessionWrapper';
 
 export const metadata: Metadata = {
+  generator: 'Next.js',
+  applicationName: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Next.js', 'React', 'JavaScript'],
+  authors: [{ name: 'William Phong', url: 'https://waphong.com' }],
+  creator: 'William Phong',
   metadataBase: new URL('https://waphong.com'),
   title: {
-    template: 'Blog | William Phong',
+    template: '... | William Phong',
     default: 'William Phong', // a default is required when creating a template
   },
-  creator: 'William Phong',
   description: 'my blog',
   openGraph: {
     title: 'William Phong',
