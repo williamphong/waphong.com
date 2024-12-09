@@ -72,6 +72,7 @@ export const authOptions: NextAuthOptions = {
         if (account.provider === 'google') {
           // Only allow specific Google accounts
           const allowedGoogleEmails = process.env.ALLOWED_GOOGLE_EMAILS?.split(',');
+           // @ts-expect-error allowedGoogleEmails is possibly undefined
           if (user && user.email && allowedGoogleEmails.includes(user.email)) {
             return true;
           } else {
