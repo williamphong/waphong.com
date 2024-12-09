@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/providers/ThemeProvider.tsx",
-    "components/blog/themeToggle/ThemeToggle.jsx",
+    "components/themeToggle/ThemeToggle.jsx",
     "app/context/ThemeContext.jsx"
   ],
   "exclude": ["node_modules"]
