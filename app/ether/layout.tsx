@@ -57,9 +57,9 @@ export default function BlogLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <SessionWrapper>
-      <div className="">
+      <div className="bg-bg text-textColor">
         <Navbar />
-        {children}
+        <div className="mx-auto min-h-screen max-w-screen-xl">{children}</div>
         <Footer />
       </div>
     </SessionWrapper>

@@ -10,7 +10,7 @@ import {
   projectsData,
   svg,
 } from '../lib/data';
-import ThemeToggle from '@/components/blog/themeToggle/ThemeToggle';
+import ThemeToggle from '@/components/themeToggle/ThemeToggle';
 
 // Project Image Component
 const ProjectImage = ({ url }: { url: string }) => {
@@ -139,11 +139,11 @@ export default function Home() {
       {/* Left side  */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div>
-          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold sm:text-3xl md:text-6xl dark:text-slate-200">
+          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold dark:text-slate-200 sm:text-3xl md:text-6xl">
             <Link href="/">William Phong</Link>
           </h1>
 
-          <h2 className="text-lg font-medium tracking-tight sm:text-xl dark:text-slate-200">
+          <h2 className="text-lg font-medium tracking-tight dark:text-slate-200 sm:text-xl">
             BSc in Computer Science
           </h2>
 
@@ -267,7 +267,7 @@ export default function Home() {
           ref={sectionRefs.current[1]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest lg:sr-only dark:text-slate-200">
+            <h2 className="text-sm font-bold uppercase tracking-widest dark:text-slate-200 lg:sr-only">
               Projects
             </h2>
           </div>

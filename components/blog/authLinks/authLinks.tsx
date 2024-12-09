@@ -16,10 +16,10 @@ export const AuthLinks = () => {
   return (
     <>
       {status === 'unauthenticated' ? (
-        <Link href="/ether/login">Login</Link>
+        <Link href="/ether/login">login</Link>
       ) : (
         <>
-          <Link href="/ether/write">Write</Link>
+          <Link href="/ether/write">write</Link>
           <span
             className={styles.link}
             onClick={(e) => {
@@ -34,7 +34,7 @@ export const AuthLinks = () => {
               }
             }}
           >
-            Logout
+            logout
           </span>
         </>
       )}
