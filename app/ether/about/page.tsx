@@ -35,7 +35,6 @@ export default function about() {
             width="75%"
             height="400"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
           ></iframe>
         </div>
       </div>

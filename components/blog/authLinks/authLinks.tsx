@@ -13,31 +13,30 @@ export const AuthLinks = () => {
     return <span>loading...</span>;
   }
 
+  // Handle unauthenticated state or errors
+  if (status === 'unauthenticated' || session?.provider !== 'google') {
+    return <Link href="/ether/login">login</Link>;
+  }
+  // Handle authenticated state
   return (
     <>
-      {status === 'unauthenticated' ? (
-        <Link href="/ether/login">login</Link>
-      ) : (
-        <>
-          <Link href="/ether/write">write</Link>
-          <span
-            className={styles.link}
-            onClick={(e) => {
-              e.preventDefault(); // Prevent default anchor behavior
-              signOut(); // Call signOut function
-            }}
-            role="button" // Accessible button role
-            tabIndex={0} // Allow keyboard navigation
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                signOut({ callbackUrl: '/ether' }); // Allow signing out with Enter key, callback to main ether page
-              }
-            }}
-          >
-            logout
-          </span>
-        </>
-      )}
+      <Link href="/ether/write">write</Link>
+      <span
+        className={styles.link}
+        onClick={(e) => {
+          e.preventDefault(); // Prevent default anchor behavior
+          signOut(); // Call signOut function
+        }}
+        role="button" // Accessible button role
+        tabIndex={0} // Allow keyboard navigation
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            signOut({ callbackUrl: '/ether' }); // Allow signing out with Enter or Space key
+          }
+        }}
+      >
+        logout
+      </span>
     </>
   );
 };

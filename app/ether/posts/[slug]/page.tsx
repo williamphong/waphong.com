@@ -1,5 +1,4 @@
 import React from 'react';
-import { use } from 'react';
 import styles from './singlePage.module.css';
 import Image from 'next/image';
 import Menu from '@/components/blog/menu/Menu';
@@ -19,7 +18,7 @@ const getData = async (slug: any) => {
 type Params = Promise<{ slug: string }>;
 
 export default async function SinglePage(props: { params: Params }) {
-  const params = use(props.params);
+  const params = await props.params;
   const { slug } = params;
 
   const data = await getData(slug);

@@ -50,15 +50,19 @@ async function refreshAccessToken(token) {
 }
 
 export const authOptions: NextAuthOptions = {
-  // Configure one or more authentication providers
-  adapter: PrismaAdapter(prisma),
+  debug:true,
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  //adapter: PrismaAdapter(prisma),
   providers: [
     SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID as string,
       clientSecret: process.env.SPOTIFY_SECRET as string,
       authorization: LOGIN_URL,
     }),
-    GoogleProvider({
+    GoogleProvider({  
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
       authorization:
@@ -70,6 +74,7 @@ export const authOptions: NextAuthOptions = {
     async signIn({ user, account, profile, email, credentials }) {
       if (account) {
         if (account.provider === 'google') {
+          
           // Only allow specific Google accounts
           const allowedGoogleEmails = process.env.ALLOWED_GOOGLE_EMAILS?.split(',');
            // @ts-expect-error allowedGoogleEmails is possibly undefined
@@ -82,63 +87,37 @@ export const authOptions: NextAuthOptions = {
       }
       return true;
     },
-    async jwt({ user, token, account }) {
+    async jwt({ token, account, profile }) {
       console.log('JWT Callback:', { token, account });
     
-      // Persist the OAuth access_token to the token right after signin
+      // Persist the OAuth access_token and or the user id to the token right after signin
       if (account) {
-        console.log('Account Object:', account); 
         token.accessToken = account.access_token;
         token.refreshToken = account.refresh_token;
-        token.accessTokenExpires = account.expires_at;
-    
-        // Ensure that `expires_at` is a number
-        if (typeof token.accessTokenExpires === 'string') {
-          token.accessTokenExpires = Number(token.accessTokenExpires);
-        }
+        //@ts-expect-error undefined
+        token.id = profile.id
+        token.provider = account.provider;
       }
-    
-      // If the access token has not expired, return the token
-      if (token.accessTokenExpires && Date.now() < (token.accessTokenExpires as number) * 1000) {
-        return token;
-      }
-    
-      // If the access token has expired, refresh it
-      if (token.refreshToken) {
-        return await refreshAccessToken(token);
-      }
-    
-      // If no valid token, return the current token (even if it's incomplete)
-      return token;
+      return token
     },
-    async session({ session, token }) {
+    async session({ session, token, user }) {
       console.log('Session Callback:', { session, token });
-      // Send properties to the client, like an access_token from a provider.
+    
       if (token && token.accessToken) {
-        // @ts-expect-error accessToken doesnt exist on session
-        session.accessToken = token.accessToken;
+        // @ts-expect-error Type '{}' is not assignable to type 'string'.
+        session.provider = token.provider || "unknown";
+        // @ts-expect-error Type '{}' is not assignable to type 'string'.
+        session.accessToken = token.accessToken ?? ''; // Ensure default value
+        // @ts-expect-error Type '{}' is not assignable to type 'string'.
+        session.refreshToken = token.refreshToken ?? ''; // Ensure default value
+
       } else {
         console.error('Token is undefined or missing accessToken');
       }
+    
       return session;
     },
-  },
-  cookies: {
-    sessionToken: {
-      name: `next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: 'lax', // SameSite should be 'lax' or 'strict' for security
-        path: '/',
-      },
-    },
-    callbackUrl: {
-      name: `next-auth.callback-url`,
-      options: {
-        path: '/',
-        httpOnly: true,
-      },
-    },
+
   },
 };
 

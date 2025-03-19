@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Featured from '@/components/blog/featured/Featured';
 import CardList from '@/components/blog/cardList/CardList';
 import Menu from '@/components/blog/menu/Menu';

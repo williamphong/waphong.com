@@ -35,7 +35,6 @@ const ProjectImage = ({ url }: { url: string }) => {
     <Image
       src={url}
       alt="image"
-      loading="lazy"
       decoding="async"
       width={200}
       height={48}
@@ -144,7 +143,7 @@ export default function Home() {
           </h1>
 
           <h2 className="text-lg font-medium tracking-tight dark:text-slate-200 sm:text-xl">
-            BSc in Computer Science
+            Bachelors in Computer Science
           </h2>
 
           <p className="mt-4 max-w-xs leading-normal">

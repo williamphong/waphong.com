@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
     ],
   },
   eslint: {
