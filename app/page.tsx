@@ -10,7 +10,7 @@ import {
   projectsData,
   svg,
 } from '../lib/data';
-import ThemeToggle from '@/components/themeToggle/ThemeToggle';
+import { ModeToggle } from '@/components/themeToggle/theme-toggle';
 
 // Project Image Component
 const ProjectImage = ({ url }: { url: string }) => {
@@ -170,7 +170,7 @@ export default function Home() {
           className="ml-1 mt-8 flex items-center gap-5"
           aria-label="Social media"
         >
-          <ThemeToggle />
+          <ModeToggle />
           {svg.map((img, index) => (
             <li key={index} className="shrink-0 text-xs">
               <a

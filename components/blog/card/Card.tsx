@@ -24,7 +24,9 @@ const Card = ({ item }: any) => {
         </Link>
         <div
           className={styles.desc}
-          dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
+          dangerouslySetInnerHTML={{
+            __html: item?.desc.substring(0, 60),
+          }}
         />
         <Link href={`/ether/posts/${item.slug}`} className={styles.link}>
           Read More

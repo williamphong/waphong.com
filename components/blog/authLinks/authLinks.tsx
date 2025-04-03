@@ -1,44 +1,52 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './authLinks.module.css';
 import Link from 'next/link';
-import { signOut, useSession } from 'next-auth/react';
+import { authClient } from '@/lib/auth-client';
 
-export const AuthLinks = () => {
-  const [open, setOpen] = useState(false);
-  const { data: session, status } = useSession();
+export default function AuthLinks() {
+  const router = useRouter();
+  const { data: session, isPending } = authClient.useSession();
+
+  const handleSignOutGoogle = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push('/ether'); // redirect to login page
+          router.refresh();
+        },
+      },
+    });
+  };
 
   // Handle loading state
-  if (status === 'loading') {
+  if (isPending) {
     return <span>loading...</span>;
   }
 
   // Handle unauthenticated state or errors
-  if (status === 'unauthenticated' || session?.provider !== 'google') {
-    return <Link href="/ether/login">login</Link>;
-  }
-  // Handle authenticated state
-  return (
-    <>
+  return !session ? (
+    <Link href="/ether/login">login</Link>
+  ) : (
+    <div className="flex justify-center gap-6">
       <Link href="/ether/write">write</Link>
       <span
         className={styles.link}
         onClick={(e) => {
           e.preventDefault(); // Prevent default anchor behavior
-          signOut(); // Call signOut function
+          handleSignOutGoogle(); // Call signOut function
         }}
         role="button" // Accessible button role
         tabIndex={0} // Allow keyboard navigation
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            signOut({ callbackUrl: '/ether' }); // Allow signing out with Enter or Space key
+            handleSignOutGoogle(); // Allow signing out with Enter or Space key
           }
         }}
       >
         logout
       </span>
-    </>
+    </div>
   );
-};
-
-export default AuthLinks;
+}

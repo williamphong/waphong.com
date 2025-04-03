@@ -15,4 +15,3 @@ test('Homepage loads correctly', async ({ page }) => {
     await expect(page.locator(`text=${link}`)).toBeVisible();
   }
 });
-

@@ -3,8 +3,7 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { ThemeContextProvider } from '@/app/context/ThemeContext';
-import ThemeProvider from '@/app/providers/ThemeProvider';
+import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 
 import './globals.css';
 
@@ -53,17 +52,20 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`dark scroll-smooth`}>
-      <body className="bg-paper leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
-        <ThemeContextProvider>
-          <ThemeProvider>
-            <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
-              {children}
-              <Analytics />
-              <SpeedInsights />
-            </div>
-          </ThemeProvider>
-        </ThemeContextProvider>
+    <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
+      <body className="leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

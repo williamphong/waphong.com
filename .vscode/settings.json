@@ -4,6 +4,7 @@
   "prettier.resolveGlobalModules": true,
   "prettier.useEditorConfig": false,
   "prettier.prettierPath": "./node_modules/prettier",
-  "prettier.configPath": ".prettierrc",
-  "cSpell.words": ["satoshi", "tailwindcss"]
+  "prettier.configPath": ".prettierrc.js",
+  "cSpell.words": ["satoshi", "tailwindcss"],
+  "prettier.documentSelectors": [" **/*.{mjs,ts}"]
 }

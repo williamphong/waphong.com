@@ -1,10 +1,10 @@
 import React from 'react';
+import './ether.global.css';
 import type { Metadata } from 'next';
 
-import ThemeToggle from '@/components/themeToggle/ThemeToggle';
+import Navbar from '@/components/blog/navbar/Navbar';
 import Footer from '@/components/blog/footer/Footer';
-import SessionWrapper from '@/components/SessionWrapper';
-import Link from 'next/link';
+import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: '... | William Phong',
     default: 'William Phong', // a default is required when creating a template
   },
-  description: 'wordcloud app',
+  description: 'my blog',
   openGraph: {
     title: 'William Phong',
     description: "William Phong's portfolio website",
@@ -52,28 +52,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function WordCloud({
+export default function BlogLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <SessionWrapper>
-      <div className="bg-bg text-textColor">
-        <div className="flex items-center justify-center">
-          <div className="">
-            <Link href="/ether">
-              <h1 className="font-satoshi font-bold">Spotify Word Cloud</h1>
-            </Link>
+    <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
+      <body className="leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="mx-auto min-h-screen max-w-screen-xl">
+            <Navbar />
+            {children}
+            <Footer />
           </div>
-          <div className="">
-            <ThemeToggle />
-          </div>
-        </div>
-        <hr className="-ml-[3333px] mb-3 mt-6 w-[9999px] overflow-hidden border-slate-400 dark:border-slate-300" />
-
-        <div className="mx-auto min-h-screen max-w-screen-xl">{children}</div>
-
-        <Footer />
-      </div>
-    </SessionWrapper>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

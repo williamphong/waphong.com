@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './navbar.module.css';
-import ThemeToggle from '@/components/themeToggle/ThemeToggle';
+import { ModeToggle } from '@/components/themeToggle/theme-toggle';
 import AuthLinks from '@/components/blog/authLinks/authLinks';
 import Link from 'next/link';
 
@@ -18,7 +18,7 @@ export const Navbar = () => {
             <h1 className="">about</h1>
           </Link>
           <AuthLinks />
-          <ThemeToggle />
+          <ModeToggle />
         </div>
       </div>
       <hr className="-ml-[3333px] mb-3 mt-6 w-[9999px] overflow-hidden border-slate-400 dark:border-slate-300" />

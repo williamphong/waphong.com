@@ -1,10 +1,10 @@
 'use client';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-
+import { useSession } from '@/lib/auth-client';
+import RcTiptapEditor from 'reactjs-tiptap-editor';
 import 'reactjs-tiptap-editor/style.css';
-import RichTextEditor, {
+import {
   BaseKit,
   Blockquote,
   Bold,
@@ -42,26 +42,21 @@ import RichTextEditor, {
   TextAlign,
   Underline,
   Video,
-  locale,
   TableOfContents,
-  Excalidraw,
+  //Excalidraw,
   TextDirection,
   Mention,
   Attachment,
   ImageGif,
   Mermaid,
   Twitter,
-} from 'reactjs-tiptap-editor';
+} from 'reactjs-tiptap-editor/extension-bundle';
 
 const extensions = [
   BaseKit.configure({
     multiColumn: true,
-    placeholder: {
-      showOnlyCurrent: true,
-    },
-    characterCount: {
-      limit: 50_000,
-    },
+    placeholder: { showOnlyCurrent: true },
+    characterCount: { limit: 50_000 },
   }),
   History,
   SearchAndReplace,
@@ -86,12 +81,7 @@ const extensions = [
   TextAlign.configure({ types: ['heading', 'paragraph'], spacer: true }),
   Indent,
   LineHeight,
-  TaskList.configure({
-    spacer: true,
-    taskItem: {
-      nested: true,
-    },
-  }),
+  TaskList.configure({ spacer: true, taskItem: { nested: true } }),
   Link,
   Image.configure({
     upload: (files: File) => {
@@ -117,9 +107,7 @@ const extensions = [
   Blockquote.configure({ spacer: true }),
   SlashCommand,
   HorizontalRule,
-  Code.configure({
-    toolbar: false,
-  }),
+  Code.configure({ toolbar: false }),
   CodeBlock.configure({ defaultTheme: 'dracula' }),
   ColumnActionButton,
   Table,
@@ -135,7 +123,7 @@ const extensions = [
     },
   }),
   ExportWord,
-  Excalidraw,
+  //Excalidraw,
   Mention,
   Attachment.configure({
     upload: (file: any) => {
@@ -188,14 +176,35 @@ function debounce(func: any, wait: number) {
   };
 }
 
-const DEFAULT = '';
+const currDate = new Date();
+
+const DEFAULT = `
+  <h1 dir="auto">Title</h1> 
+  <h6 dir="auto" style="line-height: 100%" >subtitle</h6>
+  <span style="font-size: 12px">${currDate.toDateString()}</span> 
+  <div data-type="horizontalRule"><hr></div>
+  <h2 dir="auto">Header</h2>
+  <p dir="auto"></p>
+  <p dir="auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p dir="auto"></p>
+  <p dir="auto"></p>
+`;
+
+console.log(DEFAULT);
 
 const WritePage = () => {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session, isPending } = useSession();
+  const [isClient, setIsClient] = useState(false);
 
   const [content, setContent] = useState(DEFAULT);
-  const refEditor = React.useRef<any | null>(null);
+
+  useEffect(() => {
+    setIsClient(true);
+    if (!isPending && !session) {
+      router.push('/ether');
+    }
+  }, [session, isPending, router]);
 
   const onValueChange = useCallback(
     debounce((value: string) => {
@@ -204,25 +213,27 @@ const WritePage = () => {
     []
   );
 
-  useEffect(() => {
-    if (status === 'unauthenticated' || session?.provider !== 'google') {
-      router.push('/ether'); // Navigate after rendering
-    }
-  }, [status, session, router]); // Dependencies
+  if (!isClient || isPending) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
 
-  if (status === 'loading') {
-    return <div>loading...</div>; // Handle loading state
+  if (!session) {
+    return null; // Or redirect immediately
   }
 
   return (
     <main>
       <div className="m-10">
-        <RichTextEditor
-          ref={refEditor}
+        <RcTiptapEditor
           output="html"
           content={DEFAULT}
           onChangeContent={onValueChange}
           extensions={extensions}
+          //immediatelyRender={false}
         />
 
         {typeof content === 'string' && (
