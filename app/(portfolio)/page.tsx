@@ -9,7 +9,7 @@ import {
   //education,
   projectsData,
   svg,
-} from '../lib/data';
+} from '../../lib/data';
 import { ModeToggle } from '@/components/themeToggle/theme-toggle';
 
 // Project Image Component

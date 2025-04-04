@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 
-import './globals.css';
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'William Phong',
-    description: "William Phong's portfolio website",
+    description: "William Phong's portfolio",
     //siteId: '1467726470533754880',
     creator: 'William Phong',
     //creatorId: '1467726470533754880',

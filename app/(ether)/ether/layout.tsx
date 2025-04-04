@@ -1,29 +1,32 @@
 import React from 'react';
-import './ether.global.css';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import Navbar from '@/components/blog/navbar/Navbar';
 import Footer from '@/components/blog/footer/Footer';
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
+
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
   generator: 'Next.js',
   applicationName: 'Next.js',
   referrer: 'origin-when-cross-origin',
   keywords: ['Next.js', 'React', 'JavaScript'],
-  authors: [{ name: 'William Phong', url: 'https://waphong.com' }],
+  authors: [{ name: 'William Phong', url: 'https://waphong.com/ether' }],
   creator: 'William Phong',
   metadataBase: new URL('https://waphong.com'),
   title: {
-    template: '... | William Phong',
-    default: 'William Phong', // a default is required when creating a template
+    template: '... | Ether',
+    default: 'Ether', // a default is required when creating a template
   },
   description: 'my blog',
   openGraph: {
-    title: 'William Phong',
-    description: "William Phong's portfolio website",
-    url: 'https://waphong.com',
-    siteName: 'William Phong',
+    title: 'Ether',
+    description: 'idk thoughts',
+    url: 'https://waphong.com/ether',
+    siteName: 'Ether',
     /*images: [
       {
         url: 'https://nextjs.org/og.png', // Must be an absolute URL
@@ -43,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'William Phong',
-    description: "William Phong's portfolio website",
+    title: 'Ether',
+    description: 'idk thoughts',
     //siteId: '1467726470533754880',
     creator: 'William Phong',
     //creatorId: '1467726470533754880',
@@ -64,9 +67,11 @@ export default function BlogLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto min-h-screen max-w-screen-xl">
+          <div className="min-h-screen">
             <Navbar />
-            {children}
+            <div className="mx-80">{children}</div>
+            <Analytics />
+            <SpeedInsights />
             <Footer />
           </div>
         </ThemeProvider>
