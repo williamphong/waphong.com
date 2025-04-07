@@ -14,7 +14,7 @@ export const Navbar = () => {
       <div className="flex w-1/3"></div>
       <div className="flex w-1/3 place-content-center gap-6">
         <Link href="/ether/about">
-          <h1 className="">about</h1>
+          <h1 className="text-base">about</h1>
         </Link>
         <AuthLinks />
         <ModeToggle />

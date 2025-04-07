@@ -24,6 +24,10 @@ export const navigation = [
     hash: '#education',
   },
   */
+ {
+    name: 'gallery',
+    hash: '#gallery',
+  },
   {
     name: 'more',
     hash: '#more',
@@ -99,11 +103,38 @@ export const projectsData = [
   {
     title: 'VR Earth Orbit Simulation',
     description:
-      'Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
+      'Solved an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
     tags: ['C#', 'MATLAB', 'Unity'],
     link: 'https://github.com/williamphong/CS490-VR-Orbit',
     imageUrl: '/images/projects/vrorbit.webm',
     date: 'Jan 2024 - Present',
+  },
+  {
+    title: 'Formula 1 Race Prediction Application',
+    description:
+      'Predicts race results from qualifying data using linear/multinomial and XGBoost regression',
+    tags: ['Python', 'MatPlotLib', 'Pandas'],
+    link: 'https://github.com/williamphong/F1DataVisualization',
+    imageUrl: '/images/projects/f1.jpg',
+    date: 'June 2024 - Present',
+  },
+  {
+    title: 'Portfolio Website',
+    description:
+      'Built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Vercel. Integrated BetterAuth, Prisma and PostgreSQL',
+    tags: ['Next.JS', 'TypeScript', 'Vercel'],
+    link: 'https://github.com/williamphong/personalwebsite',
+    imageUrl: '/images/projects/waphong.png',
+    date: 'May 2024 - Present',
+  },
+  {
+    title: 'craniumknight.com',
+    description:
+      'Artist portfolio, built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Netlify.',
+    tags: ['Next.JS', 'TypeScript', 'Vercel'],
+    link: 'https://craniumknight.com',
+    imageUrl: '/images/projects/craniumknight.png',
+    date: 'Feb 2025 - Present',
   },
   {
     title: 'Spotify Daylist Word Cloud',
@@ -115,36 +146,27 @@ export const projectsData = [
     date: 'June 2024 - Present',
   },
   {
-    title: 'Formula1 Result Prediction Algorithm',
+    title: 'kwauche.com',
     description:
-      'Predicts race results from qualifying data using linear and multinomial regression',
-    tags: ['Python', 'MatPlotLib', 'Pandas'],
-    link: 'https://github.com/williamphong/F1DataVisualization',
-    imageUrl: '/images/projects/f1.jpg',
-    date: 'June 2024 - Present',
-  },
-  {
-    title: 'Portfolio Website',
-    description:
-      'Personal website developed using Next.JS, Typescript, and deployed using Vercel.',
+      'Artist portfolio, built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Netlify.',
     tags: ['Next.JS', 'TypeScript', 'Vercel'],
-    link: 'https://github.com/williamphong/personalwebsite',
-    imageUrl: '/images/projects/website.png',
-    date: 'May 2024 - Present',
+    link: 'https://kwauche.com',
+    imageUrl: '/images/projects/kwauche.png',
+    date: 'Jan 2025 - Present',
   },
   {
     title: 'Discord Bot',
     description:
-      'Implemented a Discord bot into servers with over 200 users. Deployed on a Linux machine using Docker with 24/7 up-time.',
+      'Deployed a responsive Java Discord bot supporting 200+ users. Containerized on AWS using Docker for 24/7 up-time.',
     tags: ['Java', 'Python', 'C++'],
     link: '',
     imageUrl: '/images/projects/discord-bot.webp',
     date: 'Jan 2019 - Present',
   },
   {
-    title: 'CSUSM Android Student Application',
+    title: 'Student Portal Application',
     description:
-      'Provides personalized and focused information to students. Faculty admin and students of CSUSM were interviewed to determine a customer story and requirements.',
+      'Provides personalized and focused information to students. Developed front-end app with Java and Android Studio',
     tags: ['Java', 'Android Studio', 'SQL'],
     link: 'https://github.com/williamphong/CSUSMStudentApp',
     imageUrl: '/images/projects/csusm.jpg',

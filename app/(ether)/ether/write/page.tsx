@@ -193,11 +193,12 @@ const DEFAULT = `
 console.log(DEFAULT);
 
 const WritePage = () => {
+  const [content, setContent] = useState(DEFAULT);
   const router = useRouter();
   const { data: session, isPending } = useSession();
   const [isClient, setIsClient] = useState(false);
-
-  const [content, setContent] = useState(DEFAULT);
+  const [disable, setDisable] = useState(false);
+  const refEditor = React.useRef<any>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -227,12 +228,17 @@ const WritePage = () => {
 
   return (
     <main>
+      <button onClick={() => setDisable(!disable)}>
+        {disable ? 'Editable' : 'Readonly'}
+      </button>
       <div className="m-10">
         <RcTiptapEditor
+          ref={refEditor}
           output="html"
           content={DEFAULT}
           onChangeContent={onValueChange}
           extensions={extensions}
+          disabled={disable}
           //immediatelyRender={false}
         />
 

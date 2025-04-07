@@ -60,7 +60,7 @@ export default function BlogLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
-      <body className="leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
+      <body className="bg-bgLight leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -69,7 +69,7 @@ export default function BlogLayout({
         >
           <div className="min-h-screen">
             <Navbar />
-            <div className="mx-80">{children}</div>
+            <div className="mx-64">{children}</div>
             <Analytics />
             <SpeedInsights />
             <Footer />

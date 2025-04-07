@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './authLinks.module.css';
 import Link from 'next/link';
 import { authClient } from '@/lib/auth-client';
 
@@ -27,12 +26,16 @@ export default function AuthLinks() {
 
   // Handle unauthenticated state or errors
   return !session ? (
-    <Link href="/ether/login">login</Link>
+    <Link className="text-md" href="/ether/login">
+      login
+    </Link>
   ) : (
     <div className="flex justify-center gap-6">
-      <Link href="/ether/write">write</Link>
+      <Link className="text-md" href="/ether/write">
+        write
+      </Link>
       <span
-        className={styles.link}
+        className="cursor-pointer"
         onClick={(e) => {
           e.preventDefault(); // Prevent default anchor behavior
           handleSignOutGoogle(); // Call signOut function

@@ -79,7 +79,7 @@ const ProjectList = () => {
                     href={project.link}
                     aria-label={project.title}
                     target="_blank"
-                    rel="noopener noreferrer" // Added rel for security
+                    rel="noopener noreferrer"
                   >
                     <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                     <span>{project.title}</span>
@@ -248,7 +248,7 @@ export default function Home() {
           <p className="mb-4 text-slate-400">
             <a
               className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
-              href="/files/resume.pdf"
+              href="/files/Resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="resume"
@@ -274,12 +274,30 @@ export default function Home() {
           <ProjectList />
         </section>
 
+        {/* gallery section */}
+        <section
+          id="gallery"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="gallery"
+          ref={sectionRefs.current[2]}
+        >
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+              gallery
+            </h2>
+          </div>
+
+          <div>
+            <p className="mt-2 text-sm leading-normal">gallery coming soon</p>
+          </div>
+        </section>
+
         {/* More section */}
         <section
           id="more"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="more"
-          ref={sectionRefs.current[2]}
+          ref={sectionRefs.current[3]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">

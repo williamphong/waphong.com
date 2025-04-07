@@ -24,6 +24,7 @@ const config: Config = {
           background:'#0f172a',
         },
         bgDark: '#0f172a',
+        bgLight: '#faf5ef',
         textColor: 'var(--textColor)',
         paper: '#f4f0e8',
         purple: {
