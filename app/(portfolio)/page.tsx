@@ -248,7 +248,7 @@ export default function Home() {
           <p className="mb-4 text-slate-400">
             <a
               className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
-              href="/files/Resume.pdf"
+              href="/files/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="resume"
