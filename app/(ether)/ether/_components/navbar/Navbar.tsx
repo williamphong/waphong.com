@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModeToggle } from '@/components/themeToggle/theme-toggle';
-import AuthLinks from '@/components/blog/authLinks/authLinks';
+import AuthLinks from '../authLinks/authLinks';
 import Link from 'next/link';
 
 export const Navbar = () => {

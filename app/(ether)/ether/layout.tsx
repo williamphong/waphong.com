@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import Navbar from '@/components/blog/navbar/Navbar';
-import Footer from '@/components/blog/footer/Footer';
+import Navbar from '../ether/_components/navbar/Navbar';
+import Footer from '../ether/_components/footer/Footer';
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 
 import '@/app/globals.css';

@@ -3,7 +3,7 @@ import styles from './loginPage.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
-import LoadingButton from '@/components/blog/loading-button';
+import LoadingButton from '@/app/(ether)/ether/_components/loading-button';
 
 const LoginPage = () => {
   const router = useRouter();

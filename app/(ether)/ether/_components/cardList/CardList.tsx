@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import styles from './cardlist.module.css';
-import Card from '@/components/blog/card/Card';
+import Card from '@/app/(ether)/ether/_components/card/Card';
 
 interface Post {
   _id: string;

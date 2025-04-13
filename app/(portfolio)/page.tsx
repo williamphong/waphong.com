@@ -1,47 +1,10 @@
 'use client';
 import React, { useEffect, useState, useRef, RefObject } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import {
-  navigation,
-  aboutMe,
-  //experiencesData,
-  //education,
-  projectsData,
-  svg,
-} from '../../lib/data';
-import { ModeToggle } from '@/components/themeToggle/theme-toggle';
 
-// Project Image Component
-const ProjectImage = ({ url }: { url: string }) => {
-  const isWebm = url.endsWith('.webm');
-  if (isWebm) {
-    return (
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        width="200"
-        height="48"
-        preload="auto"
-        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-      >
-        <source src={url} type="video/webm" />
-      </video>
-    );
-  }
-  return (
-    <Image
-      src={url}
-      alt="image"
-      decoding="async"
-      width={200}
-      height={48}
-      className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-    />
-  );
-};
+import { navigation, aboutMe } from '@/lib/data';
+import { ProjectList } from './_components/ProjectList';
+import { LeftFooter, RightFooter } from './_components/Footers';
 
 // Navigation
 const NavigationLink = ({
@@ -63,42 +26,6 @@ const NavigationLink = ({
     </Link>
   </li>
 );
-
-const ProjectList = () => {
-  return (
-    <div>
-      <ol>
-        {projectsData.map((project, index) => (
-          <li key={index} className="mb-12">
-            <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-              <div className="z-10 sm:order-2 sm:col-span-6">
-                <h3>
-                  <a
-                    className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-700 hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
-                    href={project.link}
-                    aria-label={project.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                    <span>{project.title}</span>
-                  </a>
-                </h3>
-
-                <p className="mt-2 text-sm leading-normal">
-                  {project.description}
-                </p>
-              </div>
-
-              <ProjectImage url={project.imageUrl} />
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-};
 
 export default function Home() {
   const sectionRefs = useRef<RefObject<HTMLElement>[]>(
@@ -147,9 +74,8 @@ export default function Home() {
           </h2>
 
           <p className="mt-4 max-w-xs leading-normal">
-            {' '}
             Hi! I am currently looking for backend software dev and/or data
-            analysis roles, but I am open to all opportunities!{' '}
+            analysis roles, but I am open to all opportunities!
           </p>
 
           <nav className="nav hidden lg:block" aria-label="In-page jump links">
@@ -165,34 +91,7 @@ export default function Home() {
           </nav>
         </div>
 
-        {/* Left side footer */}
-        <ul
-          className="ml-1 mt-8 flex items-center gap-5"
-          aria-label="Social media"
-        >
-          <ModeToggle />
-          {svg.map((img, index) => (
-            <li key={index} className="shrink-0 text-xs">
-              <a
-                className="block hover:text-slate-200"
-                href={img.link}
-                target="blank"
-                title={img.name}
-              >
-                <span className="sr-only">{img.name}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox={img.viewbox}
-                  fill="currentColor"
-                  className="h-6 w-6"
-                  aria-hidden="true"
-                >
-                  <path d={img.path}></path>
-                </svg>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <LeftFooter />
       </header>
 
       {/* Right side  */}
@@ -287,60 +186,14 @@ export default function Home() {
             </h2>
           </div>
 
-          <div>
-            <p className="mt-2 text-sm leading-normal">gallery coming soon</p>
-          </div>
-        </section>
-
-        {/* More section */}
-        <section
-          id="more"
-          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-          aria-label="more"
-          ref={sectionRefs.current[3]}
-        >
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-              more
-            </h2>
-          </div>
-
-          <div>
-            <p className="mt-2 text-sm leading-normal">More coming soon</p>
-          </div>
-        </section>
-
-        {/* Right side footer */}
-        <footer className="max-w-md pb-16 pt-96 text-sm sm:pb-0">
-          {
-            <p>
-              The design and code for this website is largely inspired or from{' '}
-              <a
-                className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
-                href="https://brittanychiang.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="letterboxd"
-              >
-                {' '}
-                brittanychiang.com
-              </a>{' '}
-              and{' '}
-              <a
-                className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
-                href="https://carlbeaverson.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="letterboxd"
-              >
-                {' '}
-                carlbeaverson.com
-              </a>
-              . It is developed with Next.js, Typescript, Tailwind CSS, and
-              deployed with Vercel.
+          <div className="h-96">
+            <p className="mt-2 text-sm leading-normal">
+              gallery and more coming soon
             </p>
-          }
-        </footer>
+          </div>
+        </section>
+
+        <RightFooter />
       </main>
     </div>
   );

@@ -13,34 +13,21 @@ export const navigation = [
     name: 'projects',
     hash: '#projects',
   },
-  /*
-  {
-    name: 'experience',
-    hash: '#experience',
-  },
-  
-  {
-    name: 'education',
-    hash: '#education',
-  },
-  */
  {
     name: 'gallery',
     hash: '#gallery',
   },
-  {
-    name: 'more',
-    hash: '#more',
-  },
 ] as const;
 
 export const svg = [
+  /*
   {
     name: 'Email',
     viewbox: '0 0 8 6',
     path: 'm0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z',
     link: 'mailto:williamphong10@gmail.com',
   },
+  */
   {
     name: 'GitHub',
     viewbox: '0 0 16 16',
@@ -96,81 +83,6 @@ export const education = [
     awards: 'Deans List Spring 2023 & Spring 2024, Cum Laude',
     classes:
       'Data Structures and Algorithms, Operating Systems, Databases, Cloud Computing, Networking, Security, Architecture, Embedded Systems, Software Engineering, Probability and Statistics, Discrete Mathematics, Linear Algebra',
-  },
-] as const;
-
-export const projectsData = [
-  {
-    title: 'VR Earth Orbit Simulation',
-    description:
-      'Solved an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
-    tags: ['C#', 'MATLAB', 'Unity'],
-    link: 'https://github.com/williamphong/CS490-VR-Orbit',
-    imageUrl: '/images/projects/vrorbit.webm',
-    date: 'Jan 2024 - Present',
-  },
-  {
-    title: 'Formula 1 Race Prediction Application',
-    description:
-      'Predicts race results from qualifying data using linear/multinomial and XGBoost regression',
-    tags: ['Python', 'MatPlotLib', 'Pandas'],
-    link: 'https://github.com/williamphong/F1DataVisualization',
-    imageUrl: '/images/projects/f1.jpg',
-    date: 'June 2024 - Present',
-  },
-  {
-    title: 'Portfolio Website',
-    description:
-      'Built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Vercel. Integrated BetterAuth, Prisma and PostgreSQL',
-    tags: ['Next.JS', 'TypeScript', 'Vercel'],
-    link: 'https://github.com/williamphong/personalwebsite',
-    imageUrl: '/images/projects/waphong.png',
-    date: 'May 2024 - Present',
-  },
-  {
-    title: 'craniumknight.com',
-    description:
-      'Artist portfolio, built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Netlify.',
-    tags: ['Next.JS', 'TypeScript', 'Vercel'],
-    link: 'https://craniumknight.com',
-    imageUrl: '/images/projects/craniumknight.png',
-    date: 'Feb 2025 - Present',
-  },
-  {
-    title: 'Spotify Daylist Word Cloud',
-    description:
-      "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
-    tags: ['Python', 'Spotipy'],
-    link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
-    imageUrl: '/images/projects/wordcloud.png',
-    date: 'June 2024 - Present',
-  },
-  {
-    title: 'kwauche.com',
-    description:
-      'Artist portfolio, built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Netlify.',
-    tags: ['Next.JS', 'TypeScript', 'Vercel'],
-    link: 'https://kwauche.com',
-    imageUrl: '/images/projects/kwauche.png',
-    date: 'Jan 2025 - Present',
-  },
-  {
-    title: 'Discord Bot',
-    description:
-      'Deployed a responsive Java Discord bot supporting 200+ users. Containerized on AWS using Docker for 24/7 up-time.',
-    tags: ['Java', 'Python', 'C++'],
-    link: '',
-    imageUrl: '/images/projects/discord-bot.webp',
-    date: 'Jan 2019 - Present',
-  },
-  {
-    title: 'Student Portal Application',
-    description:
-      'Provides personalized and focused information to students. Developed front-end app with Java and Android Studio',
-    tags: ['Java', 'Android Studio', 'SQL'],
-    link: 'https://github.com/williamphong/CSUSMStudentApp',
-    imageUrl: '/images/projects/csusm.jpg',
-    date: 'Jan 2023 - May 2023',
   },
 ] as const;
 

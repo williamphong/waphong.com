@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import styles from './blogPage.module.css';
-import CardList from '@/components/blog/cardList/CardList';
-import Menu from '@/components/blog/menu/Menu';
+import CardList from '@/app/(ether)/ether/_components/cardList/CardList';
+import Menu from '@/app/(ether)/ether/_components/menu/Menu';
 
 interface BlogPageProps {
   searchParams: Promise<{

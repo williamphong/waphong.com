@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './singlePage.module.css';
 import Image from 'next/image';
-import Menu from '@/components/blog/menu/Menu';
+import Menu from '../../_components/menu/Menu';
 
 const getData = async (slug: any) => {
   const res = await fetch(`http://localhost:3000/api/ether/posts/${slug}`, {

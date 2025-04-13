@@ -1,7 +1,7 @@
 import React from 'react';
-import Featured from '@/components/blog/featured/Featured';
-import CardList from '@/components/blog/cardList/CardList';
-import Menu from '@/components/blog/menu/Menu';
+import Featured from '../ether/_components/featured/Featured';
+import CardList from '../ether/_components//cardList/CardList';
+import Menu from '../ether/_components/menu/Menu';
 
 export default function Home() {
   return (
