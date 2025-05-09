@@ -12,24 +12,24 @@
   .activedark .nav-indicator {
     width: 4rem;
     --tw-bg-opacity: 1;
-    background-color: rgb(226, 232, 240, var(--tw-bg-opacity));
+    background-color: theme('colors.rp.rose');
   }
 
   .activedark .nav-text {
     --tw-text-opacity: 1;
-    color: rgb(226, 232, 240, var(--tw-text-opacity));
+    color: theme('colors.rp.rose');
   }
 }
 
 .active .nav-indicator {
   width: 4rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(30, 41, 59, var(--tw-bg-opacity));
+  background-color: theme('colors.rpd.rose');
 }
 
 .active .nav-text {
   --tw-text-opacity: 1;
-  color: rgb(30, 41, 59, var(--tw-text-opacity));
+  color: theme('colors.rpd.rose');
 }
 
 /* Define Inter Font */

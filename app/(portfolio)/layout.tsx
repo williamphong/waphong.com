@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { ThemeProvider } from '@/components/themeToggle/theme-provider';
-
 import '@/app/globals.css';
+
+import { ThemeProvider } from '@/components/themeToggle/theme-provider';
+import SpotlightCursor from '@/components/SpotlightCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
@@ -53,14 +54,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
-      <body className="bg-bgLight leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
+      <body className="dark:bg-rp-base dark:selection:bg-rp-highlightMed dark:selection:text-rp-iris bg-rpd-base text-rpd-subtle dark:text-rp-subtle leading-relaxed antialiased">
+        <SpotlightCursor
+          config={{
+            radius: 400,
+            brightness: 0.15,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">
             {children}
             <Analytics />
             <SpeedInsights />

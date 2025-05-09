@@ -5,27 +5,10 @@ import Link from 'next/link';
 import { navigation, aboutMe } from '@/lib/data';
 import { ProjectList } from './_components/ProjectList';
 import { LeftFooter, RightFooter } from './_components/Footers';
-
-// Navigation
-const NavigationLink = ({
-  item,
-  isActive,
-}: {
-  item: { name: string };
-  isActive: boolean;
-}) => (
-  <li>
-    <Link
-      href={`#${item.name}`}
-      className={`group flex items-center py-3 ${isActive ? 'active dark:activedark' : ''}`}
-    >
-      <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-800 group-focus-visible:w-16 group-focus-visible:bg-slate-800 motion-reduce:transition-none dark:group-hover:bg-slate-200 dark:group-focus-visible:bg-slate-200"></span>
-      <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-800 group-focus-visible:text-slate-800 dark:group-hover:text-slate-200 dark:group-focus-visible:text-slate-700">
-        {item.name}
-      </span>
-    </Link>
-  </li>
-);
+import { ExternalLink } from './_components/ExternalLink';
+import { Navigation } from './_components/Navigation';
+import { EducationList } from './_components/EducationList';
+import { ExperienceList } from './_components/ExperienceList';
 
 export default function Home() {
   const sectionRefs = useRef<RefObject<HTMLElement>[]>(
@@ -64,38 +47,30 @@ export default function Home() {
     <div className="lg:flex lg:justify-between lg:gap-4">
       {/* Left side  */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
-        <div>
-          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold dark:text-slate-200 sm:text-3xl md:text-6xl">
-            <Link href="/">William Phong</Link>
+        <div className="">
+          <h1 className="text-edge-outline dark:text-rp-text text-rpd-text cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold sm:text-3xl md:text-6xl">
+            <Link href="/" className="dark:focus-visible:text-rp-love">
+              William Phong
+            </Link>
           </h1>
 
-          <h2 className="text-lg font-medium tracking-tight dark:text-slate-200 sm:text-xl">
-            Bachelors in Computer Science
+          <h2 className="dark:text-rp-text text-rpd-text text-lg font-medium tracking-tight sm:text-xl">
+            M.S. in Computer Science @ SDSU
           </h2>
 
-          <p className="mt-4 max-w-xs leading-normal">
-            Hi! I am currently looking for backend software dev and/or data
-            analysis roles, but I am open to all opportunities!
+          <p className="mt-4 max-w-xs">
+            Hi! I'm currently looking for backend software or data analysis
+            roles, but I am open to all opportunities!
           </p>
 
-          <nav className="nav hidden lg:block" aria-label="In-page jump links">
-            <ul className="mt-16 w-max">
-              {navigation.map((item, index) => (
-                <NavigationLink
-                  key={index}
-                  item={item}
-                  isActive={activeSection === item.name}
-                />
-              ))}
-            </ul>
-          </nav>
+          <Navigation activeSection={activeSection} />
         </div>
 
         <LeftFooter />
       </header>
 
       {/* Right side  */}
-      <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
+      <main id="content" className="lg:w-1/2 lg:py-24">
         {/* About me section */}
         <section
           id="about"
@@ -110,43 +85,41 @@ export default function Home() {
           <p className="mb-4">
             In my free time, I enjoy listening to{' '}
             <a
-              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
+              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
               href="https://open.spotify.com/user/william.phong"
               target="_blank"
               rel="noreferrer noopener"
-              aria-label="letterboxd"
+              aria-label="spotify"
             >
-              {' '}
               music
             </a>
-            , taking
+            , taking{' '}
             <a
-              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
+              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
               href="/gallery"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="gallery"
             >
               {' '}
-              pictures{' '}
-            </a>
-            with my film camera, playing video games, and watching
+              pictures
+            </a>{' '}
+            with my film camera, playing video games, and watching{' '}
             <a
-              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
+              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
               href="https://letterboxd.com/andjuly/"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="letterboxd"
             >
-              {' '}
               movies
             </a>
             .
           </p>
-
+          <br></br>
           <p className="mb-4 text-slate-400">
             <a
-              className="font-medium text-slate-700 hover:text-teal-300 dark:text-slate-200 dark:focus-visible:text-teal-300"
+              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
               href="/files/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
@@ -173,12 +146,44 @@ export default function Home() {
           <ProjectList />
         </section>
 
+        {/* Experience Section */}
+        <section
+          id="education"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="education"
+          ref={sectionRefs.current[2]}
+        >
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest dark:text-slate-200 lg:sr-only">
+              Education
+            </h2>
+          </div>
+
+          <EducationList />
+        </section>
+
+        {/* Experience Section */}
+        <section
+          id="experience"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="experience"
+          ref={sectionRefs.current[3]}
+        >
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest dark:text-slate-200 lg:sr-only">
+              Experience
+            </h2>
+          </div>
+
+          <ExperienceList />
+        </section>
+
         {/* gallery section */}
         <section
           id="gallery"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="gallery"
-          ref={sectionRefs.current[2]}
+          ref={sectionRefs.current[4]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">

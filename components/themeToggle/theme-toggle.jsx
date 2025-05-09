@@ -1,9 +1,9 @@
 "use client";
 
-import { Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { MoonIcon, SunMediumIcon, SunMoonIcon } from "../pqoqubbw/icons";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -24,8 +24,8 @@ export function ModeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="outline" size="icon" disabled>
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
+      <Button className="dark:bg-rp-surface bg-rpd-surface" variant="outline" size="icon" disabled>
+        <SunMoonIcon />
       </Button>
     );
   }
@@ -34,13 +34,14 @@ export function ModeToggle() {
   const getCurrentIcon = () => {
     if (theme === 'system') {
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return systemDark ? <Moon /> : <Sun />;
+      return systemDark ? <MoonIcon/> : <SunMediumIcon/>;
     }
-    return theme === 'dark' ? <Moon /> : <Sun />;
+    return theme === 'dark' ? <MoonIcon/> : <SunMediumIcon/>;
   };
 
   return (
     <Button
+      className="dark:bg-rp-surface bg-rpd-surface text-rpd-rose dark:text-rp-rose"
       variant="outline"
       size="icon"
       onClick={toggleTheme}

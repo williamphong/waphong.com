@@ -1,11 +1,12 @@
 import { ProjectImage } from './ProjectImage';
+import { Button } from '@/components/ui/button';
 
 export const projectsData = [
   {
     title: 'VR Earth Orbit Simulation',
     description:
-      'Solved an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun along the orbit.',
-    tags: ['C#', 'MATLAB', 'Unity'],
+      "Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun's orbit.",
+    tags: ['C#', 'MATLAB', 'Unity', 'SteamVR'],
     link: 'https://github.com/williamphong/CS490-VR-Orbit',
     imageUrl: '/images/projects/vrorbit.webm',
     date: 'Jan 2024 - Present',
@@ -13,35 +14,41 @@ export const projectsData = [
   {
     title: 'Formula 1 Race Prediction Application',
     description:
-      'Predicts race results from qualifying data using linear/multinomial and XGBoost regression',
-    tags: ['Python', 'MatPlotLib', 'Pandas'],
+      'Predicts race results from qualifying data using linear/multinomial regression and XGBoost',
+    tags: [
+      'Python',
+      'Tensorflow',
+      'Pytorch',
+      'Sci-kit',
+      'MatPlotLib',
+      'Pandas',
+      'Postgresql',
+    ],
     link: 'https://github.com/williamphong/F1DataVisualization',
     imageUrl: '/images/projects/f1.jpg',
-    date: 'June 2024 - Present',
+    date: 'Jun 2024 - Present',
   },
   {
-    title: 'Portfolio Website',
+    title: 'Portfolio Website // waphong.com',
     description:
-      'Built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Vercel. Integrated BetterAuth, Prisma and PostgreSQL',
-    tags: ['Next.JS', 'TypeScript', 'Vercel'],
+      'My personal portfolio website. Integrates BetterAuth, Prisma and PostgreSQL for backend usage.',
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Vercel'],
     link: 'https://github.com/williamphong/personalwebsite',
     imageUrl: '/images/projects/waphong.png',
     date: 'May 2024 - Present',
   },
   {
     title: 'craniumknight.com',
-    description:
-      'Artist portfolio, built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Netlify.',
-    tags: ['Next.JS', 'TypeScript', 'Vercel'],
+    description: 'Portfolio website built for artist craniumknight.',
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Netlify'],
     link: 'https://craniumknight.com',
     imageUrl: '/images/projects/craniumknight.png',
     date: 'Feb 2025 - Present',
   },
   {
     title: 'kwauche.com',
-    description:
-      'Artist portfolio, built using Next.js with TypeScript, HTML, and Tailwind CSS, deployed on Netlify.',
-    tags: ['Next.JS', 'TypeScript', 'Vercel'],
+    description: 'Portfolio website built for artist Ryan Quach.',
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Netlify'],
     link: 'https://kwauche.com',
     imageUrl: '/images/projects/kwauche.png',
     date: 'Jan 2025 - Present',
@@ -50,16 +57,16 @@ export const projectsData = [
     title: 'Spotify Daylist Word Cloud',
     description:
       "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
-    tags: ['Python', 'Spotipy'],
+    tags: ['Python', 'Spotipy', 'Postgresql'],
     link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
     imageUrl: '/images/projects/wordcloud.png',
-    date: 'June 2024 - Present',
+    date: 'Jun 2024 - Present',
   },
   {
     title: 'Discord Bot',
     description:
-      'Deployed a responsive Java Discord bot supporting 200+ users. Containerized on AWS using Docker for 24/7 up-time.',
-    tags: ['Java', 'Python', 'C++'],
+      'Deployed a responsive Java Discord bot supporting 200+ users. Containerized on AWS for 24/7 up-time.',
+    tags: ['Java', 'Python', 'Docker', 'AWS'],
     link: '',
     imageUrl: '/images/projects/discord-bot.webp',
     date: 'Jan 2019 - Present',
@@ -68,7 +75,7 @@ export const projectsData = [
     title: 'Student Portal Application',
     description:
       'Provides personalized and focused information to students. Developed front-end app with Java and Android Studio',
-    tags: ['Java', 'Android Studio', 'SQL'],
+    tags: ['Java', 'Android Studio', 'MySQL'],
     link: 'https://github.com/williamphong/CSUSMStudentApp',
     imageUrl: '/images/projects/csusm.jpg',
     date: 'Jan 2023 - May 2023',
@@ -82,11 +89,12 @@ export const ProjectList = () => {
         {projectsData.map((project, index) => (
           <li key={index} className="mb-12">
             <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+              <div className="dark:lg:group-hover:bg-rp-surface/75 lg:group-hover:bg-rpd-surface/75 absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+
               <div className="z-10 sm:order-2 sm:col-span-6">
                 <h3>
                   <a
-                    className="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-700 hover:text-teal-300 focus-visible:text-teal-300 dark:text-slate-200"
+                    className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base font-medium leading-tight"
                     href={project.link}
                     aria-label={project.title}
                     target="_blank"
@@ -100,6 +108,19 @@ export const ProjectList = () => {
                 <p className="mt-2 text-sm leading-normal">
                   {project.description}
                 </p>
+
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <Button
+                      key={tag}
+                      variant="outline"
+                      size="sm"
+                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam pointer-events-none"
+                    >
+                      {tag}
+                    </Button>
+                  ))}
+                </div>
               </div>
 
               <ProjectImage url={project.imageUrl} />
