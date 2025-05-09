@@ -19,7 +19,7 @@ export const education = [
     title: 'California State University, San Marcos',
     date: 'Aug 2024',
     degree: 'B.Sc. in Computer Science',
-    awards: 'Cum Laude, Deans List Spring 2023 & Spring 2024',
+    awards: 'Cum Laude, Deans List Spring 2023 & 2024',
     classes:
       "Data Structures and Algorithm's, Operating Systems, Databases, Cloud Computing, Networking, Security, Architecture, Embedded Systems, Software Engineering, Probability and Statistics, Discrete Mathematics, Linear Algebra",
   },
@@ -49,6 +49,13 @@ export const EducationList = () => {
                 <p className="dark:text-rp-iris text-rpd-iris mt-2 text-xs leading-tight">
                   {edu.awards}
                 </p>
+
+                {/*
+                <ScrollArea className="mt-2 w-96 whitespace-nowrap rounded-md border">
+                  <p className="py-2 text-xs leading-tight">{edu.classes}</p>
+                  <ScrollBar orientation="horizontal" />
+                </ScrollArea>
+                */}
               </div>
             </div>
           </li>

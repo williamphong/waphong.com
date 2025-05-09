@@ -122,9 +122,9 @@ export const RightFooter = () => {
             rel="noreferrer noopener"
             aria-label="rose pine theme"
           >
-            rose pine theme
-          </a>
-          .
+            Rosé Pine
+          </a>{' '}
+          palette conventions.
         </p>
       }
     </footer>

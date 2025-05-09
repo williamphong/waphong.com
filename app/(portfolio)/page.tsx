@@ -48,8 +48,11 @@ export default function Home() {
       {/* Left side  */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div className="">
-          <h1 className="text-edge-outline dark:text-rp-text text-rpd-text cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold sm:text-3xl md:text-6xl">
-            <Link href="/" className="dark:focus-visible:text-rp-love">
+          <h1 className="text-edge-outline dark:text-rp-text text-rpd-text cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold tracking-wide sm:text-3xl md:text-6xl">
+            <Link
+              href="/"
+              className="dark:focus-visible:text-rp-love focus-visible:text-rpd-love"
+            >
               William Phong
             </Link>
           </h1>
