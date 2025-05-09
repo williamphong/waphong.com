@@ -7,6 +7,7 @@ import {
   LinkedinIcon,
   InstagramIcon,
   SpotifyIcon,
+  AudioLinesIcon,
 } from '@/components/pqoqubbw/icons';
 
 const socials = [
@@ -38,7 +39,7 @@ const socials = [
     href: 'https://open.spotify.com/user/william.phong',
     title: 'spotify',
     label: 'Spotify',
-    icon: <SpotifyIcon size={24} />,
+    icon: <AudioLinesIcon size={24} />,
   },
 ];
 

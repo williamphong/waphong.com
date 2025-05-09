@@ -1,9 +1,10 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunMediumIcon, SunMoonIcon } from "../pqoqubbw/icons";
+
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -36,7 +37,7 @@ export function ModeToggle() {
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       return systemDark ? <MoonIcon/> : <SunMediumIcon/>;
     }
-    return theme === 'dark' ? <MoonIcon/> : <SunMediumIcon/>;
+    return theme === 'dark' ? <MoonIcon /> : <SunMediumIcon/>;
   };
 
   return (
@@ -45,10 +46,11 @@ export function ModeToggle() {
       variant="outline"
       size="icon"
       onClick={toggleTheme}
-      aria-label="Toggle theme"
+      title="theme toggle"
+      aria-label="Theme toggle"
     >
       {getCurrentIcon()}
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only">Theme toggle</span>
     </Button>
   );
 }
