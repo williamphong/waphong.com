@@ -2,7 +2,7 @@
 
 const nextConfig = {
   images: {
-    domains: [],
+    domains: ['www.waphong.com'],
     remotePatterns: [
       {
         protocol: 'https',

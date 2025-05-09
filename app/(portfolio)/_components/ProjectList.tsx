@@ -136,7 +136,7 @@ export const ProjectList = () => {
                 </div>
               </div>
 
-              <ProjectImage url={project.imageUrl} />
+              <ProjectImage url={project.imageUrl} alt={project.title} />
             </div>
           </li>
         ))}

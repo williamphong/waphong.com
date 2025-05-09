@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
@@ -16,7 +15,7 @@ const useSpotlightEffect = (config = {}) => {
   const spotlightPos = useRef({ x: 0, y: 0 });
   const targetPos = useRef({ x: 0, y: 0 });
   const animationFrame = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const [hasMouseMoved, setHasMouseMoved] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,18 +32,24 @@ const useSpotlightEffect = (config = {}) => {
     };
 
     const handleMouseMove = (e) => {
-      targetPos.current = { x: e.clientX, y: e.clientY };
-      setIsHovered(true);
+      const { clientX, clientY } = e;
+      targetPos.current = { x: clientX, y: clientY };
+      if (!hasMouseMoved) {
+        spotlightPos.current = { x: clientX, y: clientY }; // set immediately
+        setHasMouseMoved(true);
+      }
     };
 
     const handleMouseLeave = () => {
-      setIsHovered(false);
+      setHasMouseMoved(false);
     };
 
     const render = () => {
-      if (!canvas || !ctx) return;
+      if (!canvas || !ctx || !hasMouseMoved) {
+        animationFrame.current = requestAnimationFrame(render);
+        return;
+      }
 
-      // Smooth position transition
       spotlightPos.current.x = lerp(
         spotlightPos.current.x,
         targetPos.current.x,
@@ -58,16 +63,10 @@ const useSpotlightEffect = (config = {}) => {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Create dark overlay
-      //ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
-      //ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Calculate pulse effect
       const pulseScale =
         1 + 0.1 * Math.sin((Date.now() / pulseSpeed) * Math.PI * 2);
       const currentSpotlightSize = spotlightSize * pulseScale;
 
-      // Create spotlight gradient
       const gradient = ctx.createRadialGradient(
         spotlightPos.current.x,
         spotlightPos.current.y,
@@ -76,8 +75,6 @@ const useSpotlightEffect = (config = {}) => {
         spotlightPos.current.y,
         currentSpotlightSize
       );
-
-      // Add multiple color stops for smoother transition
       gradient.addColorStop(0, `rgba(${glowColor}, ${spotlightIntensity})`);
       gradient.addColorStop(
         0.5,
@@ -85,7 +82,6 @@ const useSpotlightEffect = (config = {}) => {
       );
       gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
-      // Apply spotlight effect
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = gradient;
       ctx.beginPath();
@@ -98,7 +94,6 @@ const useSpotlightEffect = (config = {}) => {
       );
       ctx.fill();
 
-      // Add glow effect
       ctx.globalCompositeOperation = 'source-over';
       const glowGradient = ctx.createRadialGradient(
         spotlightPos.current.x,
@@ -128,17 +123,23 @@ const useSpotlightEffect = (config = {}) => {
     window.addEventListener('resize', resizeCanvas);
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
-    render();
+
+    animationFrame.current = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      document.addEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      if (animationFrame.current) {
-        cancelAnimationFrame(animationFrame.current);
-      }
+      if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
     };
-  }, [spotlightSize, spotlightIntensity, fadeSpeed, glowColor, pulseSpeed]);
+  }, [
+    spotlightSize,
+    spotlightIntensity,
+    fadeSpeed,
+    glowColor,
+    pulseSpeed,
+    hasMouseMoved,
+  ]);
 
   return canvasRef;
 };

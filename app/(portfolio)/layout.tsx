@@ -6,7 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import '@/app/globals.css';
 
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
-import SpotlightCursor from '@/components/SpotlightCursor';
+import SpotlightCursor from '@/components/spotlight/SpotlightCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
@@ -54,7 +54,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
-      <body className="dark:bg-rp-base dark:selection:bg-rp-highlightMed dark:selection:text-rp-iris bg-rpd-base text-rpd-subtle dark:text-rp-subtle leading-relaxed antialiased">
+      <body className="dark:bg-rp-base dark:selection:bg-rp-highlightMed selection:bg-rpd-highlightMed bg-rpd-base text-rpd-subtle dark:text-rp-subtle leading-relaxed antialiased">
         <SpotlightCursor
           config={{
             radius: 400,

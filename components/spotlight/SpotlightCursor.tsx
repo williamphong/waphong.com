@@ -1,6 +1,6 @@
 'use client';
 import { HTMLAttributes } from 'react';
-import useSpotlightEffect from '@/components/use-spotlight';
+import useSpotlightEffect from '@/components/spotlight/use-spotlight';
 
 // Define an interface for the spotlight configuration
 interface SpotlightConfig {

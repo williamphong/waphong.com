@@ -19,3 +19,5 @@ After connecting a GitHub repository to Vercel, Vercel handles the branches with
 Vercel web and speed analytics are available by installing the plugins and placing them in the code.
 ![web analytics](public/images/readme/webanalytics.png)
 ![speed analytics](public/images/readme/speedanalytics.png)
+
+using shadcn, pqoqubbw, cursify spotlight, lucide,

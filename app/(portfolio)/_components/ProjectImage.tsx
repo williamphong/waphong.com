@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export const ProjectImage = ({ url }: { url: string }) => {
+export const ProjectImage = ({ url, alt }: { url: string; alt: string }) => {
   const isWebm = url.endsWith('.webm');
   if (isWebm) {
     return (
@@ -12,7 +12,7 @@ export const ProjectImage = ({ url }: { url: string }) => {
         width="200"
         height="48"
         preload="auto"
-        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+        className="dark:group-hover:border-rp-iris/30 group-hover:border-rpd-iris/30 dark:border-rp-highlightHigh/20 border-rpd-pine/20 rounded border-2 transition sm:order-1 sm:col-span-2 sm:translate-y-1"
       >
         <source src={url} type="video/webm" />
       </video>
@@ -21,11 +21,10 @@ export const ProjectImage = ({ url }: { url: string }) => {
   return (
     <Image
       src={url}
-      alt="image"
-      decoding="async"
+      alt={alt}
       width={200}
       height={48}
-      className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+      className="dark:group-hover:border-rp-iris/30 group-hover:border-rpd-iris/30 dark:border-rp-highlightHigh/20 border-rpd-pine/20 rounded border-2 transition sm:order-1 sm:col-span-2 sm:translate-y-1"
     />
   );
 };
