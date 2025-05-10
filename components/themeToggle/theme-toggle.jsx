@@ -42,7 +42,7 @@ export function ModeToggle() {
 
   return (
     <Button
-      className="dark:bg-rp-surface bg-rpd-surface text-rpd-rose dark:text-rp-rose"
+      className="dark:bg-rp-surface bg-rpd-surface text-rpd-rose dark:text-rp-rose hover:text-rpd-rose dark:hover:text-rp-rose"
       variant="outline"
       size="icon"
       onClick={toggleTheme}

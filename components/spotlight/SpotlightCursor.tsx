@@ -26,7 +26,6 @@ const SpotlightCursor = ({
     brightness = 0.15,
     color = '255, 255, 255',
     smoothing = 0.3,
-    pulse = 2000,
   } = config;
 
   const spotlightConfig = {
@@ -34,7 +33,6 @@ const SpotlightCursor = ({
     spotlightIntensity: brightness,
     glowColor: color,
     fadeSpeed: smoothing,
-    pulseSpeed: pulse,
   };
 
   const canvasRef = useSpotlightEffect(spotlightConfig);

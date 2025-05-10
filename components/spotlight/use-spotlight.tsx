@@ -68,10 +68,9 @@ const useSpotlightEffect = (config = {}) => {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const pulseScale =
-        1 + 0.1 * Math.sin((Date.now() / pulseSpeed) * Math.PI * 2);
-      const currentSpotlightSize = spotlightSize * pulseScale;
+      const currentSpotlightSize = spotlightSize;
 
+      // Use a normal gradient that fades outwards to 0 alpha
       const gradient = ctx.createRadialGradient(
         spotlightPos.current.x,
         spotlightPos.current.y,
@@ -80,42 +79,17 @@ const useSpotlightEffect = (config = {}) => {
         spotlightPos.current.y,
         currentSpotlightSize
       );
-      gradient.addColorStop(0, `rgba(${glowColor}, ${spotlightIntensity})`);
-      gradient.addColorStop(
-        0.5,
-        `rgba(${glowColor}, ${spotlightIntensity * 0.5})`
-      );
-      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
-      ctx.globalCompositeOperation = 'destination-out';
+      gradient.addColorStop(0, `rgba(${glowColor}, ${spotlightIntensity})`);
+      gradient.addColorStop(1, `rgba(${glowColor}, 0)`); // Fully transparent at edge
+
+      ctx.globalCompositeOperation = 'source-over'; // Draw light over background
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(
         spotlightPos.current.x,
         spotlightPos.current.y,
         currentSpotlightSize,
-        0,
-        Math.PI * 2
-      );
-      ctx.fill();
-
-      ctx.globalCompositeOperation = 'source-over';
-      const glowGradient = ctx.createRadialGradient(
-        spotlightPos.current.x,
-        spotlightPos.current.y,
-        0,
-        spotlightPos.current.x,
-        spotlightPos.current.y,
-        currentSpotlightSize * 1.2
-      );
-      glowGradient.addColorStop(0, `rgba(${glowColor}, 0.1)`);
-      glowGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = glowGradient;
-      ctx.beginPath();
-      ctx.arc(
-        spotlightPos.current.x,
-        spotlightPos.current.y,
-        currentSpotlightSize * 1.2,
         0,
         Math.PI * 2
       );

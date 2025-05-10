@@ -129,7 +129,7 @@ export default function Home() {
               aria-label="resume"
             >
               <span className="inline-block">
-                View my full resume here{' '}
+                View my full resume here
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"

@@ -57,8 +57,8 @@ export default function RootLayout({
       <body className="dark:bg-rp-base dark:selection:bg-rp-highlightMed selection:bg-rpd-highlightMed bg-rpd-base text-rpd-subtle dark:text-rp-subtle leading-relaxed antialiased">
         <SpotlightCursor
           config={{
-            radius: 400,
-            brightness: 0.15,
+            radius: 300,
+            brightness: 0.1,
           }}
         />
         <ThemeProvider

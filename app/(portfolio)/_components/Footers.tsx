@@ -114,7 +114,7 @@ export const RightFooter = () => {
             carlbeaverson.com
           </a>
           . Developed with Next.js, Typescript, Tailwind CSS, and deployed using
-          Vercel. Follows the{' '}
+          Vercel. Follows{' '}
           <a
             className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
             href="https://rosepinetheme.com/palette/"
@@ -124,7 +124,7 @@ export const RightFooter = () => {
           >
             Rosé Pine
           </a>{' '}
-          palette conventions.
+          color palette conventions.
         </p>
       }
     </footer>
