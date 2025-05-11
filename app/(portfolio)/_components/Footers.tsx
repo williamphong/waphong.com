@@ -45,45 +45,27 @@ const socials = [
 
 export const LeftFooter = () => {
   return (
-    <ul className="ml-1 mt-8 flex items-center gap-5" aria-label="Social media">
-      <ModeToggle />
+    <ul
+      className="ml-1 mt-8 flex items-center gap-5 text-rpd-love dark:text-rp-rose"
+      aria-label="Social media"
+    >
+      <li>
+        <ModeToggle />
+      </li>
       {socials.map(({ href, title, label, icon }) => (
-        <a
-          key={title}
-          href={href}
-          title={title}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-rp-rose hover:text-rp-gold block"
-        >
-          <span className="sr-only">{label}</span>
-          {icon}
-        </a>
-      ))}
-
-      {/*
-      {svg.map((img, index) => (
-        <li key={index} className="shrink-0 text-xs">
+        <li key={title}>
           <a
-            className="block hover:text-slate-200"
-            href={img.link}
+            href={href}
+            title={title}
+            aria-label={label}
             target="_blank"
-            title={img.name}
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-rpd-gold dark:hover:text-rp-gold"
           >
-            <span className="sr-only">{img.name}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox={img.viewbox}
-              fill="currentColor"
-              className="h-6 w-6"
-              aria-hidden="true"
-            >
-              <path d={img.path}></path>
-            </svg>
+            {icon}
           </a>
         </li>
       ))}
-        */}
     </ul>
   );
 };
@@ -93,9 +75,20 @@ export const RightFooter = () => {
     <footer className="max-w-md py-16 text-sm sm:pb-0">
       {
         <p>
-          This website is inspired by{' '}
+          Developed with Next.js, Typescript, Tailwind CSS, and deployed using
+          Vercel. Follows{' '}
           <a
-            className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
+            className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+            href="https://rosepinetheme.com/palette/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="rose pine theme"
+          >
+            Rosé Pine
+          </a>{' '}
+          color palette conventions. Inspired by{' '}
+          <a
+            className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
             href="https://brittanychiang.com"
             target="_blank"
             rel="noreferrer noopener"
@@ -105,7 +98,7 @@ export const RightFooter = () => {
           </a>{' '}
           and{' '}
           <a
-            className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
+            className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
             href="https://carlbeaverson.com"
             target="_blank"
             rel="noreferrer noopener"
@@ -113,18 +106,7 @@ export const RightFooter = () => {
           >
             carlbeaverson.com
           </a>
-          . Developed with Next.js, Typescript, Tailwind CSS, and deployed using
-          Vercel. Follows{' '}
-          <a
-            className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
-            href="https://rosepinetheme.com/palette/"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="rose pine theme"
-          >
-            Rosé Pine
-          </a>{' '}
-          color palette conventions.
+          .
         </p>
       }
     </footer>

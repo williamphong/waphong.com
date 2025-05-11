@@ -24,12 +24,12 @@
 .active .nav-indicator {
   width: 4rem;
   --tw-bg-opacity: 1;
-  background-color: theme('colors.rpd.rose');
+  background-color: theme('colors.rpd.love');
 }
 
 .active .nav-text {
   --tw-text-opacity: 1;
-  color: theme('colors.rpd.rose');
+  color: theme('colors.rpd.love');
 }
 
 /* Define Inter Font */

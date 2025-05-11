@@ -16,10 +16,6 @@ export const navigation = [
     name: 'experience',
     hash: '#experience',
   },
- {
-    name: 'gallery',
-    hash: '#gallery',
-  },
 ] as const;
 
 export const svg = [

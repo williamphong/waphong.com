@@ -48,16 +48,16 @@ export default function Home() {
       {/* Left side  */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div className="">
-          <h1 className="text-edge-outline dark:text-rp-text text-rpd-text cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold tracking-wide sm:text-3xl md:text-6xl">
+          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold tracking-wide text-rpd-text dark:text-rp-text sm:text-3xl md:text-6xl">
             <Link
               href="/"
-              className="dark:focus-visible:text-rp-love focus-visible:text-rpd-love"
+              className="focus-visible:text-rpd-iris dark:focus-visible:text-rp-love"
             >
               William Phong
             </Link>
           </h1>
 
-          <h2 className="dark:text-rp-text text-rpd-text text-lg font-medium tracking-tight sm:text-xl">
+          <h2 className="text-lg font-medium tracking-tight text-rpd-text dark:text-rp-text sm:text-xl">
             M.S. in Computer Science @ SDSU
           </h2>
 
@@ -88,7 +88,7 @@ export default function Home() {
           <p className="mb-4">
             In my free time, I enjoy listening to{' '}
             <a
-              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
+              className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
               href="https://open.spotify.com/user/william.phong"
               target="_blank"
               rel="noreferrer noopener"
@@ -98,7 +98,7 @@ export default function Home() {
             </a>
             , taking{' '}
             <a
-              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
+              className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
               href="/gallery"
               target="_blank"
               rel="noreferrer noopener"
@@ -107,9 +107,9 @@ export default function Home() {
               {' '}
               pictures
             </a>{' '}
-            with my film camera, playing video games, and watching{' '}
+            with my film camera, and watching{' '}
             <a
-              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love font-medium hover:underline hover:underline-offset-4"
+              className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
               href="https://letterboxd.com/andjuly/"
               target="_blank"
               rel="noreferrer noopener"
@@ -120,9 +120,9 @@ export default function Home() {
             .
           </p>
           <br></br>
-          <p className="mb-4 text-slate-400">
+          <p className="mb-4">
             <a
-              className="dark:text-rp-rose text-rpd-rose dark:focus-visible:text-rp-love focus-visible:text-rpd-love group/link font-medium hover:underline hover:underline-offset-4"
+              className="group/link font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
               href="/files/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
@@ -194,26 +194,6 @@ export default function Home() {
           </div>
 
           <ExperienceList />
-        </section>
-
-        {/* gallery section */}
-        <section
-          id="gallery"
-          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-          aria-label="gallery"
-          ref={sectionRefs.current[4]}
-        >
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-              gallery
-            </h2>
-          </div>
-
-          <div className="h-96">
-            <p className="mt-2 text-sm leading-normal">
-              gallery and more coming soon
-            </p>
-          </div>
         </section>
 
         <RightFooter />

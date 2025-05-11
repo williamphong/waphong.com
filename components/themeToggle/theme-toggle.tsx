@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { useTheme } from "next-themes";
-import { useEffect, useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { MoonIcon, SunMediumIcon, SunMoonIcon } from "../pqoqubbw/icons";
-
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { MoonIcon, SunMediumIcon, SunMoonIcon } from '../pqoqubbw/icons';
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -25,7 +24,12 @@ export function ModeToggle() {
 
   if (!mounted) {
     return (
-      <Button className="dark:bg-rp-surface bg-rpd-surface" variant="outline" size="icon" disabled>
+      <Button
+        className="bg-rpd-surface dark:bg-rp-surface"
+        variant="outline"
+        size="icon"
+        disabled
+      >
         <SunMoonIcon />
       </Button>
     );
@@ -34,15 +38,17 @@ export function ModeToggle() {
   // Determine which icon to show based on current theme
   const getCurrentIcon = () => {
     if (theme === 'system') {
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return systemDark ? <MoonIcon/> : <SunMediumIcon/>;
+      const systemDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      return systemDark ? <MoonIcon /> : <SunMediumIcon />;
     }
-    return theme === 'dark' ? <MoonIcon /> : <SunMediumIcon/>;
+    return theme === 'dark' ? <MoonIcon /> : <SunMediumIcon />;
   };
 
   return (
     <Button
-      className="dark:bg-rp-surface bg-rpd-surface text-rpd-rose dark:text-rp-rose hover:text-rpd-rose dark:hover:text-rp-rose"
+      className="bg-rpd-surface hover:text-rpd-love dark:bg-rp-surface dark:hover:text-rp-rose"
       variant="outline"
       size="icon"
       onClick={toggleTheme}
