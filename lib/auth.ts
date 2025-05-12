@@ -35,10 +35,12 @@ export const auth = betterAuth({
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      scope: ['https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'],
-      session:{
-        provider: "google"
-      }
+      scope: [
+        'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+      ],
+      session: {
+        provider: 'google',
+      },
     },
     spotify: {
       clientId: process.env.SPOTIFY_CLIENT_ID!,

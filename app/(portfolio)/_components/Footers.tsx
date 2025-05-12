@@ -46,7 +46,7 @@ const socials = [
 export const LeftFooter = () => {
   return (
     <ul
-      className="ml-1 mt-8 flex items-center gap-5 text-rpd-love dark:text-rp-rose"
+      className="text-rpd-love dark:text-rp-rose mt-8 ml-1 flex items-center gap-5"
       aria-label="Social media"
     >
       <li>
@@ -60,7 +60,7 @@ export const LeftFooter = () => {
             aria-label={label}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:text-rpd-gold dark:hover:text-rp-gold"
+            className="hover:text-rpd-gold dark:hover:text-rp-gold transition-colors"
           >
             {icon}
           </a>
@@ -78,7 +78,7 @@ export const RightFooter = () => {
           Developed with Next.js, Typescript, Tailwind CSS, and deployed using
           Vercel. Follows{' '}
           <a
-            className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
             href="https://rosepinetheme.com/palette/"
             target="_blank"
             rel="noreferrer noopener"
@@ -88,7 +88,7 @@ export const RightFooter = () => {
           </a>{' '}
           color palette conventions. Inspired by{' '}
           <a
-            className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
             href="https://brittanychiang.com"
             target="_blank"
             rel="noreferrer noopener"
@@ -98,7 +98,7 @@ export const RightFooter = () => {
           </a>{' '}
           and{' '}
           <a
-            className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
             href="https://carlbeaverson.com"
             target="_blank"
             rel="noreferrer noopener"

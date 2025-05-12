@@ -53,8 +53,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
-      <body className="bg-rpd-base leading-relaxed text-rpd-subtle antialiased selection:bg-rpd-highlightMed dark:bg-rp-base dark:text-rp-subtle dark:selection:bg-rp-highlightMed">
+    <html
+      lang="en"
+      className="dark font-sf scroll-smooth"
+      suppressHydrationWarning
+    >
+      <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed dark:bg-rp-base dark:text-rp-subtle dark:selection:bg-rp-highlightMed leading-relaxed antialiased">
         <SpotlightCursor
           config={{
             radius: 300,

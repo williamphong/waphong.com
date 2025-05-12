@@ -5,7 +5,7 @@ export default function about() {
   return (
     <div className="">
       <div className="justify-center px-6 py-12 align-middle md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <h1 className="mb-12 mt-24 text-5xl font-bold">into the ether //</h1>
+        <h1 className="mt-24 mb-12 text-5xl font-bold">into the ether //</h1>
         <p className="text-lg">
           hi, i&apos;m william and welcome to my blog! i named this blog after a
           specific feeling that i found hard to describe (yes, i was inspired by

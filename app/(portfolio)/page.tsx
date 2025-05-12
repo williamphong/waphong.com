@@ -48,7 +48,7 @@ export default function Home() {
       {/* Left side  */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div className="">
-          <h1 className="text-edge-outline cursor-default whitespace-nowrap bg-clip-text pb-4 text-4xl font-bold tracking-wide text-rpd-text dark:text-rp-text sm:text-3xl md:text-6xl">
+          <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text pb-4 text-4xl font-bold tracking-wide whitespace-nowrap sm:text-3xl md:text-6xl">
             <Link
               href="/"
               className="focus-visible:text-rpd-iris dark:focus-visible:text-rp-love"
@@ -57,7 +57,7 @@ export default function Home() {
             </Link>
           </h1>
 
-          <h2 className="text-lg font-medium tracking-tight text-rpd-text dark:text-rp-text sm:text-xl">
+          <h2 className="text-rpd-text dark:text-rp-text text-lg font-medium tracking-tight sm:text-xl">
             M.S. in Computer Science @ SDSU
           </h2>
 
@@ -88,7 +88,7 @@ export default function Home() {
           <p className="mb-4">
             In my free time, I enjoy listening to{' '}
             <a
-              className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+              className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
               href="https://open.spotify.com/user/william.phong"
               target="_blank"
               rel="noreferrer noopener"
@@ -98,7 +98,7 @@ export default function Home() {
             </a>
             , taking{' '}
             <a
-              className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+              className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
               href="/gallery"
               target="_blank"
               rel="noreferrer noopener"
@@ -109,7 +109,7 @@ export default function Home() {
             </a>{' '}
             with my film camera, and watching{' '}
             <a
-              className="font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+              className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
               href="https://letterboxd.com/andjuly/"
               target="_blank"
               rel="noreferrer noopener"
@@ -122,7 +122,7 @@ export default function Home() {
           <br></br>
           <p className="mb-4">
             <a
-              className="group/link font-medium text-rpd-love hover:underline hover:underline-offset-4 focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love"
+              className="group/link text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
               href="/files/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
@@ -134,7 +134,7 @@ export default function Home() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none"
+                  className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 group-focus-visible/link:translate-x-1 group-focus-visible/link:-translate-y-1 motion-reduce:transition-none"
                   aria-hidden="true"
                 >
                   <path
@@ -156,7 +156,7 @@ export default function Home() {
           ref={sectionRefs.current[1]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest dark:text-slate-200 lg:sr-only">
+            <h2 className="text-sm font-bold tracking-widest uppercase lg:sr-only dark:text-slate-200">
               Projects
             </h2>
           </div>
@@ -172,7 +172,7 @@ export default function Home() {
           ref={sectionRefs.current[2]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest dark:text-slate-200 lg:sr-only">
+            <h2 className="text-sm font-bold tracking-widest uppercase lg:sr-only dark:text-slate-200">
               Education
             </h2>
           </div>
@@ -188,7 +188,7 @@ export default function Home() {
           ref={sectionRefs.current[3]}
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest dark:text-slate-200 lg:sr-only">
+            <h2 className="text-sm font-bold tracking-widest uppercase lg:sr-only dark:text-slate-200">
               Experience
             </h2>
           </div>

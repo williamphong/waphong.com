@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prismaConnect';
 import { NextResponse } from 'next/server';
-import { authClient } from "@/lib/auth-client"
+import { authClient } from '@/lib/auth-client';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -33,7 +33,7 @@ export async function GET(req: Request) {
 
 // CREATE A POST
 export async function POST(req: Request) {
-const { data: session } = await authClient.getSession()
+  const { data: session } = await authClient.getSession();
 
   // Check if session or session.user is undefined
   if (!session || !session.user) {
