@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import styles from './blogPage.module.css';
 import CardList from '@/app/(ether)/ether/_components/cardList/CardList';
 import Menu from '@/app/(ether)/ether/_components/menu/Menu';
 
@@ -34,9 +33,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ searchParams }) => {
   const cat = params.cat ?? undefined; // Replace null with undefined
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>{cat} Blog</h1>
-      <div className={styles.content}>
+    <div className="">
+      <h1 className="">{cat} Blog</h1>
+      <div className="">
         <CardList page={page} cat={cat} />
         <Menu />
       </div>

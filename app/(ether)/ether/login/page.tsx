@@ -1,5 +1,4 @@
 'use client';
-import styles from './loginPage.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
@@ -15,7 +14,6 @@ const LoginPage = () => {
         provider: 'google',
         callbackURL: '/ether',
       },
-
       {
         onRequest: () => {
           setPendingGoogle(true);
@@ -34,8 +32,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
+    <div className="mt-16 flex items-center justify-center">
+      <div className="bg-softBg flex flex-col gap-12 rounded-lg p-24 md:p-12">
         <LoadingButton pending={pendingGoogle} onClick={handleSignInGoogle}>
           Continue with Google
         </LoadingButton>

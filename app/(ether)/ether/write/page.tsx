@@ -2,55 +2,56 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from '@/lib/auth-client';
-import RcTiptapEditor from 'reactjs-tiptap-editor';
+import RichTextEditor, { BaseKit } from 'reactjs-tiptap-editor';
+
+// Extensions
+import { Attachment } from 'reactjs-tiptap-editor/attachment';
+import { Blockquote } from 'reactjs-tiptap-editor/blockquote';
+import { Bold } from 'reactjs-tiptap-editor/bold';
+import { BulletList } from 'reactjs-tiptap-editor/bulletlist';
+import { Clear } from 'reactjs-tiptap-editor/clear';
+import { Code } from 'reactjs-tiptap-editor/code';
+import { CodeBlock } from 'reactjs-tiptap-editor/codeblock';
+import { Color } from 'reactjs-tiptap-editor/color';
+import { ColumnActionButton } from 'reactjs-tiptap-editor/multicolumn';
+import { Emoji } from 'reactjs-tiptap-editor/emoji';
+import { ExportPdf } from 'reactjs-tiptap-editor/exportpdf';
+import { ExportWord } from 'reactjs-tiptap-editor/exportword';
+import { FontFamily } from 'reactjs-tiptap-editor/fontfamily';
+import { FontSize } from 'reactjs-tiptap-editor/fontsize';
+import { FormatPainter } from 'reactjs-tiptap-editor/formatpainter';
+import { Heading } from 'reactjs-tiptap-editor/heading';
+import { Highlight } from 'reactjs-tiptap-editor/highlight';
+import { History } from 'reactjs-tiptap-editor/history';
+import { HorizontalRule } from 'reactjs-tiptap-editor/horizontalrule';
+import { Iframe } from 'reactjs-tiptap-editor/iframe';
+import { Image } from 'reactjs-tiptap-editor/image';
+import { ImageGif } from 'reactjs-tiptap-editor/imagegif';
+import { ImportWord } from 'reactjs-tiptap-editor/importword';
+import { Indent } from 'reactjs-tiptap-editor/indent';
+import { Italic } from 'reactjs-tiptap-editor/italic';
+import { LineHeight } from 'reactjs-tiptap-editor/lineheight';
+import { Link } from 'reactjs-tiptap-editor/link';
+import { Mention } from 'reactjs-tiptap-editor/mention';
+import { MoreMark } from 'reactjs-tiptap-editor/moremark';
+import { OrderedList } from 'reactjs-tiptap-editor/orderedlist';
+import { SearchAndReplace } from 'reactjs-tiptap-editor/searchandreplace';
+import { SlashCommand } from 'reactjs-tiptap-editor/slashcommand';
+import { Strike } from 'reactjs-tiptap-editor/strike';
+import { Table } from 'reactjs-tiptap-editor/table';
+import { TableOfContents } from 'reactjs-tiptap-editor/tableofcontent';
+import { TaskList } from 'reactjs-tiptap-editor/tasklist';
+import { TextAlign } from 'reactjs-tiptap-editor/textalign';
+import { TextUnderline } from 'reactjs-tiptap-editor/textunderline';
+import { Video } from 'reactjs-tiptap-editor/video';
+import { TextDirection } from 'reactjs-tiptap-editor/textdirection';
+import { Katex } from 'reactjs-tiptap-editor/katex';
+import { Drawer } from 'reactjs-tiptap-editor/drawer';
+import { Excalidraw } from 'reactjs-tiptap-editor/excalidraw';
+import { Twitter } from 'reactjs-tiptap-editor/twitter';
+import { Mermaid } from 'reactjs-tiptap-editor/mermaid';
+
 import 'reactjs-tiptap-editor/style.css';
-import {
-  BaseKit,
-  Blockquote,
-  Bold,
-  BulletList,
-  Clear,
-  Code,
-  CodeBlock,
-  Color,
-  ColumnActionButton,
-  Emoji,
-  ExportPdf,
-  ExportWord,
-  FontFamily,
-  FontSize,
-  FormatPainter,
-  Heading,
-  Highlight,
-  History,
-  HorizontalRule,
-  Iframe,
-  Image,
-  ImportWord,
-  Indent,
-  Italic,
-  Katex,
-  LineHeight,
-  Link,
-  MoreMark,
-  OrderedList,
-  SearchAndReplace,
-  SlashCommand,
-  Strike,
-  Table,
-  TaskList,
-  TextAlign,
-  Underline,
-  Video,
-  TableOfContents,
-  //Excalidraw,
-  TextDirection,
-  Mention,
-  Attachment,
-  ImageGif,
-  Mermaid,
-  Twitter,
-} from 'reactjs-tiptap-editor/extension-bundle';
 
 const extensions = [
   BaseKit.configure({
@@ -69,7 +70,7 @@ const extensions = [
   FontSize,
   Bold,
   Italic,
-  Underline,
+  TextUnderline,
   Strike,
   MoreMark,
   Katex,
@@ -190,15 +191,13 @@ const DEFAULT = `
   <p dir="auto"></p>
 `;
 
-console.log(DEFAULT);
-
 const WritePage = () => {
   const [content, setContent] = useState(DEFAULT);
   const router = useRouter();
   const { data: session, isPending } = useSession();
   const [isClient, setIsClient] = useState(false);
   const [disable, setDisable] = useState(false);
-  const refEditor = React.useRef<any>(null);
+  const refEditor = React.useRef(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -208,7 +207,7 @@ const WritePage = () => {
   }, [session, isPending, router]);
 
   const onValueChange = useCallback(
-    debounce((value: string) => {
+    debounce((value) => {
       setContent(value);
     }, 300),
     []
@@ -223,7 +222,7 @@ const WritePage = () => {
   }
 
   if (!session) {
-    return null; // Or redirect immediately
+    return null;
   }
 
   return (
@@ -232,14 +231,13 @@ const WritePage = () => {
         {disable ? 'Editable' : 'Readonly'}
       </button>
       <div className="m-10">
-        <RcTiptapEditor
+        <RichTextEditor
           ref={refEditor}
           output="html"
           content={DEFAULT}
           onChangeContent={onValueChange}
           extensions={extensions}
           disabled={disable}
-          //immediatelyRender={false}
         />
 
         {typeof content === 'string' && (

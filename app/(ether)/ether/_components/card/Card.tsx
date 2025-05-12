@@ -1,34 +1,36 @@
 import Image from 'next/image';
-import styles from './card.module.css';
 import Link from 'next/link';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 const Card = ({ item }: any) => {
   return (
-    <div className={styles.container}>
+    <div className="mb-12 flex items-center gap-12">
       {item.img && (
-        <div className={styles.imageContainer}>
-          <Image src={item.img} alt="" fill className={styles.image} />
+        <div className="relative h-64 flex-1">
+          <Image src={item.img} alt="" fill className="object-cover" />
         </div>
       )}
-      <div className={styles.textContainer}>
-        <div className={styles.detail}>
-          <span className={styles.date}>
+      <div className="flex flex-1 flex-col gap-8">
+        <div className="flex items-center gap-2">
+          <span className="text-gray-500">
             {item.createdAt.substring(0, 10)} -{' '}
           </span>
-          <span className={styles.category}>{item.catSlug}</span>
+          <span className="text-crimson font-medium">{item.catSlug}</span>
         </div>
         <Link href={`/ether/posts/${item.slug}`}>
-          <h1>{item.title}</h1>
+          <h1 className="text-2xl font-bold">{item.title}</h1>
         </Link>
         <div
-          className={styles.desc}
+          className="text-softTextColor text-base font-light"
           dangerouslySetInnerHTML={{
             __html: item?.desc.substring(0, 60),
           }}
         />
-        <Link href={`/ether/posts/${item.slug}`} className={styles.link}>
+        <Link
+          href={`/ether/posts/${item.slug}`}
+          className="border-crimson border-b pb-1"
+        >
           Read More
         </Link>
       </div>

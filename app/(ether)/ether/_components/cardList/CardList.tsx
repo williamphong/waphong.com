@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import styles from './cardlist.module.css';
 import Card from '@/app/(ether)/ether/_components/card/Card';
 
 interface Post {
@@ -59,10 +58,10 @@ const CardList: React.FC<CardListProps> = ({ page, cat }) => {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Recent Posts</h1>
-      <div className={styles.posts}>
-        <div className={styles.post}>
+    <div className="">
+      <h1 className="">Recent Posts</h1>
+      <div className="">
+        <div className="">
           {data.map((item) => (
             <Card item={item} key={item._id || item.id} />
           ))}
