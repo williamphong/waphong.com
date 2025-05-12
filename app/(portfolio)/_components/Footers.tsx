@@ -46,7 +46,7 @@ const socials = [
 export const LeftFooter = () => {
   return (
     <ul
-      className="text-rpd-love dark:text-rp-rose mt-8 ml-1 flex items-center gap-5"
+      className="text-rpd-love dark:text-rp-rose my-4 flex items-center gap-5 md:my-4 lg:my-0"
       aria-label="Social media"
     >
       <li>
