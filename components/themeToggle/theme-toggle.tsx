@@ -25,7 +25,7 @@ export function ModeToggle() {
   if (!mounted) {
     return (
       <Button
-        className="bg-rpd-surface dark:bg-rp-surface"
+        className="link--color bg-rpd-surface dark:bg-rp-surface"
         variant="outline"
         size="icon"
         disabled
@@ -48,7 +48,7 @@ export function ModeToggle() {
 
   return (
     <Button
-      className="bg-rpd-surface hover:text-rpd-love dark:bg-rp-surface dark:hover:text-rp-rose"
+      className="link--color bg-rpd-surface hover:text-rpd-love dark:bg-rp-surface dark:hover:text-rp-rose cursor-pointer"
       variant="outline"
       size="icon"
       onClick={toggleTheme}

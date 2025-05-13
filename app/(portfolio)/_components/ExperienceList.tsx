@@ -58,7 +58,7 @@ export const ExperienceList = () => {
               </header>
 
               <div className="z-10 sm:order-2 sm:col-span-6">
-                <h3 className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base font-medium">
+                <h3 className="group/link text-rpd-text dark:text-rp-text inline-flex items-baseline text-base font-medium">
                   {exp.title} · {exp.company}
                 </h3>
 

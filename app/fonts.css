@@ -4,18 +4,20 @@
 /* SF Pro  */
 @font-face {
   font-family: 'SFPro';
-  src: url('/fonts/SFPro-Regular.woff2') format('woff2'),
-     url('/fonts/SFPro-RegularItalic.woff2') format('woff2');
+  src:
+    url('/fonts/SFPro-Regular.woff2') format('woff2'),
+    url('/fonts/SFPro-RegularItalic.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-
 /* Satoshi */
 @font-face {
   font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Variable.ttf') format('truetype'),url('/fonts/Satoshi-VariableItalicFont.ttf') format('truetype');
+  src:
+    url('/fonts/Satoshi-Variable.ttf') format('truetype'),
+    url('/fonts/Satoshi-VariableItalicFont.ttf') format('truetype');
   font-weight: 100 900;
   /* Variable font supports weights from 100 to 900 */
   font-style: normal;

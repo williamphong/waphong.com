@@ -47,10 +47,6 @@
   --color-rpd-highlightHigh: #cecacd;
 }
 
-@theme inline {
-  --font-sans: var(--font-inter);
-}
-
 @layer base {
 }
 
@@ -64,21 +60,31 @@
   .active .nav-indicator {
     width: 4rem;
     --tw-bg-opacity: 1;
-    background-color: var(--nav-indicator-active);
+    background-color: var(--link-color);
   }
-
   .active .nav-text {
     --tw-text-opacity: 1;
-    color: var(--nav-text-active);
+    color: var(--link-color);
+  }
+  .link--color {
+    color: var(--link-color);
+  }
+  .link--color:focus-visible {
+    color: var(--focus-color);
   }
 }
 
 .light {
-  --nav-indicator-active: var(--color-rpd-love);
-  --nav-text-active: var(--color-rpd-love);
+  --link-color: var(--color-rpd-love);
+  --focus-color: var(--color-rpd-rose);
 }
 
 .dark {
-  --nav-indicator-active: var(--color-rp-rose);
-  --nav-text-active: var(--color-rp-rose);
+  --link-color: var(--color-rp-rose);
+  --focus-color: var(--color-rp-love);
+}
+
+@utility underline-4{
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }

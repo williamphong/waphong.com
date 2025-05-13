@@ -2,13 +2,13 @@
 import React, { useEffect, useState, useRef, RefObject } from 'react';
 import Link from 'next/link';
 
-import { navigation, aboutMe } from '@/lib/data';
+import { navigation } from '@/lib/data';
 import { ProjectList } from './_components/ProjectList';
 import { LeftFooter, RightFooter } from './_components/Footers';
-import { ExternalLink } from './_components/ExternalLink';
 import { Navigation } from './_components/Navigation';
 import { EducationList } from './_components/EducationList';
 import { ExperienceList } from './_components/ExperienceList';
+import { ABoutMe } from './_components/AboutMe';
 
 export default function Home() {
   const sectionRefs = useRef<RefObject<HTMLElement>[]>(
@@ -51,7 +51,7 @@ export default function Home() {
           <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text pb-4 text-4xl font-bold tracking-wide whitespace-nowrap sm:text-3xl md:text-6xl">
             <Link
               href="/"
-              className="focus-visible:text-rpd-iris dark:focus-visible:text-rp-love"
+              className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love"
             >
               William Phong
             </Link>
@@ -62,8 +62,8 @@ export default function Home() {
           </h2>
 
           <p className="mt-4 max-w-xs">
-            Hi! I'm currently looking for backend software or data analysis
-            roles, but I am open to all opportunities!
+            Hi! I'm currently a student at SDSU and looking for backend software
+            or data analysis roles, but I am open to all opportunities!
           </p>
 
           <Navigation activeSection={activeSection} />
@@ -78,80 +78,16 @@ export default function Home() {
         <section
           id="about"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="about me"
           ref={sectionRefs.current[0]}
         >
           <div className="dark:bg-rp-base/75 bg-rpd-base/75 sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2 className="dark:text-rp-text text-rpd-text text-sm font-bold tracking-widest uppercase lg:sr-only">
-              About
+              About Me
             </h2>
           </div>
 
-          <div>
-            <p className="mb-4">{aboutMe.p1}</p>
-            <p className="mb-4">{aboutMe.p2}</p>
-          </div>
-
-          <p className="mb-4">
-            In my free time, I enjoy listening to{' '}
-            <a
-              className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
-              href="https://open.spotify.com/user/william.phong"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="spotify"
-            >
-              music
-            </a>
-            , taking{' '}
-            <a
-              className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
-              href="/gallery"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="gallery"
-            >
-              {' '}
-              pictures
-            </a>{' '}
-            with my film camera, and watching{' '}
-            <a
-              className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
-              href="https://letterboxd.com/andjuly/"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="letterboxd"
-            >
-              movies
-            </a>
-            .
-          </p>
-          <br></br>
-          <p className="mb-4">
-            <a
-              className="group/link text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
-              href="/files/resume.pdf"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="resume"
-            >
-              <span className="inline-block">
-                View my full resume here
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 group-focus-visible/link:translate-x-1 group-focus-visible/link:-translate-y-1 motion-reduce:transition-none"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>{' '}
-              </span>
-            </a>
-          </p>
+          <ABoutMe />
         </section>
 
         {/* Project Section */}

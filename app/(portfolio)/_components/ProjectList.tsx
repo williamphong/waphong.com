@@ -14,13 +14,13 @@ export const projectsData = [
   {
     title: 'Formula 1 Race Prediction Application',
     description:
-      'Predicts race results from qualifying data using linear/multinomial regression and XGBoost',
+      'Developed predictive analytics model using linear/multinomial regression and XGBoost algorithms. Data operations are managed with PostgreSQL and results are visualized using Matplotlib',
     tags: [
       'Python',
       'Tensorflow',
       'Pytorch',
       'Sci-kit',
-      'MatPlotLib',
+      'Matplotlib',
       'Pandas',
       'Postgresql',
     ],
@@ -32,7 +32,7 @@ export const projectsData = [
     title: 'Portfolio Website // waphong.com',
     description:
       'My personal portfolio website. Integrates BetterAuth, Prisma and PostgreSQL for backend usage.',
-    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Vercel'],
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Vercel', 'Playwright'],
     link: 'https://github.com/williamphong/personalwebsite',
     imageUrl: '/images/projects/waphong.png',
     date: 'May 2024 - Present',
@@ -56,8 +56,8 @@ export const projectsData = [
   {
     title: 'Spotify Daylist Word Cloud',
     description:
-      "Generates a word cloud from a user's Spotify daylist titles. Phrases are parsed using Spotify's API and saved into a database.",
-    tags: ['Python', 'Spotipy', 'Postgresql'],
+      "Dynamic word cloud generator visualizing musical preferences from Spotify daylist data. Phrases are parsed using Spotify's API and saved into a database.",
+    tags: ['Python', 'Matplotlib', 'Spotipy', 'Postgresql'],
     link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
     imageUrl: '/images/projects/wordcloud.png',
     date: 'Jun 2024 - Present',
@@ -94,7 +94,7 @@ export const ProjectList = () => {
               <div className="z-10 sm:order-2 sm:col-span-6">
                 <h3>
                   <a
-                    className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base font-medium"
+                    className="group/link text-rpd-text dark:text-rp-text dark:hover:text-rp-rose hover:text-rpd-love focus-visible:text-rpd-iris dark:focus-visible:text-rp-love inline-flex items-baseline text-base font-medium"
                     href={project.link}
                     aria-label={project.title}
                     target="_blank"

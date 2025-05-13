@@ -32,7 +32,7 @@ export const EducationList = () => {
               </header>
 
               <div className="z-10 sm:order-2 sm:col-span-6">
-                <h3 className="group/link text-rpd-text hover:text-rpd-foam focus-visible:text-rpd-foam dark:text-rp-text inline-flex items-baseline text-base font-medium">
+                <h3 className="group/link text-rpd-text dark:text-rp-text inline-flex items-baseline text-base font-medium">
                   {edu.title}
                 </h3>
 

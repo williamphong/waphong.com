@@ -1,5 +1,4 @@
 'use client';
-import { svg } from '@/lib/data';
 import { ModeToggle } from '@/components/themeToggle/theme-toggle';
 import {
   AtSignIcon,
@@ -46,7 +45,7 @@ const socials = [
 export const LeftFooter = () => {
   return (
     <ul
-      className="text-rpd-love dark:text-rp-rose my-4 flex items-center gap-5 md:my-4 lg:my-0"
+      className="my-4 flex items-center gap-5 md:my-4 lg:my-0"
       aria-label="Social media"
     >
       <li>
@@ -60,7 +59,7 @@ export const LeftFooter = () => {
             aria-label={label}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-rpd-gold dark:hover:text-rp-gold transition-colors"
+            className="hover:text-rpd-gold dark:hover:text-rp-gold link--color transition-colors"
           >
             {icon}
           </a>
@@ -78,7 +77,7 @@ export const RightFooter = () => {
           Developed with Next.js, Typescript, Tailwind CSS, and deployed using
           Vercel. Follows{' '}
           <a
-            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
             href="https://rosepinetheme.com/palette/"
             target="_blank"
             rel="noreferrer noopener"
@@ -88,7 +87,7 @@ export const RightFooter = () => {
           </a>{' '}
           color palette conventions. Inspired by{' '}
           <a
-            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
             href="https://brittanychiang.com"
             target="_blank"
             rel="noreferrer noopener"
@@ -98,7 +97,7 @@ export const RightFooter = () => {
           </a>{' '}
           and{' '}
           <a
-            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love font-medium hover:underline hover:underline-offset-4"
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
             href="https://carlbeaverson.com"
             target="_blank"
             rel="noreferrer noopener"
