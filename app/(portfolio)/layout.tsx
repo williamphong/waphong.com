@@ -1,51 +1,61 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Inter } from 'next/font/google';
 
-import '@/app/globals.css';
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 import SpotlightCursor from '@/components/spotlight/SpotlightCursor';
+
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
   title: {
     template: '%s | William Phong',
-    default: 'William Phong', // a default is required when creating a template
+    default: 'William Phong — Portfolio',
   },
+  description: 'Personal portfolio of William Phong.',
+  icons: {
+    icon: '/favicon.ico',
+  },
+  generator: 'Next.js',
+  applicationName: 'William Phong Portfolio',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['William Phong', 'portfolio', 'student', 'developer', 'engineer'],
+  authors: [{ name: 'William Phong', url: 'https://waphong.com' }],
   creator: 'William Phong',
-  description: "William Phong's portfolio website",
+  publisher: 'William Phong',
+
   openGraph: {
-    title: 'William Phong',
-    description: "William Phong's portfolio website",
+    title: 'William Phong — Portfolio',
+    description: 'Personal portfolio of William Phong.',
     url: 'https://waphong.com',
     siteName: 'William Phong',
-    /*images: [
-      {
-        url: 'https://nextjs.org/og.png', // Must be an absolute URL
-        width: 800,
-        height: 600,
-      },
-      {
-        url: 'https://nextjs.org/og-alt.png', // Must be an absolute URL
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
-      },
-    ],
-    */
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://waphong.com/images/xi-cat.jpg',
+        width: 800,
+        height: 800,
+        alt: 'William Phong Portfolio',
+      },
+    ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'William Phong',
-    description: "William Phong's portfolio",
-    //siteId: '1467726470533754880',
-    creator: 'William Phong',
-    //creatorId: '1467726470533754880',
-    //images: ['https://nextjs.org/og.png'], // Must be an absolute URL
+    card: 'summary', // ← this makes it a small card
+    title: 'William Phong — Portfolio',
+    description: 'Personal portfolio of William Phong.',
+    creator: '@1waphong',
+    images: ['https://waphong.com/images/xi-cat.jpg'],
   },
 };
 
@@ -55,9 +65,25 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="dark font-sf scroll-smooth"
+      className={`dark ${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
+      <Head>
+        <link
+          rel="preload"
+          href="/fonts/Inter-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/SF-Pro-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </Head>
       <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed dark:bg-rp-base dark:text-rp-subtle dark:selection:bg-rp-highlightMed leading-relaxed antialiased">
         <SpotlightCursor
           config={{

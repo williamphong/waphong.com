@@ -58,11 +58,11 @@ export const ExperienceList = () => {
               </header>
 
               <div className="z-10 sm:order-2 sm:col-span-6">
-                <h3 className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base leading-tight font-medium">
+                <h3 className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base font-medium">
                   {exp.title} · {exp.company}
                 </h3>
 
-                <p className="mt-2 text-sm leading-tight">{exp.description}</p>
+                <p className="mt-2 text-sm">{exp.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {exp.skills.map((skill) => (
                     <Button

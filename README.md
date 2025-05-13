@@ -20,4 +20,10 @@ Vercel web and speed analytics are available by installing the plugins and placi
 ![web analytics](public/images/readme/webanalytics.png)
 ![speed analytics](public/images/readme/speedanalytics.png)
 
-using shadcn, pqoqubbw, cursify spotlight, lucide,
+## packages
+
+pqoqubbw, cursify spotlight, lucide, betterauth
+![shadcn](https://ui.shadcn.com/)
+![react tip tap editor](https://reactjs-tiptap-editor.vercel.app/guide/getting-started.html)
+
+https://transfonter.org/

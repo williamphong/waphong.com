@@ -94,7 +94,7 @@ export const ProjectList = () => {
               <div className="z-10 sm:order-2 sm:col-span-6">
                 <h3>
                   <a
-                    className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base leading-tight font-medium"
+                    className="group/link text-rpd-text dark:text-rp-text hover:text-rpd-foam focus-visible:text-rpd-foam inline-flex items-baseline text-base font-medium"
                     href={project.link}
                     aria-label={project.title}
                     target="_blank"
@@ -118,9 +118,7 @@ export const ProjectList = () => {
                   </a>
                 </h3>
 
-                <p className="mt-2 text-sm leading-normal">
-                  {project.description}
-                </p>
+                <p className="mt-2 text-sm">{project.description}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (

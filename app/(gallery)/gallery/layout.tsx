@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { ThemeProvider } from '@/components/themeToggle/theme-provider';
-
 import '@/app/globals.css';
+
+import { ThemeProvider } from '@/components/themeToggle/theme-provider';
+import SpotlightCursor from '@/components/spotlight/SpotlightCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
@@ -14,11 +15,11 @@ export const metadata: Metadata = {
     default: 'William Phong', // a default is required when creating a template
   },
   creator: 'William Phong',
-  description: "William Phong's portfolio website",
+  description: "William Phong's gallery",
   openGraph: {
     title: 'William Phong',
-    description: "William Phong's portfolio website",
-    url: 'https://waphong.com',
+    description: "William Phong's gallery",
+    url: 'https://waphong.com/gallery',
     siteName: 'William Phong',
     /*images: [
       {
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'William Phong',
-    description: "William Phong's portfolio",
+    description: "William Phong's gallery",
     //siteId: '1467726470533754880',
     creator: 'William Phong',
     //creatorId: '1467726470533754880',
@@ -52,15 +53,25 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`dark scroll-smooth`} suppressHydrationWarning>
-      <body className="bg-bgLight leading-relaxed text-slate-600 antialiased dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-teal-300 dark:selection:text-teal-900">
+    <html
+      lang="en"
+      className="dark font-sf scroll-smooth"
+      suppressHydrationWarning
+    >
+      <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed dark:bg-rp-base dark:text-rp-subtle dark:selection:bg-rp-highlightMed leading-relaxed antialiased">
+        <SpotlightCursor
+          config={{
+            radius: 300,
+            brightness: 0.1,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">
             {children}
             <Analytics />
             <SpeedInsights />
