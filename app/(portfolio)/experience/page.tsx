@@ -1,21 +1,51 @@
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 
 export const experienceData = [
   {
-    title: 'Data Science Intern',
-    company: 'Tensor Therapeutics',
+    title: 'HS Debate Coach / Judge',
+    company: 'TPHS, Advanced Technologies Academy, Potomac Academy',
+    location: 'CA, NV, MD',
+    description:
+      'Developed curriculum modules and specialized preparation documents for individual students and groups of 3-8. Coordinated with high schools, colleges, and staff for tournament logistics',
+    date: '2019 - Present',
+    skills: [],
+  },
+  {
+    title: 'Math and Reading Tutor',
+    company: 'Kumon',
     location: 'San Diego, CA',
     description:
-      'Applied machine learning techniques to accelerate drug discovery processes. Utilized Boltz-2 to generate predictive models for RNA structures and molecular interactions. Developed and deployed a scalable variant calling pipeline using Sarek (nf-core), Nextflow, and Docker for genomic data analysis. Configured, managed, and scaled virtual machines on Azure and Lambda.ai, implementing secure networking and SSH access to support efficient remote workflows',
-    date: 'Jul - Aug 2025',
-    skills: ['Boltz-2', 'nf-core', 'Python', 'Azure'],
+      'Assisted dozens of students daily by assessing their individual needs and learning styles.',
+    date: '2022 - 2023',
+    skills: [],
+  },
+  {
+    title: 'Team Member',
+    company: "Einstein Bro's",
+    location: 'San Diego, CA',
+    description:
+      'Efficiently processed transactions and exceeded customer experience expectations based on feedback/reviews. Trained new employees with use of point of sales system and day-to-day protocols',
+    date: '2021 - 2022',
+    skills: [],
   },
 ] as const;
 
-export const ExperienceList = () => {
+export default function Home() {
+  const router = useRouter();
   return (
-    <div>
+    <div className="overflow-scroll">
+      <div className="my-12">
+        <button
+          onClick={() => router.back()}
+          className="group/link link--color hover:underline-4 font-medium"
+        >
+          Back
+        </button>
+      </div>
+
       <ol>
         {experienceData.map((exp, index) => (
           <li key={index} className="mb-12">
@@ -55,30 +85,6 @@ export const ExperienceList = () => {
           </li>
         ))}
       </ol>
-
-      <Link
-        className="group/link link--color hover:underline-4 font-medium"
-        href="/experience"
-        rel="noreferrer noopener"
-        aria-label="resume"
-      >
-        <span className="inline-block">
-          Non-tech experience
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 group-focus-visible/link:translate-x-1 group-focus-visible/link:-translate-y-1 motion-reduce:transition-none"
-            aria-hidden="true"
-          >
-            <path
-              fillRule="evenodd"
-              d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-              clipRule="evenodd"
-            ></path>
-          </svg>{' '}
-        </span>
-      </Link>
     </div>
   );
-};
+}

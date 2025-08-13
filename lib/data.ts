@@ -5,6 +5,10 @@ export const navigation = [
     hash: '#about',
   },
   {
+    name: 'experience',
+    hash: '#experience',
+  },
+  {
     name: 'projects',
     hash: '#projects',
   },
@@ -12,10 +16,7 @@ export const navigation = [
     name: 'education',
     hash: '#education',
   },
-  {
-    name: 'experience',
-    hash: '#experience',
-  },
+  
 ] as const;
 
 export const svg = [
