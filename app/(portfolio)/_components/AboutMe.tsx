@@ -1,4 +1,4 @@
-export const AboutMe = () => {
+export const ABoutMe = () => {
   return (
     <div>
       <p className="mb-4">
