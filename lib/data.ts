@@ -188,3 +188,21 @@ export const experienceData = [
     skills: [],
   },
 ] as const;
+
+export const education = [
+  {
+    title: 'San Diego State University',
+    date: 'Present',
+    degree: 'M.S. in Computer Science',
+    awards: '',
+    classes: '',
+  },
+  {
+    title: 'California State University, San Marcos',
+    date: 'Aug 2024',
+    degree: 'B.S. in Computer Science',
+    awards: 'Cum Laude, Deans List Spring 2023 & 2024',
+    classes:
+      "Data Structures and Algorithm's, Operating Systems, Databases, Cloud Computing, Networking, Security, Architecture, Embedded Systems, Software Engineering, Probability and Statistics, Discrete Mathematics, Linear Algebra",
+  },
+] as const;

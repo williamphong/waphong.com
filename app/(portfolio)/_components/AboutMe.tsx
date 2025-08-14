@@ -31,7 +31,6 @@ export const AboutMe = () => {
         <a
           className="link--color hover:underline-4 font-medium"
           href="/gallery"
-          target="_blank"
           rel="noreferrer noopener"
           aria-label="gallery"
         >
@@ -55,7 +54,6 @@ export const AboutMe = () => {
         <a
           className="group/link link--color hover:underline-4 font-medium"
           href="/files/resume.pdf"
-          target="_blank"
           rel="noreferrer noopener"
           aria-label="resume"
         >

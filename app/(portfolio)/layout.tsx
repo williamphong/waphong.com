@@ -1,6 +1,7 @@
 import React from 'react';
-import type { Metadata } from 'next';
 import Head from 'next/head';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
@@ -15,12 +16,13 @@ import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 import SpotlightCursor from '@/components/spotlight/SpotlightCursor';
 
 import '@/app/globals.css';
+import { LeftSide } from './_components/LeftSide';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
   title: {
     template: '%s | William Phong',
-    default: 'William Phong — Portfolio',
+    default: 'William Phong',
   },
   description: 'Personal portfolio of William Phong.',
   icons: {
@@ -61,13 +63,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`dark ${inter.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`dark ${inter.variable} scroll-smooth`}>
       <Head>
         <link
           rel="preload"
@@ -84,13 +84,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </Head>
-      <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed dark:bg-rp-base dark:text-rp-subtle dark:selection:bg-rp-highlightMed leading-relaxed antialiased">
-        <SpotlightCursor
-          config={{
-            radius: 300,
-            brightness: 0.1,
-          }}
-        />
+      <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
+        <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -98,9 +93,18 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">
-            {children}
-            <Analytics />
-            <SpeedInsights />
+            <div className="lg:flex lg:justify-between lg:gap-4">
+              {/* Left side – static */}
+              <LeftSide />
+
+              {/* Right side – dynamic */}
+              <main id="content" className="lg:w-1/2 lg:py-24">
+                {children}
+
+                <Analytics />
+                <SpeedInsights />
+              </main>
+            </div>
           </div>
         </ThemeProvider>
       </body>

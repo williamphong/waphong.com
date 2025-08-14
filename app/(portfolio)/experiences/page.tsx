@@ -1,23 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Metadata } from 'next';
 
+import { Button } from '@/components/ui/button';
 import { experienceData } from '@/lib/data';
+
+export const metadata: Metadata = {
+  title: 'Experiences',
+};
 
 export default function Experience() {
   return (
-    <div className="min-h-screen">
-      <div className="my-12">
-        <Link
-          href="/"
-          className="group/link link--color hover:underline-4 font-medium"
-        >
-          <button className="group/link link--color hover:underline-4 font-medium">
-            Back
-          </button>
-        </Link>
-      </div>
-
+    <div className="">
       <ol>
         {experienceData.map((exp, index) => (
           <li key={index} className="mb-12">
@@ -57,6 +51,16 @@ export default function Experience() {
           </li>
         ))}
       </ol>
+      <div className="mt-12">
+        <Link
+          href="/"
+          className="group/link link--color hover:underline-4 font-medium"
+        >
+          <button className="group/link link--color hover:underline-4 font-medium">
+            Back
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
