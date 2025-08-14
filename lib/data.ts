@@ -5,6 +5,10 @@ export const navigation = [
     hash: '#about',
   },
   {
+    name: 'experience',
+    hash: '#experience',
+  },
+  {
     name: 'projects',
     hash: '#projects',
   },
@@ -12,10 +16,7 @@ export const navigation = [
     name: 'education',
     hash: '#education',
   },
-  {
-    name: 'experience',
-    hash: '#experience',
-  },
+  
 ] as const;
 
 export const svg = [
@@ -66,4 +67,124 @@ export const svg = [
     link:'https://discord.com/users/146099021151338497'
   },
   */
+] as const;
+
+export const projectsData = [
+  {
+    title: 'VR Earth Orbit Simulation',
+    description:
+      "Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun's orbit.",
+    tags: ['C#', 'MATLAB', 'Unity', 'SteamVR'],
+    link: 'https://github.com/williamphong/CS490-VR-Orbit',
+    imageUrl: '/images/projects/vrorbit.webm',
+    date: 'Jan 2024 - Present',
+  },
+  {
+    title: 'Formula 1 Race Prediction Application',
+    description:
+      'Developed predictive analytics model using linear/multinomial regression and XGBoost algorithms. Data operations are managed with PostgreSQL and results are visualized using Matplotlib',
+    tags: [
+      'Python',
+      'Tensorflow',
+      'Pytorch',
+      'Sci-kit',
+      'Matplotlib',
+      'Pandas',
+      'Postgresql',
+    ],
+    link: 'https://github.com/williamphong/F1DataVisualization',
+    imageUrl: '/images/projects/f1.jpg',
+    date: 'Jun 2024 - Present',
+  },
+  {
+    title: 'Portfolio Website // waphong.com',
+    description:
+      'My personal portfolio website. Integrates BetterAuth, Prisma and PostgreSQL for backend usage.',
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Vercel', 'Playwright'],
+    link: 'https://github.com/williamphong/waphong.com',
+    imageUrl: '/images/projects/waphong.png',
+    date: 'May 2024 - Present',
+  },
+  {
+    title: 'craniumknight.com',
+    description: 'Portfolio website built for artist craniumknight.',
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Netlify'],
+    link: 'https://craniumknight.com',
+    imageUrl: '/images/projects/craniumknight.png',
+    date: 'Feb 2025 - Present',
+  },
+  {
+    title: 'kwauche.com',
+    description: 'Portfolio website built for artist Ryan Quach.',
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Netlify'],
+    link: 'https://kwauche.com',
+    imageUrl: '/images/projects/kwauche.png',
+    date: 'Jan 2025 - Present',
+  },
+  {
+    title: 'Spotify Daylist Word Cloud',
+    description:
+      "Dynamic word cloud generator visualizing musical preferences from Spotify daylist data. Phrases are parsed using Spotify's API and saved into a database.",
+    tags: ['Python', 'Matplotlib', 'Spotipy', 'Postgresql'],
+    link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
+    imageUrl: '/images/projects/wordcloud.png',
+    date: 'Jun 2024 - Present',
+  },
+  {
+    title: 'Discord Bot',
+    description:
+      'Deployed a responsive Java Discord bot supporting 200+ users. Containerized on AWS for 24/7 up-time.',
+    tags: ['Java', 'Python', 'Docker', 'AWS'],
+    link: '',
+    imageUrl: '/images/projects/discord-bot.webp',
+    date: 'Jan 2019 - Present',
+  },
+  {
+    title: 'Student Portal Application',
+    description:
+      'Provides personalized and focused information to students. Developed front-end app with Java and Android Studio',
+    tags: ['Java', 'Android Studio', 'MySQL'],
+    link: 'https://github.com/williamphong/CSUSMStudentApp',
+    imageUrl: '/images/projects/csusm.jpg',
+    date: 'Jan 2023 - May 2023',
+  },
+] as const;
+
+export const experienceData = [
+  {
+    title: 'Data Science Intern',
+    company: 'Tensor Therapeutics',
+    location: 'San Diego, CA',
+    description:
+      'Applied machine learning techniques to accelerate drug discovery processes. Utilized Boltz-2 to generate predictive models for RNA structures and molecular interactions. Developed and deployed a scalable variant calling pipeline using Sarek (nf-core), Nextflow, and Docker for genomic data analysis. Configured, managed, and scaled virtual machines on Azure and Lambda.ai, implementing secure networking and SSH access to support efficient remote workflows',
+    date: '2025 - Present',
+    skills: ['Python', 'PyTorch', 'Tensorflow', 'Azure'],
+  },
+  {
+    title: 'HS Debate Coach / Judge',
+    company: 'TPHS, Advanced Technologies Academy, Potomac Academy',
+    location: 'CA, NV, MD',
+    description:
+      'Developed curriculum modules and specialized preparation documents for individual students and groups of 3-8. Coordinated with high schools, colleges, and staff for tournament logistics',
+    date: '2019 - Present',
+    skills: [],
+  },
+  {
+    title: 'Math and Reading Tutor',
+    company: 'Kumon',
+    location: 'San Diego, CA',
+    description:
+      'Assisted dozens of students daily by assessing their individual needs and learning styles.',
+    date: '2022 - 2023',
+    skills: [],
+  },
+  {
+    title: 'Team Member',
+    company: "Einstein Bro's",
+    location: 'San Diego, CA',
+    description:
+      'Efficiently processed transactions and exceeded customer experience expectations based on feedback/reviews. Trained new employees with use of point of sales system and day-to-day protocols',
+    date: '2021 - 2022',
+    skills: [],
+  },
 ] as const;
