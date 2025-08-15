@@ -39,11 +39,11 @@ export default function Home() {
           </h2>
         </div>
 
-        <ExperienceList />
+        <ExperienceList limit={2} />
 
         <Link
           className="group/link link--color hover:underline-4 font-medium"
-          href="/experiences"
+          href="/experience"
           rel="noreferrer noopener"
           aria-label="resume"
           scroll={true}
@@ -79,7 +79,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <ProjectList />
+        <ProjectList limit={3} />
 
         <Link
           className="group/link link--color hover:underline-4 font-medium"
@@ -107,7 +107,7 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Experience Section */}
+      {/* Education Section */}
       <section
         id="education"
         className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"

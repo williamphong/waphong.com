@@ -71,9 +71,9 @@ export const svg = [
 
 export const projectsData = [
   {
-    title: 'VR Earth Orbit Simulation',
+    title: 'VR Earth Orbit Simulation', 
     description:
-      "Solves an educational issue explaining astrological concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun's orbit.",
+      "Solves an educational issue explaining astronomical concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun's orbit.",
     tags: ['C#', 'MATLAB', 'Unity', 'SteamVR'],
     link: 'https://github.com/williamphong/CS490-VR-Orbit',
     imageUrl: '/images/projects/vrorbit.webm',

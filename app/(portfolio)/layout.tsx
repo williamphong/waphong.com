@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
