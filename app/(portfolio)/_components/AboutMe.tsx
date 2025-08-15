@@ -1,20 +1,26 @@
 export const AboutMe = () => {
   return (
     <div>
-      <p className="mb-4">
-        My first interaction with a computer was my dad's ThinkPad when I was 5
-        years old. At the time, playing games on the Lego and Disney websites
-        brought me joy and exposed me to a realm of interactive spaces. Fast
-        forward 17 years to today, and I've graduated with a degree in CS and
-        several projects under my belt.
+      <p className="text-normal mb-4">
+        My first interaction with a computer was my dad's ThinkPad when I was
+        five years old. Playing games on the Lego and Disney websites didn’t
+        just entertain me — it sparked my interest in the possibilities of
+        software and technology.
       </p>
       <p className="mb-4">
-        I've always been interested in developing software that has a material
-        impact on people's lives. My first project was in middle school
-        developing a mobile app assisting dyslexic students. I've recently
-        contributed to a VR Earth Orbit project that incorporates published
-        research into a demo that assists in explaining astrological concepts to
-        students.
+        That curiosity grew into a passion for developing technology that has a
+        material impact on people's lives. In middle school, I developed a
+        mobile app to assist dyslexic students, working with a local learning
+        center. During my undergrad, I contributed to a VR Earth Orbit project
+        that transformed published research into an interactive teaching tool
+        for astronomical concepts to students. Most recently, I completed an
+        internship at a biotech startup, applying machine learning to accelerate
+        drug discovery.
+      </p>
+      <p className="mb-4">
+        Seventeen years later, I’ve turned that early spark into a career path.
+        I am now pursuing my M.S. at SDSU, specializing in machine learning and
+        artificial intelligence.
       </p>
       <p className="mb-4">
         In my free time, I enjoy listening to{' '}

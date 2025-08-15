@@ -21,8 +21,8 @@ export const LeftSide = () => {
         </h2>
 
         <p className="mt-4 max-w-xs">
-          Hi! I'm currently a student at SDSU and looking for backend software
-          or data analysis roles, but I am open to all opportunities!
+          Hi! I'm currently looking for software or data science roles, but I'm
+          open to all opportunities!
         </p>
 
         {/* Client Navigation */}
