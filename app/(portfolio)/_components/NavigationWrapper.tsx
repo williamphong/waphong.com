@@ -53,7 +53,7 @@ export const NavigationWrapper: React.FC = () => {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.65 }
     );
 
     // Observe each section by ID
