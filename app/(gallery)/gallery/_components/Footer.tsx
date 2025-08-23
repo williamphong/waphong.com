@@ -6,14 +6,15 @@ const Footer = () => {
   const currentYears = new Date().getFullYear();
 
   return (
-    <div className="flex flex-row items-center border-t-2 border-slate-400 py-8 dark:border-slate-300">
+    <div className="my-12 flex flex-row items-center">
       <div className="flex flex-1 justify-start"></div>
 
       <div className="flex flex-1 justify-center">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-sm">© {currentYears} william phong</span>
+          <span className="text-sm">
+            Copyright © {currentYears} - william phong
+          </span>
         </Link>
-        <Socials />
       </div>
 
       <div className="flex flex-1 justify-end"></div>

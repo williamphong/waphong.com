@@ -1,6 +1,5 @@
 'use client';
 import { svg } from '@/lib/data';
-import { ModeToggle } from '@/components/themeToggle/theme-toggle';
 import {
   AtSignIcon,
   GithubIcon,
@@ -49,9 +48,6 @@ export const Socials = () => {
       className="text-rpd-love dark:text-rp-rose my-4 flex items-center gap-5 md:my-4 lg:my-0"
       aria-label="Social media"
     >
-      <li>
-        <ModeToggle />
-      </li>
       {socialList.map(({ href, title, label, icon }) => (
         <li key={title}>
           <a

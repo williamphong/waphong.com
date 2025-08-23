@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/app/globals.css';
-
+import { Socials } from './_components/Socials';
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
-import SpotlightCursor from '@/components/spotlight/SpotlightCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
@@ -58,25 +58,25 @@ export default function RootLayout({
       className="dark font-sf scroll-smooth"
       suppressHydrationWarning
     >
-      <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed dark:bg-rp-base dark:text-rp-subtle dark:selection:bg-rp-highlightMed leading-relaxed antialiased">
-        <SpotlightCursor
-          config={{
-            radius: 300,
-            brightness: 0.1,
-          }}
-        />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">
-            {children}
-            <Analytics />
-            <SpeedInsights />
+      <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
+        <header className="my-16 flex items-center justify-between text-center">
+          <h1 className="text-edge-outline text-rpd-text flex-1 cursor-default bg-clip-text pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
+            <Link href="/" className="focus-visible:text-rpd-rose">
+              William Phong
+            </Link>
+          </h1>
+
+          <h1 className="flex-1"></h1>
+          <div className="flex-1">
+            <Socials />
           </div>
-        </ThemeProvider>
+        </header>
+
+        <div className="mx-auto min-h-screen max-w-screen-xl px-1 py-2 md:px-2 md:py-4 lg:px-0 lg:py-0">
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </div>
       </body>
     </html>
   );
