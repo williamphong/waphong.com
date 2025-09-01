@@ -94,8 +94,8 @@ export const RightFooter = () => {
             aria-label="brittanychiang.com"
           >
             brittanychiang.com
-          </a>{' '}
-          and{' '}
+          </a>
+          ,{' '}
           <a
             className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
             href="https://carlbeaverson.com"
@@ -104,6 +104,26 @@ export const RightFooter = () => {
             aria-label="carlbeaverson.com"
           >
             carlbeaverson.com
+          </a>
+          , and my friends{' '}
+          <a
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+            href="https://derekwen.dev"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="derek wen portfolio"
+          >
+            Derek Wen
+          </a>{' '}
+          and {''}
+          <a
+            className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+            href="https://aqcheng.github.io"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="april cheng portfolio"
+          >
+            April Cheng
           </a>
           .
         </p>
