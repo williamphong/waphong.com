@@ -9,7 +9,7 @@ export default function Home() {
         <h1>Gallery</h1>
       </div>
 
-      <div className="my-36 text-center">
+      <div className="my-32 text-center">
         <GalleryCards />
 
         <p className="mt-24 text-base">camera: pentax espio 928 35mm film</p>

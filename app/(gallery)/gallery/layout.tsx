@@ -66,7 +66,7 @@ export default function RootLayout({
             </Link>
           </h1>
 
-          <h1 className="flex-1"></h1>
+          <h1 className="w-[1/3] flex-1"></h1>
           <div className="flex-1">
             <Socials />
           </div>

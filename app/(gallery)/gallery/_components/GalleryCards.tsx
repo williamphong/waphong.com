@@ -51,32 +51,32 @@ export default function GalleryGrid() {
     {
       title: 'Hollywood Palladium',
       subtitle: 'Los Angeles - 9/27/2024',
-      image: '/images/gallery/palladium.jpg',
+      image: '/images/gallery/palladium.webp',
     },
     {
       title: 'Del Mar Beach',
       subtitle: 'San Diego - 9/20/2023',
-      image: '/images/gallery/delmarbeach.jpg',
+      image: '/images/gallery/delmarbeach.webp',
     },
     {
       title: 'SF',
       subtitle: 'San Francisco - 12/7/2025',
-      image: '/images/gallery/sf.jpg',
+      image: '/images/gallery/sf.webp',
     },
     {
       title: 'La Jolla Beach',
       subtitle: 'San Diego - 12/11/2023',
-      image: '/images/gallery/lajolla.jpg',
+      image: '/images/gallery/lajolla.webp',
     },
     {
       title: 'Balboa Japanese Garden',
       subtitle: 'San Diego - 3/25/2025',
-      image: '/images/gallery/jpgarden.jpg',
+      image: '/images/gallery/jpgarden.webp',
     },
     {
       title: 'Big Sur',
       subtitle: 'Big Sur - 12/19/2024',
-      image: '/images/gallery/bigsur.jpg',
+      image: '/images/gallery/bigsur.webp',
     },
   ];
 
