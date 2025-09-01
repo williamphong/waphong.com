@@ -37,6 +37,7 @@ export const AboutMe = () => {
         <a
           className="link--color hover:underline-4 font-medium"
           href="/gallery"
+          target="_blank"
           rel="noreferrer noopener"
           aria-label="gallery"
         >
