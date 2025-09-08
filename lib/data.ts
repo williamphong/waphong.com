@@ -152,12 +152,21 @@ export const projectsData = [
 
 export const experienceData = [
   {
+    title: 'Graduate Research Assistant',
+    company: 'SDSU Climate Informatics Laboratory',
+    location: 'San Diego, CA',
+    description:
+      '',
+    date: 'Present',
+    skills: ['Python', 'PyTorch', 'Tensorflow', 'Azure'],
+  },
+  {
     title: 'Data Science Intern',
     company: 'Tensor Therapeutics',
     location: 'San Diego, CA',
     description:
       'Applied machine learning techniques to accelerate drug discovery processes. Utilized Boltz-2 to generate predictive models for RNA structures and molecular interactions. Developed and deployed a scalable variant calling pipeline using Sarek (nf-core), Nextflow, and Docker for genomic data analysis. Configured, managed, and scaled virtual machines on Azure and Lambda.ai, implementing secure networking and SSH access to support efficient remote workflows',
-    date: '2025 - Present',
+    date: '2025',
     skills: ['Python', 'PyTorch', 'Tensorflow', 'Azure'],
   },
   {

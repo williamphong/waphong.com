@@ -16,13 +16,13 @@ export const LeftSide = () => {
           </Link>
         </h1>
 
-        <h2 className="text-rpd-text dark:text-rp-text text-lg font-medium tracking-tight sm:text-xl">
-          M.S. in Computer Science @ SDSU
+        <h2 className="text-rpd-text dark:text-rp-text max-w-xs text-lg font-medium tracking-tight sm:text-xl">
+          M.S. in Computer Science, Graduate Research Assistant @ SDSU
         </h2>
 
         <p className="mt-4 max-w-xs">
-          Hi! I'm currently looking for software or data science roles, but I'm
-          open to all opportunities!
+          Hi! I'm currently looking for software or machine learning/data
+          science roles, but I'm open to all opportunities!
         </p>
 
         {/* Client Navigation */}
