@@ -1,8 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/app/globals.css';
 import { Socials } from './_components/Socials';
@@ -74,8 +72,6 @@ export default function RootLayout({
 
         <div className="mx-auto min-h-screen max-w-screen-xl px-1 py-2 md:px-2 md:py-4 lg:px-0 lg:py-0">
           {children}
-          <Analytics />
-          <SpeedInsights />
         </div>
       </body>
     </html>

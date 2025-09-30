@@ -1,5 +1,11 @@
+main = ".open-next/worker.js"
 name = "portfolio"
-pages_build_output_dir = ".next"
+compatibility_date = "2025-03-25"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 [build]
 upload.exclude = [".next/cache", "node_modules"]

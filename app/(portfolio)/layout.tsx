@@ -1,8 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import type { Metadata } from 'next';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
@@ -67,22 +65,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`dark ${inter.variable} scroll-smooth`}>
-      <Head>
-        <link
-          rel="preload"
-          href="/fonts/Inter-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/SF-Pro-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </Head>
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
         <ThemeProvider
@@ -99,9 +81,6 @@ export default function RootLayout({
               {/* Right side – dynamic */}
               <main id="content" className="lg:w-1/2 lg:py-24">
                 {children}
-
-                <Analytics />
-                <SpeedInsights />
               </main>
             </div>
           </div>
