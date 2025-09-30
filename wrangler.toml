@@ -1,6 +1,2 @@
 name = "portfolio"
 pages_build_output_dir = ".next"
-
-[site]
-bucket = ".next"
-exclude = [".next/cache/**"]
