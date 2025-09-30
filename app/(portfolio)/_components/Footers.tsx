@@ -74,8 +74,8 @@ export const RightFooter = () => {
     <footer className="max-w-md py-16 text-sm sm:pb-0">
       {
         <p>
-          Developed with Next.js, Typescript, Tailwind CSS, and deployed using
-          Vercel. Follows{' '}
+          Developed with Next.js, Typescript, Tailwind CSS, and deployed on
+          Cloudflare Pages. Follows{' '}
           <a
             className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
             href="https://rosepinetheme.com/palette/"
