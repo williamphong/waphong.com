@@ -1,2 +1,5 @@
 name = "portfolio"
 pages_build_output_dir = ".next"
+
+[build]
+upload.exclude = [".next/cache", "node_modules"]
