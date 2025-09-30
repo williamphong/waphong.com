@@ -158,7 +158,7 @@ export const experienceData = [
     description:
       '',
     date: 'Present',
-    skills: ['Python', 'PyTorch', 'Tensorflow', 'Azure'],
+    skills: ['Python', 'Next.js'],
   },
   {
     title: 'Data Science Intern',
