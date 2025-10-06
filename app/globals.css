@@ -84,7 +84,7 @@
   --focus-color: var(--color-rp-love);
 }
 
-@utility underline-4{
-    text-decoration: underline;
-    text-underline-offset: 4px;
+@utility underline-4 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

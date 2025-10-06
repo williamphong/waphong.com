@@ -16,7 +16,6 @@ export const navigation = [
     name: 'education',
     hash: '#education',
   },
-  
 ] as const;
 
 export const svg = [
@@ -71,7 +70,7 @@ export const svg = [
 
 export const projectsData = [
   {
-    title: 'VR Earth Orbit Simulation', 
+    title: 'VR Earth Orbit Simulation',
     description:
       "Solves an educational issue explaining astronomical concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun's orbit.",
     tags: ['C#', 'MATLAB', 'Unity', 'SteamVR'],
@@ -155,8 +154,7 @@ export const experienceData = [
     title: 'Graduate Research Assistant',
     company: 'SDSU Climate Informatics Laboratory',
     location: 'San Diego, CA',
-    description:
-      '',
+    description: '',
     date: 'Present',
     skills: ['Python', 'Next.js'],
   },
