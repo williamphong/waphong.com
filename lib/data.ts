@@ -154,7 +154,7 @@ export const experienceData = [
     title: 'Graduate Research Assistant',
     company: 'SDSU Climate Informatics Laboratory',
     location: 'San Diego, CA',
-    description: 'Developing the iCharm climate analysis interface, incorporating over 200 GB of NOAA datasets for 3D-visualization and statistical analysis. Designed and built responsive front-end using Next.js, React, TypeScript, Tailwind CSS, and Cesium.js. Integrated data pipeline through ZARR/NetCDF files, PostgreSQL, Docker, Python, FastAPI, and Drizzle. Created interactive data visualizations, including time series analyses and linear regression model',
+    description: 'Developing the iCharm climate analysis interface, incorporating over 200 GB of NOAA datasets for 3D-visualization and statistical analysis.',
     date: 'Present',
     skills: ['Python', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
   },
@@ -162,8 +162,7 @@ export const experienceData = [
     title: 'Graduate Research Intern',
     company: 'Pisces Lab @ SDSU',
     location: 'San Diego, CA',
-    description: 'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language translation, autonomous entity control, and inferencing. Constructed front-end displaying simulation data using Next.js/React, TypeScript, and Tailwind CSS',
-    date: 'Present',
+    description: 'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language conversion, autonomous entity control, and inferencing. ',
     skills: ['Python', 'Gemini', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
   },
   {
@@ -171,7 +170,7 @@ export const experienceData = [
     company: 'Tensor Therapeutics',
     location: 'San Diego, CA',
     description:
-      'Applied machine learning techniques to accelerate drug discovery processes. Utilized Boltz-2 to generate predictive models for RNA structures and molecular interactions. Developed and deployed a scalable variant calling pipeline using Sarek (nf-core), Nextflow, and Docker for genomic data analysis. Configured, managed, and scaled virtual machines on Azure and Lambda.ai, implementing secure networking and SSH access to support efficient remote workflows',
+      'Accelerated drug discovery processes by generating predictive models for RNA structures and molecular interactions. Deployed a scalable variant calling pipeline using Sarek (nf-core) for genomic data analysis. ',
     date: '2025',
     skills: ['Python', 'PyTorch', 'Tensorflow', 'Azure'],
   },

@@ -1,6 +1,6 @@
 export const AboutMe = () => {
   return (
-    <div>
+    <div className="">
       <p className="text-normal mb-4">
         My first interaction with a computer was my dad's ThinkPad when I was
         five years old. Playing games on the Lego and Disney websites didn’t
@@ -59,12 +59,12 @@ export const AboutMe = () => {
       <br></br>
       <p className="mb-4">
         <a
-          className="group/link link--color hover:underline-4 font-medium"
+          className="group/link"
           href="/files/resume.pdf"
           rel="noreferrer noopener"
           aria-label="resume"
         >
-          <span className="inline-block">
+          <span className="link--color hover:underline-4 inline-block font-medium">
             View my full resume here
             <svg
               xmlns="http://www.w3.org/2000/svg"

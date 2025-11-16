@@ -42,13 +42,13 @@ export default function Home() {
         <ExperienceList limit={3} />
 
         <Link
-          className="group/link link--color hover:underline-4 font-medium"
+          className="group/link"
           href="/experience"
           rel="noreferrer noopener"
-          aria-label="resume"
+          aria-label="employment history"
           scroll={true}
         >
-          <span className="group inline-block">
+          <span className="group link--color hover:underline-4 inline-block font-medium">
             Full employment history
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,13 +82,13 @@ export default function Home() {
         <ProjectList limit={3} />
 
         <Link
-          className="group/link link--color hover:underline-4 font-medium"
+          className="group/link"
           href="/projects"
           rel="noreferrer noopener"
           aria-label="resume"
           scroll={true}
         >
-          <span className="group inline-block">
+          <span className="group link--color hover:underline-4 inline-block font-medium">
             More projects
             <svg
               xmlns="http://www.w3.org/2000/svg"
