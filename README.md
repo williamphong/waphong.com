@@ -4,9 +4,11 @@ Hi, my name is William Phong and this is my portfolio website! This is a project
 
 ## Cloudflare Pages Deployment
 
-need to update - have moved away from vercel
+This site was published using Cloudflare workers, Cloudflare DNS, and Porkbun's domain registrar system. It was originally written and deployed on Vercel but has been migrated to Cloudflare workers.
 
-This site was published using Vercel's hobby tier and Porkbun's domain registrar system.
+Information below outdated
+
+
 ![porkbun](public/images/readme/domain.png)
 
 ![vercel dns](public/images/readme/dns.png)
@@ -16,11 +18,6 @@ Adding the DNS settings from Vercel to Porkbun was relatively straightforward. I
 After connecting a GitHub repository to Vercel, Vercel handles the branches within the repo and creates deployments for each one. The production deployment utilizes the main branch, which shows up on waphong.com The test branch creates preview deployments that are accessible through a link provided by vercel.
 ![deployments](public/images/readme/deployments.png)
 
-## Plugins
-
-Vercel web and speed analytics are available by installing the plugins and placing them in the code.
-![web analytics](public/images/readme/webanalytics.png)
-![speed analytics](public/images/readme/speedanalytics.png)
 
 ## packages
 
