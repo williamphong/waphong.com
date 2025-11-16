@@ -2,7 +2,9 @@
 
 Hi, my name is William Phong and this is my portfolio website! This is a project done to learn Next.js, Typescript, and Tailwind. Part of the design and css come from websites that have inspired me - https://brittanychiang.com and https://carlbeaverson.com. ESLint and Prettier were also utilized to streamline my development process. New features are developed on my test branch. This readme will go through my process and thoughts as I built this site.
 
-## Vercel Deployment
+## Cloudflare Pages Deployment
+
+need to update - have moved away from vercel
 
 This site was published using Vercel's hobby tier and Porkbun's domain registrar system.
 ![porkbun](public/images/readme/domain.png)

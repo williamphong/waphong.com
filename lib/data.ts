@@ -99,7 +99,7 @@ export const projectsData = [
     title: 'Portfolio Website // waphong.com',
     description:
       'My personal portfolio website. Integrates BetterAuth, Prisma and PostgreSQL for backend usage.',
-    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Vercel', 'Playwright'],
+    tags: ['Next.JS', 'TypeScript', 'Tailwind', 'Cloudflare', 'Playwright'],
     link: 'https://github.com/williamphong/waphong.com',
     imageUrl: '/images/projects/waphong.png',
     date: 'May 2024 - Present',
