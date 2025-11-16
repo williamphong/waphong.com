@@ -63,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`dark font-inter scroll-smooth`}>
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
         <ThemeProvider
@@ -72,7 +72,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">
+          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-0">
             <div className="lg:flex lg:justify-between lg:gap-4">
               {/* Left side – static */}
               <LeftSide />

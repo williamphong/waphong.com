@@ -31,7 +31,7 @@ export const ExperienceList = ({ limit }: ExperienceListProps) => {
                   {exp.title} · {exp.company}
                 </h3>
 
-                <p className="mt-2 text-sm">{exp.description}</p>
+                <p className="mt-2 text-sm tracking-wide">{exp.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {exp.skills.map((skill) => (
                     <Button

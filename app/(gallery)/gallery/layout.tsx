@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="dark font-sf scroll-smooth"
+      className="dark font-sfpro scroll-smooth"
       suppressHydrationWarning
     >
       <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">

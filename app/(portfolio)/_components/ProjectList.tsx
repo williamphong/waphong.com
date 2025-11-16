@@ -44,7 +44,9 @@ export const ProjectList = ({ limit }: ProjectListProps) => {
                   </a>
                 </h3>
 
-                <p className="mt-2 text-sm">{project.description}</p>
+                <p className="mt-2 text-sm tracking-wide">
+                  {project.description}
+                </p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (

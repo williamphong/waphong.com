@@ -71,7 +71,7 @@ export const LeftFooter = () => {
 
 export const RightFooter = () => {
   return (
-    <footer className="max-w-md py-16 text-sm sm:pb-0">
+    <footer className="py-16 text-sm/tight sm:pb-0">
       {
         <p>
           Developed with Next.js, Typescript, Tailwind CSS, and deployed on

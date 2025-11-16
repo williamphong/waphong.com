@@ -1,7 +1,7 @@
 export const AboutMe = () => {
   return (
-    <div className="">
-      <p className="text-normal mb-4">
+    <div className="text-base tracking-normal">
+      <p className="mb-4">
         My first interaction with a computer was my dad's ThinkPad when I was
         five years old. Playing games on the Lego and Disney websites didn’t
         just entertain me — it sparked my interest in the possibilities of
@@ -13,14 +13,18 @@ export const AboutMe = () => {
         mobile app to assist dyslexic students, working with a local learning
         center. During my undergrad, I contributed to a VR Earth Orbit project
         that transformed published research into an interactive teaching tool
-        for astronomical concepts to students. Most recently, I completed an
+        for astronomical concepts to students. I've recently completed an
         internship at a biotech startup, applying machine learning to accelerate
         drug discovery.
       </p>
       <p className="mb-4">
         Seventeen years later, I’ve turned that early spark into a career path.
-        I am now pursuing my M.S. at SDSU, specializing in machine learning and
-        artificial intelligence.
+        I am now pursuing my M.S. at SDSU, focusing on machine learning and
+        artificial intelligence. I am currently a Graduate Research Assistant
+        with the SDSU Climate Informatics Lab, working on the iCharm interface.
+        I am also responsible for a research project with Dr. Jianshu Liu on
+        agentic digital twin systems, which has just obtained funding from the
+        SDSU Division of Research and Innovation.
       </p>
       <p className="mb-4">
         In my free time, I enjoy listening to{' '}
