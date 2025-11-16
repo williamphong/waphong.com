@@ -39,7 +39,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <ExperienceList limit={2} />
+        <ExperienceList limit={3} />
 
         <Link
           className="group/link link--color hover:underline-4 font-medium"

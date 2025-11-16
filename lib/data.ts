@@ -154,9 +154,16 @@ export const experienceData = [
     title: 'Graduate Research Assistant',
     company: 'SDSU Climate Informatics Laboratory',
     location: 'San Diego, CA',
-    description: '',
+    description: 'Developing the iCharm climate analysis interface, incorporating over 200 GB of NOAA datasets for 3D-visualization and statistical analysis. Designed and built responsive front-end using Next.js, React, TypeScript, Tailwind CSS, and Cesium.js. Integrated data pipeline through ZARR/NetCDF files, PostgreSQL, Docker, Python, FastAPI, and Drizzle. Created interactive data visualizations, including time series analyses and linear regression model',
     date: 'Present',
-    skills: ['Python', 'Next.js'],
+    skills: ['Python', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
+  },
+  {
+    title: 'Graduate Research Intern',
+    company: 'Pisces Lab @ SDSU',
+    location: 'San Diego, CA',
+    description: 'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language translation, autonomous entity control, and inferencing. Constructed front-end displaying simulation data using Next.js/React, TypeScript, and Tailwind CSS',
+    skills: ['Python', 'Gemini', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
   },
   {
     title: 'Data Science Intern',
@@ -199,7 +206,7 @@ export const experienceData = [
 export const education = [
   {
     title: 'San Diego State University',
-    date: 'Present',
+    date: 'May 2027',
     degree: 'M.S. in Computer Science',
     awards: '',
     classes: '',
