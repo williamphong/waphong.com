@@ -163,6 +163,7 @@ export const experienceData = [
     company: 'Pisces Lab @ SDSU',
     location: 'San Diego, CA',
     description: 'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language translation, autonomous entity control, and inferencing. Constructed front-end displaying simulation data using Next.js/React, TypeScript, and Tailwind CSS',
+    date: 'Present',
     skills: ['Python', 'Gemini', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
   },
   {
