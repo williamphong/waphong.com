@@ -221,3 +221,61 @@ export const education = [
       "Data Structures and Algorithm's, Operating Systems, Databases, Cloud Computing, Networking, Security, Architecture, Embedded Systems, Software Engineering, Probability and Statistics, Discrete Mathematics, Linear Algebra",
   },
 ] as const;
+
+export const blogPosts = [
+  {
+    id: 'welcome-to-my-blog',
+    title: 'Welcome to My Blog',
+    date: 'Nov 17, 2025',
+    excerpt: 'An introduction to my blog and what you can expect to find here.',
+    content: `# Welcome to My Blog
+
+This is my first blog post! I'm excited to share my thoughts, experiences, and learnings with you.
+
+## What to Expect
+
+I'll be writing about:
+- Software development and engineering
+- Machine learning and data science
+- My research projects
+- Tech tutorials and tips
+
+Stay tuned for more content!`,
+  },
+  {
+    id: 'getting-started-with-nextjs',
+    title: 'Getting Started with Next.js',
+    date: 'Nov 16, 2025',
+    excerpt: 'A comprehensive guide to building modern web applications with Next.js.',
+    content: `# Getting Started with Next.js
+
+Next.js is a powerful React framework that makes building web applications a breeze.
+
+## Why Next.js?
+
+- Server-side rendering
+- Static site generation
+- API routes
+- File-based routing
+- And much more!
+
+Let's dive in and explore what makes Next.js so great.`,
+  },
+  {
+    id: 'machine-learning-basics',
+    title: 'Machine Learning Basics',
+    date: 'Nov 15, 2025',
+    excerpt: 'Understanding the fundamentals of machine learning and its applications.',
+    content: `# Machine Learning Basics
+
+Machine learning is transforming how we solve complex problems.
+
+## Key Concepts
+
+1. Supervised Learning
+2. Unsupervised Learning
+3. Reinforcement Learning
+
+Each approach has its own use cases and advantages.`,
+  },
+] as const;
