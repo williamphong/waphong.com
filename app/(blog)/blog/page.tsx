@@ -8,15 +8,17 @@ export default function BlogPage() {
   return (
     <div className="">
       <section className="mb-16">
-        <h1 className="text-rpd-text dark:text-rp-text mb-8 text-4xl font-bold">
-          All Posts
-        </h1>
+        <header className="flex items-center justify-start border-b px-16 py-6">
+          <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text text-xl font-normal tracking-normal whitespace-nowrap">
+            home
+          </h1>
+        </header>
 
-        <div className="space-y-8">
+        <div className="">
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="border-rpd-muted/20 dark:border-rp-muted/20 border-b pb-8 last:border-0"
+              className="border-rpd-muted/20 dark:border-rp-muted/20 border-b px-16 py-6 last:border-0"
             >
               <Link href={`/blog/${post.id}`} className="group">
                 <h2 className="text-rpd-text dark:text-rp-text group-hover:text-rpd-rose dark:group-hover:text-rp-love mb-2 text-2xl font-semibold transition-colors">

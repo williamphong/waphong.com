@@ -11,8 +11,8 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <div className="text-center py-12">
-        <h1 className="text-rpd-text dark:text-rp-text text-3xl font-bold mb-4">
+      <div className="py-12 text-center">
+        <h1 className="text-rpd-text dark:text-rp-text mb-4 text-3xl font-bold">
           Post Not Found
         </h1>
         <p className="text-rpd-subtle dark:text-rp-subtle mb-6">
@@ -29,30 +29,33 @@ export default function BlogPostPage() {
   }
 
   return (
-    <article className="">
-      <header className="mb-8">
-        <Link
-          href="/blog"
-          className="text-sm text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text transition-colors mb-4 inline-block"
-        >
-          ← All posts
-        </Link>
-        <h1 className="text-rpd-text dark:text-rp-text text-4xl font-bold mb-2">
-          {post.title}
-        </h1>
-        <p className="text-rpd-muted dark:text-rp-muted">{post.date}</p>
-      </header>
-
-      <div className="prose prose-invert max-w-none">
-        <div className="text-rpd-subtle dark:text-rp-subtle leading-relaxed whitespace-pre-wrap">
-          {post.content}
-        </div>
+    <article className="flex-col lg:flex lg:h-screen">
+      <div className="h-full">
+        <header className="flex flex-row items-center justify-between border-b px-16 py-6">
+          <Link
+            href="/blog"
+            className="text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text inline-block text-sm transition-colors"
+          >
+            ← All posts
+          </Link>
+          <h1 className="text-rpd-text dark:text-rp-text text-xl font-bold">
+            {post.title}
+          </h1>
+          <p className="text-rpd-muted dark:text-rp-muted">{post.date}</p>
+        </header>
+        <section className="px-16 py-6">
+          <div className="prose prose-invert max-w-none">
+            <div className="text-rpd-subtle dark:text-rp-subtle leading-relaxed whitespace-pre-wrap">
+              {post.content}
+            </div>
+          </div>
+        </section>
       </div>
 
-      <footer className="mt-12 pt-8 border-t border-rpd-muted/20 dark:border-rp-muted/20">
+      <footer className="border-rpd-muted/20 dark:border-rp-muted/20 flex flex-col items-center justify-center space-y-4 border-t py-12 md:py-20 lg:py-8">
         <Link
           href="/blog"
-          className="text-sm text-rpd-rose dark:text-rp-love hover:underline"
+          className="text-rpd-rose dark:text-rp-love text-sm hover:underline"
         >
           ← Back to all posts
         </Link>

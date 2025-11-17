@@ -71,7 +71,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${ibm.className} scroll-smooth`}>
+    <html lang="en" className={`${ibm.className} scroll-smooth`}>
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <ThemeProvider
           attribute="class"
@@ -79,13 +79,10 @@ export default function BlogLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen w-full px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-0">
-            <div className="lg:flex lg:justify-between lg:gap-4">
-              {/* Left sidebar - blog post list */}
+          <div className="min-h-screen w-full">
+            <div className="flex min-h-screen w-full flex-col lg:flex-row">
               <BlogSidebar />
-
-              {/* Right side - blog content */}
-              <main id="content" className="px-16 lg:w-3/4 lg:py-24">
+              <main id="content" className="flex-1">
                 {children}
               </main>
             </div>
