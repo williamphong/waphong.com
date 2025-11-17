@@ -4,14 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { blogPosts } from '@/lib/data';
+import { LeftFooter } from '@/app/(portfolio)/_components/Footers';
 
 export const BlogSidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/3 lg:flex-col lg:justify-start lg:py-24">
-      <div>
-        <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text pb-4 text-4xl font-normal tracking-normal whitespace-nowrap sm:text-3xl md:text-5xl">
+    <aside className="border-r-1 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/5 lg:flex-col lg:justify-start lg:py-20">
+      <header className="border-b-1 py-4">
+        <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text pb-4 text-xl font-normal tracking-normal whitespace-nowrap">
           <Link
             href="/"
             className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love"
@@ -19,9 +20,10 @@ export const BlogSidebar = () => {
             William Phong
           </Link>
         </h1>
-
+      </header>
+      <div className="flex h-full flex-col">
         <h2 className="text-rpd-text dark:text-rp-text mb-8 text-2xl font-semibold tracking-normal">
-          Blog
+          Blog Posts
         </h2>
 
         <nav className="space-y-4">
@@ -40,7 +42,7 @@ export const BlogSidebar = () => {
                         : 'hover:bg-rpd-surface/50 dark:hover:bg-rp-surface/50'
                     }`}
                   >
-                    <h3 className="font-medium text-sm mb-1">{post.title}</h3>
+                    <h3 className="mb-1 text-sm font-medium">{post.title}</h3>
                     <p className="text-xs opacity-70">{post.date}</p>
                   </Link>
                 </li>
@@ -48,16 +50,16 @@ export const BlogSidebar = () => {
             })}
           </ul>
         </nav>
-
-        <div className="mt-8">
-          <Link
-            href="/"
-            className="text-sm text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text transition-colors"
-          >
-            ← Back to portfolio
-          </Link>
-        </div>
       </div>
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text text-sm transition-colors"
+        >
+          ← Back to portfolio
+        </Link>
+      </div>
+      <LeftFooter />
     </aside>
   );
 };

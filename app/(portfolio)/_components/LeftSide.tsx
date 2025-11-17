@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const LeftSide = () => {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
-      <div className="">
+      <div className="flex h-full flex-col">
         <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text pb-4 text-4xl font-normal tracking-normal whitespace-nowrap sm:text-3xl md:text-7xl">
           <Link
             href="/"
@@ -29,12 +29,11 @@ export const LeftSide = () => {
         <NavigationWrapper />
 
         {/* Blog Link */}
-        <div className="mt-8 lg:mt-4">
+        <div className="mt-8">
           <Link
             href="/blog"
-            className="group inline-flex items-center text-sm font-medium text-rpd-text dark:text-rp-text hover:text-rpd-rose dark:hover:text-rp-love transition-colors"
+            className="group text-rpd-text dark:text-rp-text hover:text-rpd-rose dark:hover:text-rp-love inline-flex items-center text-sm font-medium transition-colors"
           >
-            <span className="mr-2">📝</span>
             <span>Visit my blog</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
