@@ -53,26 +53,33 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="dark font-sfpro scroll-smooth"
+      className="font-sfpro scroll-smooth"
       suppressHydrationWarning
     >
-      <body className="bg-rpd-base text-rpd-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
-        <header className="my-16 flex items-center justify-between text-center">
-          <h1 className="text-edge-outline text-rpd-text flex-1 cursor-default bg-clip-text pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
-            <Link href="/" className="focus-visible:text-rpd-rose">
-              William Phong
-            </Link>
-          </h1>
+      <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <header className="my-16 flex items-center justify-between text-center">
+            <h1 className="text-edge-outline text-rpd-text dark:text-rp-text flex-1 cursor-default bg-clip-text pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
+              <Link href="/" className="focus-visible:text-rpd-rose">
+                William Phong
+              </Link>
+            </h1>
 
-          <h1 className="flex-1"></h1>
-          <div className="flex flex-1 justify-center">
-            <Socials />
+            <h1 className="flex-1"></h1>
+            <div className="flex flex-1 justify-center">
+              <Socials />
+            </div>
+          </header>
+
+          <div className="mx-auto min-h-screen max-w-screen-xl px-1 py-2 md:px-2 md:py-4 lg:px-0 lg:py-0">
+            {children}
           </div>
-        </header>
-
-        <div className="mx-auto min-h-screen max-w-screen-xl px-1 py-2 md:px-2 md:py-4 lg:px-0 lg:py-0">
-          {children}
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

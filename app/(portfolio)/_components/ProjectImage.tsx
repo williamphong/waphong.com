@@ -1,5 +1,8 @@
 import Image from 'next/image';
 
+const THUMB_CLASS =
+  'dark:group-hover:border-rp-iris/30 group-hover:border-rpd-iris/30 dark:border-rp-highlightHigh/20 border-rpd-pine/20 aspect-[5/3] w-full rounded border-2 object-cover transition sm:order-1 sm:col-span-2 sm:translate-y-1';
+
 export const ProjectImage = ({ url, alt }: { url: string; alt: string }) => {
   const isWebm = url.endsWith('.webm');
   if (isWebm) {
@@ -9,10 +12,8 @@ export const ProjectImage = ({ url, alt }: { url: string; alt: string }) => {
         loop
         muted
         playsInline
-        width="200"
-        height="48"
-        preload="auto"
-        className="dark:group-hover:border-rp-iris/30 group-hover:border-rpd-iris/30 dark:border-rp-highlightHigh/20 border-rpd-pine/20 rounded border-2 transition sm:order-1 sm:col-span-2 sm:translate-y-1"
+        preload="metadata"
+        className={THUMB_CLASS}
       >
         <source src={url} type="video/webm" />
       </video>
@@ -22,9 +23,10 @@ export const ProjectImage = ({ url, alt }: { url: string; alt: string }) => {
     <Image
       src={url}
       alt={alt}
-      width={200}
-      height={48}
-      className="dark:group-hover:border-rp-iris/30 group-hover:border-rpd-iris/30 dark:border-rp-highlightHigh/20 border-rpd-pine/20 rounded border-2 transition sm:order-1 sm:col-span-2 sm:translate-y-1"
+      width={400}
+      height={240}
+      sizes="(min-width: 1024px) 160px, (min-width: 640px) 25vw, 100vw"
+      className={THUMB_CLASS}
     />
   );
 };

@@ -4,14 +4,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-satoshi: 'Satoshi', 'sans-serif';
-  --font-sfpro: 'SFPro', 'sans-serif';
-  --font-abcoracle: 'ABCOracle', 'sans-serif';
-  /*
-  --font-manrope: 'Manrope', 'sans-serif';
-  --font-montserrat: 'Montserrat', 'sans-serif';
-  --font-poppins: 'Poppins', 'sans-serif';
-  */
+  --font-sfpro:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue',
+    'sans-serif';
 
   --color-paper: #f4f0e8;
 
@@ -88,4 +83,23 @@
 @utility underline-4 {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-page-fade {
+  animation: page-fade 0.4s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-fade {
+    animation: none;
+  }
 }

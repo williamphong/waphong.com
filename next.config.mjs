@@ -21,13 +21,15 @@ const nextConfig = {
       },
     ],
   },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
   experimental: {
-    optimizePackageImports: ['icon-library'],
+    optimizePackageImports: [
+      'lucide-react',
+      'motion',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-collapsible',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-scroll-area',
+    ],
   },
 };
 

@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google';
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
 });
 
 import { ThemeProvider } from '@/components/themeToggle/theme-provider';
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://waphong.com/images/xi-cat.jpg',
+        url: 'https://waphong.com/images/xi_cat.jpg',
         width: 800,
         height: 800,
         alt: 'William Phong Portfolio',
@@ -53,7 +52,7 @@ export const metadata: Metadata = {
     title: 'William Phong — Portfolio',
     description: 'Personal portfolio of William Phong.',
     creator: '@1waphong',
-    images: ['https://waphong.com/images/xi-cat.jpg'],
+    images: ['https://waphong.com/images/xi_cat.jpg'],
   },
 };
 
@@ -63,7 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark font-inter scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${inter.className} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
         <ThemeProvider

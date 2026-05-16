@@ -19,9 +19,26 @@ const useSpotlightEffect = (config = {}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     ctxRef.current = ctx;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden && animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+        animationFrame.current = null;
+      } else if (!document.hidden && !animationFrame.current) {
+        render();
+      }
+    };
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -102,11 +119,13 @@ const useSpotlightEffect = (config = {}) => {
     window.addEventListener('resize', resizeCanvas);
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('mousemove', setInitialMousePosition);
       if (animationFrame.current) {
         cancelAnimationFrame(animationFrame.current);

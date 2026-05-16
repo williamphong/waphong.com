@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://waphong.com/images/xi-cat.jpg',
+        url: 'https://waphong.com/images/xi_cat.jpg',
         width: 800,
         height: 800,
         alt: 'William Phong Blog',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     description:
       "William Phong's personal blog about software engineering, machine learning, and technology.",
     creator: '@1waphong',
-    images: ['https://waphong.com/images/xi-cat.jpg'],
+    images: ['https://waphong.com/images/xi_cat.jpg'],
   },
 };
 

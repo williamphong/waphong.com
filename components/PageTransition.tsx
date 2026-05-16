@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'motion/react';
 import { ReactNode } from 'react';
 
 interface PageTransitionProps {
@@ -8,17 +5,5 @@ interface PageTransitionProps {
 }
 
 export default function PageTransition({ children }: PageTransitionProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{
-        duration: 0.4,
-        ease: 'easeInOut',
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="animate-page-fade">{children}</div>;
 }
