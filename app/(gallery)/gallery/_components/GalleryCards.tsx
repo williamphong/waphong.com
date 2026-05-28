@@ -15,9 +15,10 @@ function GalleryCard({
   onClick,
 }: GalleryCardProps & { onClick: () => void }) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
-      className="group block cursor-pointer overflow-hidden rounded-xl bg-neutral-100 shadow-sm transition hover:shadow-md"
+      className="group block w-full cursor-pointer overflow-hidden rounded-xl bg-neutral-100 text-left shadow-sm transition hover:shadow-md"
     >
       {/* Square image container */}
       <div className="relative flex aspect-square items-center justify-center p-4">
@@ -26,6 +27,7 @@ function GalleryCard({
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
@@ -40,7 +42,7 @@ function GalleryCard({
           </p>
         )}
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -94,11 +96,18 @@ export default function GalleryGrid() {
 
       {/* Modal / Lightbox */}
       {selected && (
-        <div
-          onClick={() => setSelected(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+        <dialog
+          open
+          aria-label={selected.title}
+          className="fixed inset-0 z-50 flex h-full max-h-none w-full max-w-none items-center justify-center bg-black/80 p-4"
         >
-          <div className="relative flex h-[90vh] w-[90vw] items-center justify-center">
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={() => setSelected(null)}
+            className="absolute inset-0 z-0 cursor-default bg-transparent"
+          />
+          <div className="relative z-10 flex h-[90vh] w-[90vw] items-center justify-center">
             <Image
               src={selected.image}
               alt={selected.title}
@@ -108,24 +117,16 @@ export default function GalleryGrid() {
               priority
             />
 
-            {/* Overlay info 
-            <div className="absolute bottom-0 w-full p-4 text-center text-white">
-              <h3 className="text-lg font-semibold">{selected.title}</h3>
-              {selected.subtitle && (
-                <p className="text-sm text-neutral-300">{selected.subtitle}</p>
-              )}
-            </div>
-            */}
-
-            {/* Close button (still optional, but redundant now) */}
             <button
+              type="button"
+              aria-label="Close"
               onClick={() => setSelected(null)}
               className="absolute top-3 right-3 rounded-full bg-black/60 px-3 py-1 text-white hover:bg-black/80"
             >
               ✕
             </button>
           </div>
-        </div>
+        </dialog>
       )}
     </>
   );

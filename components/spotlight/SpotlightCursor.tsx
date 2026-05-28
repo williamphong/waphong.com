@@ -16,8 +16,10 @@ interface SpotlightCursorProps extends HTMLAttributes<HTMLCanvasElement> {
   config?: SpotlightConfig;
 }
 
+const DEFAULT_CONFIG: SpotlightConfig = {};
+
 const SpotlightCursor = ({
-  config = {},
+  config = DEFAULT_CONFIG,
   className,
   ...rest
 }: SpotlightCursorProps) => {

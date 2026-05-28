@@ -15,7 +15,6 @@ const useSpotlightEffect = (config = {}) => {
   const ctxRef = useRef(null);
   const spotlightPos = useRef({ x: 0, y: 0 });
   const targetPos = useRef({ x: 0, y: 0 });
-  const animationFrame = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -31,11 +30,13 @@ const useSpotlightEffect = (config = {}) => {
     const ctx = canvas.getContext('2d');
     ctxRef.current = ctx;
 
+    let animationFrame: number | null = null;
+
     const handleVisibilityChange = () => {
-      if (document.hidden && animationFrame.current) {
-        cancelAnimationFrame(animationFrame.current);
-        animationFrame.current = null;
-      } else if (!document.hidden && !animationFrame.current) {
+      if (document.hidden && animationFrame) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+      } else if (!document.hidden && !animationFrame) {
         render();
       }
     };
@@ -112,7 +113,7 @@ const useSpotlightEffect = (config = {}) => {
       );
       ctx.fill();
 
-      animationFrame.current = requestAnimationFrame(render);
+      animationFrame = requestAnimationFrame(render);
     };
 
     resizeCanvas();
@@ -127,8 +128,8 @@ const useSpotlightEffect = (config = {}) => {
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('mousemove', setInitialMousePosition);
-      if (animationFrame.current) {
-        cancelAnimationFrame(animationFrame.current);
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
       }
     };
   }, [spotlightSize, spotlightIntensity, fadeSpeed, glowColor, pulseSpeed]);

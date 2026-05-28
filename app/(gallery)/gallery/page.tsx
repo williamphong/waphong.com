@@ -1,6 +1,12 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Footer from './_components/Footer';
 import GalleryCards from './_components/GalleryCards';
+
+export const metadata: Metadata = {
+  title: 'Gallery',
+  description: '35mm film photography by William Phong.',
+};
 
 export default function Home() {
   return (

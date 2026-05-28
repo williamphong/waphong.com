@@ -13,6 +13,7 @@ export const ProjectImage = ({ url, alt }: { url: string; alt: string }) => {
         muted
         playsInline
         preload="metadata"
+        aria-label={alt}
         className={THUMB_CLASS}
       >
         <source src={url} type="video/webm" />

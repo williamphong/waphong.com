@@ -1,8 +1,12 @@
-'use client';
-
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { blogPosts } from '@/lib/data';
+
+export const metadata: Metadata = {
+  title: 'Posts',
+  description: 'Writing on software engineering, machine learning, and tech.',
+};
 
 export default function BlogPage() {
   return (

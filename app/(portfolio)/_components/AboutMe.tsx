@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowIcon } from './ArrowIcon';
 
 export const AboutMe = () => {
@@ -6,7 +7,7 @@ export const AboutMe = () => {
       <p className="mb-4">
         My first interaction with a computer was my dad's ThinkPad when I was
         five years old. Playing games on the Lego and Disney websites didn’t
-        just entertain me — it sparked my interest in the possibilities of
+        just entertain me, it sparked my interest in the possibilities of
         software and technology.
       </p>
       <p className="mb-4">
@@ -40,7 +41,7 @@ export const AboutMe = () => {
           music
         </a>
         , taking{' '}
-        <a
+        <Link
           className="link--color hover:underline-4 font-medium"
           href="/gallery"
           target="_blank"
@@ -49,7 +50,7 @@ export const AboutMe = () => {
         >
           {' '}
           pictures
-        </a>{' '}
+        </Link>{' '}
         with my film camera, and watching{' '}
         <a
           className="link--color hover:underline-4 font-medium"
@@ -64,7 +65,7 @@ export const AboutMe = () => {
       </p>
       <br></br>
       <p className="mb-4">
-        <a
+        <Link
           className="group/link"
           href="/files/resume.pdf"
           rel="noreferrer noopener"
@@ -77,7 +78,7 @@ export const AboutMe = () => {
               className="translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1"
             />{' '}
           </span>
-        </a>
+        </Link>
       </p>
     </div>
   );

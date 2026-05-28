@@ -1,13 +1,8 @@
 'use client';
 import type { Transition, Variants } from 'motion/react';
-import { motion, useAnimation } from 'motion/react';
-import type { HTMLAttributes } from 'react';
-import React, {
-  forwardRef,
-  useCallback,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import { LazyMotion, domAnimation, m, useAnimation } from 'motion/react';
+import type { HTMLAttributes, Ref } from 'react';
+import React, { useCallback, useImperativeHandle, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 // Shared Types
@@ -58,8 +53,7 @@ const delayedVariants: Variants = {
 };
 
 // AtSignIcon Component
-const AtSignIcon = forwardRef<IconHandle, IconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const AtSignIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
 
@@ -88,6 +82,7 @@ const AtSignIcon = forwardRef<IconHandle, IconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -105,28 +100,25 @@ const AtSignIcon = forwardRef<IconHandle, IconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <motion.circle
+          <m.circle
             variants={baseVariants}
             animate={controls}
             cx="12"
             cy="12"
             r="4"
           />
-          <motion.path
+          <m.path
             variants={delayedVariants}
             animate={controls}
             d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"
           />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-AtSignIcon.displayName = 'AtSignIcon';
-
+  };
 // GithubIcon Component
-const GithubIcon = forwardRef<IconHandle, IconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const GithubIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
     const bodyControls = useAnimation();
     const tailControls = useAnimation();
     const isControlledRef = useRef(false);
@@ -180,6 +172,7 @@ const GithubIcon = forwardRef<IconHandle, IconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -197,13 +190,13 @@ const GithubIcon = forwardRef<IconHandle, IconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <motion.path
+          <m.path
             variants={baseVariants}
             initial="normal"
             animate={bodyControls}
             d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
           />
-          <motion.path
+          <m.path
             variants={tailVariants}
             initial="normal"
             animate={tailControls}
@@ -211,14 +204,11 @@ const GithubIcon = forwardRef<IconHandle, IconProps>(
           />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-GithubIcon.displayName = 'GithubIcon';
-
+  };
 // LinkedinIcon Component
-const LinkedinIcon = forwardRef<IconHandle, IconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const LinkedinIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
     const pathControls = useAnimation();
     const rectControls = useAnimation();
     const circleControls = useAnimation();
@@ -265,6 +255,7 @@ const LinkedinIcon = forwardRef<IconHandle, IconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -282,13 +273,13 @@ const LinkedinIcon = forwardRef<IconHandle, IconProps>(
           strokeLinejoin="round"
           viewBox="0 0 24 24"
         >
-          <motion.path
+          <m.path
             variants={baseVariants}
             initial="normal"
             animate={pathControls}
             d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
           />
-          <motion.rect
+          <m.rect
             variants={baseVariants}
             initial="normal"
             animate={rectControls}
@@ -297,7 +288,7 @@ const LinkedinIcon = forwardRef<IconHandle, IconProps>(
             width="4"
             height="12"
           />
-          <motion.circle
+          <m.circle
             variants={baseVariants}
             initial="normal"
             animate={circleControls}
@@ -307,14 +298,11 @@ const LinkedinIcon = forwardRef<IconHandle, IconProps>(
           />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-LinkedinIcon.displayName = 'LinkedinIcon';
-
+  };
 // InstagramIcon Component
-const InstagramIcon = forwardRef<IconHandle, IconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const InstagramIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
     const rectControls = useAnimation();
     const pathControls = useAnimation();
     const lineControls = useAnimation();
@@ -361,6 +349,7 @@ const InstagramIcon = forwardRef<IconHandle, IconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -378,7 +367,7 @@ const InstagramIcon = forwardRef<IconHandle, IconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <motion.rect
+          <m.rect
             variants={baseVariants}
             initial="normal"
             animate={rectControls}
@@ -389,13 +378,13 @@ const InstagramIcon = forwardRef<IconHandle, IconProps>(
             rx="5"
             ry="5"
           />
-          <motion.path
+          <m.path
             variants={baseVariants}
             initial="normal"
             animate={pathControls}
             d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
           />
-          <motion.line
+          <m.line
             variants={baseVariants}
             initial="normal"
             animate={lineControls}
@@ -406,11 +395,9 @@ const InstagramIcon = forwardRef<IconHandle, IconProps>(
           />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-InstagramIcon.displayName = 'InstagramIcon';
-
+  };
 export interface SpotifyIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -442,8 +429,7 @@ const spotifyVariants: Variants = {
   },
 };
 
-const SpotifyIcon = forwardRef<SpotifyIconHandle, SpotifyIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const SpotifyIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SpotifyIconProps & { ref?: Ref<SpotifyIconHandle> }) => {
     const pathControls = useAnimation();
     const isControlledRef = useRef(false);
 
@@ -483,6 +469,7 @@ const SpotifyIcon = forwardRef<SpotifyIconHandle, SpotifyIconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -496,7 +483,7 @@ const SpotifyIcon = forwardRef<SpotifyIconHandle, SpotifyIconProps>(
           viewBox="0 0 167.5 167.5"
           fill="currentColor"
         >
-          <motion.path
+          <m.path
             variants={spotifyVariants}
             initial="normal"
             animate={pathControls}
@@ -504,9 +491,9 @@ const SpotifyIcon = forwardRef<SpotifyIconHandle, SpotifyIconProps>(
           />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
+  };
 
 export interface SunMediumIconHandle {
   startAnimation: () => void;
@@ -525,8 +512,7 @@ const pathVariants: Variants = {
   }),
 };
 
-const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const SunMediumIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SunMediumIconProps & { ref?: Ref<SunMediumIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
 
@@ -562,6 +548,7 @@ const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -590,7 +577,7 @@ const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
             'm5.636 5.636.707.707',
             'm17.657 17.657.707.707',
           ].map((d, index) => (
-            <motion.path
+            <m.path
               key={d}
               d={d}
               animate={controls}
@@ -600,12 +587,9 @@ const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
           ))}
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-
-SunMediumIcon.displayName = 'SunMediumIcon';
-
+  };
 export interface MoonIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -629,8 +613,7 @@ const svgTransition: Transition = {
   ease: 'easeInOut',
 };
 
-const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const MoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: MoonIconProps & { ref?: Ref<MoonIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
 
@@ -665,13 +648,14 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
       [controls, onMouseLeave]
     );
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
       >
-        <motion.svg
+        <m.svg
           xmlns="http://www.w3.org/2000/svg"
           width={size}
           height={size}
@@ -686,14 +670,11 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
           transition={svgTransition}
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-        </motion.svg>
+        </m.svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-
-MoonIcon.displayName = 'MoonIcon';
-
+  };
 export interface SunMoonIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -724,8 +705,7 @@ const moonVariants: Variants = {
   }),
 };
 
-const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const SunMoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SunMoonIconProps & { ref?: Ref<SunMoonIconHandle> }) => {
     const sunControls = useAnimation();
     const moonControls = useAnimation();
     const isControlledRef = useRef(false);
@@ -770,6 +750,7 @@ const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -787,13 +768,13 @@ const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <motion.g
+          <m.g
             variants={sunVariants}
             animate={sunControls}
             initial="normal"
           >
             <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
-          </motion.g>
+          </m.g>
           {[
             'M12 2v2',
             'M12 20v2',
@@ -804,7 +785,7 @@ const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
             'm6.3 17.7-1.4 1.4',
             'm19.1 4.9-1.4 1.4',
           ].map((d, index) => (
-            <motion.path
+            <m.path
               key={d}
               d={d}
               animate={moonControls}
@@ -815,12 +796,9 @@ const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
           ))}
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-
-SunMoonIcon.displayName = 'SunMoonIcon';
-
+  };
 export interface AudioLinesIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -830,8 +808,7 @@ interface AudioLinesIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const AudioLinesIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: AudioLinesIconProps & { ref?: Ref<AudioLinesIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
 
@@ -867,6 +844,7 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -885,7 +863,7 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
           strokeLinejoin="round"
         >
           <path d="M2 10v3" />
-          <motion.path
+          <m.path
             variants={{
               normal: { d: 'M6 6v11' },
               animate: {
@@ -899,7 +877,7 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
             d="M6 6v11"
             animate={controls}
           />
-          <motion.path
+          <m.path
             variants={{
               normal: { d: 'M10 3v18' },
               animate: {
@@ -913,7 +891,7 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
             d="M10 3v18"
             animate={controls}
           />
-          <motion.path
+          <m.path
             variants={{
               normal: { d: 'M14 8v7' },
               animate: {
@@ -927,7 +905,7 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
             d="M14 8v7"
             animate={controls}
           />
-          <motion.path
+          <m.path
             variants={{
               normal: { d: 'M18 5v13' },
               animate: {
@@ -944,12 +922,9 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
           <path d="M22 10v3" />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-
-AudioLinesIcon.displayName = 'AudioLinesIcon';
-
+  };
 export interface ArrowRightIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -980,8 +955,7 @@ const secondaryPathVariants: Variants = {
   },
 };
 
-const ArrowRightIcon = forwardRef<ArrowRightIconHandle, ArrowRightIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+const ArrowRightIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: ArrowRightIconProps & { ref?: Ref<ArrowRightIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
 
@@ -1017,6 +991,7 @@ const ArrowRightIcon = forwardRef<ArrowRightIconHandle, ArrowRightIconProps>(
     );
 
     return (
+      <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -1034,24 +1009,21 @@ const ArrowRightIcon = forwardRef<ArrowRightIconHandle, ArrowRightIconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <motion.path
+          <m.path
             d="M5 12h14"
             variants={ArrowRightVariants}
             animate={controls}
           />
-          <motion.path
+          <m.path
             d="m12 5 7 7-7 7"
             variants={secondaryPathVariants}
             animate={controls}
           />
         </svg>
       </div>
+    </LazyMotion>
     );
-  }
-);
-
-ArrowRightIcon.displayName = 'ArrowRightIcon';
-
+  };
 export {
   AtSignIcon,
   GithubIcon,

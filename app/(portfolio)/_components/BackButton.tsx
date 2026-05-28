@@ -3,19 +3,19 @@
 import { useRouter } from 'next/navigation';
 
 export function BackButton() {
-  const router = useRouter();
+  const { back } = useRouter();
 
   return (
     <button
       type="button"
-      onClick={() => router.back()} // ✅ correct camelCase
+      onClick={() => back()}
       className="group/link link--color hover:underline-4 inline-flex items-center font-medium"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2"
+        className="mr-1 size-4 rotate-180 transition-transform group-hover:-translate-x-2"
         aria-hidden="true"
       >
         <path

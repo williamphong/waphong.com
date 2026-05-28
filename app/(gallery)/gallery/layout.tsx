@@ -69,8 +69,7 @@ export default function RootLayout({
                 William Phong
               </Link>
             </h1>
-
-            <h1 className="flex-1"></h1>
+            <div className="flex-1" aria-hidden="true" />
             <div className="flex flex-1 justify-center">
               <Socials />
             </div>

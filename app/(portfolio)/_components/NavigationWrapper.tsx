@@ -29,9 +29,9 @@ const NavigationLink = ({ item, isActive }: NavigationLinkProps) => (
 const Navigation = ({ activeSection }: { activeSection: string }) => (
   <nav className="nav hidden lg:block" aria-label="In-page jump links">
     <ul className="mt-16 w-max">
-      {navigation.map((item, index) => (
+      {navigation.map((item) => (
         <NavigationLink
-          key={index}
+          key={item.name}
           item={item}
           isActive={activeSection === item.name}
         />

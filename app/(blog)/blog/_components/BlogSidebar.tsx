@@ -47,7 +47,7 @@ export const BlogSidebar = () => {
           </ul>
         </nav>
       </div>
-      <div className="flex flex-col items-center justify-center space-y-4 py-12 md:py-20 lg:py-20">
+      <div className="flex flex-col items-center justify-center gap-y-4 py-12 md:py-20 lg:py-20">
         <Link
           href="/"
           className="text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text mb-12 text-sm transition-colors"

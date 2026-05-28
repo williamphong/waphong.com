@@ -1,31 +1,31 @@
-'use client';
-
 import React from 'react';
-import { useParams } from 'next/navigation';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { blogPosts } from '@/lib/data';
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const post = blogPosts.find((p) => p.id === params.id);
+type PageProps = { params: Promise<{ id: string }> };
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const post = blogPosts.find((p) => p.id === id);
+  if (!post) {
+    return { title: 'Post Not Found' };
+  }
+  return {
+    title: post.title,
+    description: post.excerpt,
+  };
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
+  const { id } = await params;
+  const post = blogPosts.find((p) => p.id === id);
 
   if (!post) {
-    return (
-      <div className="py-12 text-center">
-        <h1 className="text-rpd-text dark:text-rp-text mb-4 text-3xl font-bold">
-          Post Not Found
-        </h1>
-        <p className="text-rpd-subtle dark:text-rp-subtle mb-6">
-          The blog post you're looking for doesn't exist.
-        </p>
-        <Link
-          href="/blog"
-          className="text-rpd-rose dark:text-rp-love hover:underline"
-        >
-          ← Back to all posts
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
   return (
@@ -52,7 +52,7 @@ export default function BlogPostPage() {
         </section>
       </div>
 
-      <footer className="border-rpd-muted/20 dark:border-rp-muted/20 flex flex-col items-center justify-center space-y-4 border-t py-12 md:py-20 lg:py-8">
+      <footer className="border-rpd-muted/20 dark:border-rp-muted/20 flex flex-col items-center justify-center gap-y-4 border-t py-12 md:py-20 lg:py-8">
         <Link
           href="/blog"
           className="text-rpd-rose dark:text-rp-love text-sm hover:underline"

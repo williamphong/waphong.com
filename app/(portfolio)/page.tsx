@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { ProjectList } from './_components/ProjectList';
@@ -7,6 +8,12 @@ import { EducationList } from './_components/EducationList';
 import { ExperienceList } from './_components/ExperienceList';
 import { AboutMe } from './_components/AboutMe';
 import { ArrowIcon } from './_components/ArrowIcon';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'William Phong is a graduate student in Computer Science at SDSU focusing on machine learning, AI, and software engineering.',
+};
 
 export default function Home() {
   return (
