@@ -6,6 +6,12 @@ import { blogPosts } from '@/lib/data';
 
 type PageProps = { params: Promise<{ id: string }> };
 
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({ id: post.id }));
+}
+
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
