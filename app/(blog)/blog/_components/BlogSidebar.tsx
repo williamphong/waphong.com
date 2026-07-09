@@ -14,7 +14,7 @@ export const BlogSidebar = () => {
       <header className="flex items-center justify-center border-b py-6 text-center">
         {/* Not an <h1>: every blog page already has one (the post or "Posts").
             This is site chrome, so it must not compete as a page heading. */}
-        <p className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text text-xl font-normal tracking-normal whitespace-nowrap">
+        <p className="text-rpd-text dark:text-rp-text cursor-default text-xl font-normal tracking-normal whitespace-nowrap">
           <Link
             href="/blog"
             className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love hover:underline-4"

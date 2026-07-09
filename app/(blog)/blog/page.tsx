@@ -16,7 +16,7 @@ export default function BlogPage() {
     <div className="">
       <section className="mb-16">
         <header className="flex items-center justify-start border-b px-16 py-6">
-          <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text text-xl font-normal tracking-normal whitespace-nowrap">
+          <h1 className="text-rpd-text dark:text-rp-text cursor-default text-xl font-normal tracking-normal whitespace-nowrap">
             Posts
           </h1>
         </header>

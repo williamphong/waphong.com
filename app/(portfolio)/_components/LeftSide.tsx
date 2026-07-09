@@ -8,7 +8,7 @@ export const LeftSide = () => {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="flex h-full flex-col">
-        <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text pb-4 text-4xl font-normal tracking-normal whitespace-nowrap sm:text-3xl md:text-7xl">
+        <h1 className="text-rpd-text dark:text-rp-text cursor-default pb-4 text-4xl font-normal tracking-normal whitespace-nowrap sm:text-3xl md:text-7xl">
           <Link
             href="/"
             className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love"

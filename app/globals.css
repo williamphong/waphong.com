@@ -9,8 +9,6 @@
     -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue',
     'sans-serif';
 
-  --color-paper: #f4f0e8;
-
   --color-rp-base: #191724;
   --color-rp-surface: #1f1d2e;
   --color-rp-overlay: #26233a;
@@ -51,16 +49,11 @@
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
   .active .nav-indicator {
     width: 4rem;
-    --tw-bg-opacity: 1;
     background-color: var(--link-color);
   }
   .active .nav-text {
-    --tw-text-opacity: 1;
     color: var(--link-color);
   }
   .link--color {
