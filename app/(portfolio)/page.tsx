@@ -10,7 +10,11 @@ import { AboutMe } from './_components/AboutMe';
 import { ArrowIcon } from './_components/ArrowIcon';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  // No `title` here on purpose. title.template only applies to *child* route
+  // segments, never the segment that declares it — and page.tsx sits in the
+  // same segment as the layout that owns the template. Setting `title: 'Home'`
+  // produced a bare <title>Home</title>. Falling through to the layout's
+  // `default` gives "William Phong".
   description:
     'William Phong is a graduate student in Computer Science at SDSU focusing on machine learning, AI, and software engineering.',
 };

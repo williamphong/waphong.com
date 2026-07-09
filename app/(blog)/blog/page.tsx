@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { blogPosts } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Posts',
+  // Same segment as the layout that owns title.template, so the template does
+  // not apply. `absolute` sets the whole <title> explicitly.
+  title: { absolute: "Posts | William Phong's Blog" },
   description: 'Writing on software engineering, machine learning, and tech.',
 };
 
