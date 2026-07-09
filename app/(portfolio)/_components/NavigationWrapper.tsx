@@ -14,9 +14,9 @@ const NavigationLink = ({ item, isActive }: NavigationLinkProps) => (
   <li>
     <Link
       href={`#${item.name}`}
-      className={`group flex items-center py-3 ${
-        isActive ? 'active dark:activedark' : ''
-      }`}
+      // `activedark` is not a utility and no such class exists; dark mode
+      // already works because .active reads --link-color, which .dark redefines.
+      className={`group flex items-center py-3 ${isActive ? 'active' : ''}`}
     >
       <span className="nav-indicator bg-rpd-muted group-hover:bg-rpd-love group-focus-visible:bg-rpd-iris dark:bg-rp-muted dark:group-hover:bg-rp-rose dark:group-focus-visible:bg-rp-love mr-4 h-px w-8 transition-all group-hover:w-16 group-focus-visible:w-16 motion-reduce:transition-none"></span>
       <span className="nav-text text-rpd-muted group-hover:text-rpd-love group-focus-visible:text-rpd-rose dark:text-rp-muted dark:group-hover:text-rp-rose dark:group-focus-visible:text-rp-love text-xs font-bold tracking-widest uppercase">
@@ -45,29 +45,36 @@ export const NavigationWrapper: React.FC = () => {
   const pathname = usePathname(); // track route changes
 
   useEffect(() => {
+    const sections = navigation
+      .map((item) => document.getElementById(item.name))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
+    const inBand = new Set<string>();
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        for (const entry of entries) {
+          if (entry.isIntersecting) inBand.add(entry.target.id);
+          else inBand.delete(entry.target.id);
+        }
+        // Take the first section in document order, not whichever entry
+        // happened to land last in this batch.
+        const next = navigation.find((item) => inBand.has(item.name));
+        if (next) setActiveSection(next.name);
       },
-      { threshold: 0.65 }
+      {
+        // A band across the upper part of the viewport, not a ratio.
+        // intersectionRatio is measured against the section's own height, so
+        // any section taller than ~1.5x the viewport can never reach a 0.65
+        // threshold and could never become active. "About" is five paragraphs.
+        rootMargin: '-25% 0px -60% 0px',
+        threshold: 0,
+      }
     );
 
-    // Observe each section by ID
-    navigation.forEach((item) => {
-      const section = document.getElementById(item.name);
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      navigation.forEach((item) => {
-        const section = document.getElementById(item.name);
-        if (section) observer.unobserve(section);
-      });
-    };
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, [pathname]); // re-run whenever route changes
 
   return <Navigation activeSection={activeSection} />;
