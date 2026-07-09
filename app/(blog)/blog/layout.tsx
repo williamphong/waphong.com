@@ -12,7 +12,6 @@ import { ThemeProvider } from '@/components/themeToggle/theme-provider';
 
 import '@/app/globals.css';
 import { BlogSidebar } from './_components/BlogSidebar';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://waphong.com'),
@@ -71,7 +70,11 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${ibm.className} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${ibm.className} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <ThemeProvider
           attribute="class"

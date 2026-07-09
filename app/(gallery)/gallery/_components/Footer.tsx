@@ -1,10 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { Socials } from './Socials';
+import { CurrentYear } from './CurrentYear';
 
 const Footer = () => {
-  const currentYears = new Date().getFullYear();
-
   return (
     <div className="my-12 flex flex-row items-center">
       <div className="flex flex-1 justify-start"></div>
@@ -12,7 +10,8 @@ const Footer = () => {
       <div className="flex flex-1 justify-center">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-sm">
-            Copyright © {currentYears} - william phong
+            Copyright © <CurrentYear buildYear={new Date().getFullYear()} /> -
+            william phong
           </span>
         </Link>
       </div>

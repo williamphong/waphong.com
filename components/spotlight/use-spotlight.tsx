@@ -1,138 +1,127 @@
-// @ts-nocheck
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-const useSpotlightEffect = (config = {}) => {
+interface SpotlightEffectConfig {
+  spotlightSize?: number;
+  spotlightIntensity?: number;
+  fadeSpeed?: number;
+  glowColor?: string;
+}
+
+const useSpotlightEffect = (config: SpotlightEffectConfig = {}) => {
   const {
     spotlightSize = 200,
     spotlightIntensity = 0.15,
     fadeSpeed = 0.1,
     glowColor = '255, 255, 255',
-    pulseSpeed = 2000,
   } = config;
 
-  const canvasRef = useRef(null);
-  const ctxRef = useRef(null);
-  const spotlightPos = useRef({ x: 0, y: 0 });
-  const targetPos = useRef({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    ctxRef.current = ctx;
+    if (!ctx) return;
 
-    let animationFrame: number | null = null;
+    const pos = { x: 0, y: 0 };
+    const target = { x: 0, y: 0 };
+    let frame: number | null = null;
+    let tracking = false;
 
-    const handleVisibilityChange = () => {
-      if (document.hidden && animationFrame) {
-        cancelAnimationFrame(animationFrame);
-        animationFrame = null;
-      } else if (!document.hidden && !animationFrame) {
-        render();
+    const lerp = (start: number, end: number, factor: number) =>
+      start + (end - start) * factor;
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const gradient = ctx.createRadialGradient(
+        pos.x,
+        pos.y,
+        0,
+        pos.x,
+        pos.y,
+        spotlightSize
+      );
+      gradient.addColorStop(0, `rgba(${glowColor}, ${spotlightIntensity})`);
+      gradient.addColorStop(1, `rgba(${glowColor}, 0)`);
+
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, spotlightSize, 0, Math.PI * 2);
+      ctx.fill();
+    };
+
+    // Park the loop once the spotlight has caught up with the pointer. Left
+    // running, it would repaint a full-viewport gradient at 60fps forever.
+    const render = () => {
+      pos.x = lerp(pos.x, target.x, fadeSpeed);
+      pos.y = lerp(pos.y, target.y, fadeSpeed);
+      draw();
+
+      if (Math.hypot(target.x - pos.x, target.y - pos.y) < 0.1) {
+        pos.x = target.x;
+        pos.y = target.y;
+        draw();
+        frame = null;
+        return;
+      }
+
+      frame = requestAnimationFrame(render);
+    };
+
+    const start = () => {
+      if (!tracking || frame !== null || document.hidden) return;
+      frame = requestAnimationFrame(render);
+    };
+
+    const stop = () => {
+      if (frame !== null) {
+        cancelAnimationFrame(frame);
+        frame = null;
       }
     };
 
-    const resizeCanvas = () => {
+    const handleResize = () => {
+      // Resizing the canvas clears it, so repaint at the current position.
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      if (tracking) draw();
     };
 
-    const lerp = (start, end, factor) => {
-      return start + (end - start) * factor;
+    const handleMouseMove = (e: MouseEvent) => {
+      target.x = e.clientX;
+      target.y = e.clientY;
+      if (!tracking) {
+        tracking = true;
+        pos.x = e.clientX;
+        pos.y = e.clientY;
+      }
+      start();
     };
 
-    // Get initial mouse position
-    const setInitialMousePosition = (e: MouseEvent) => {
-      spotlightPos.current = { x: e.clientX, y: e.clientY };
-      targetPos.current = { x: e.clientX, y: e.clientY };
-      window.removeEventListener('mousemove', setInitialMousePosition);
-
-      // 👇 Start rendering after the first mouse movement
-      render();
-    };
-    window.addEventListener('mousemove', setInitialMousePosition);
-
-    const handleMouseMove = (e) => {
-      targetPos.current = { x: e.clientX, y: e.clientY };
-      setIsHovered(true);
+    const handleVisibilityChange = () => {
+      if (document.hidden) stop();
+      else start();
     };
 
-    const handleMouseLeave = () => {
-      setIsHovered(false);
-    };
-
-    const render = () => {
-      if (!canvas || !ctx) return;
-
-      spotlightPos.current.x = lerp(
-        spotlightPos.current.x,
-        targetPos.current.x,
-        fadeSpeed
-      );
-      spotlightPos.current.y = lerp(
-        spotlightPos.current.y,
-        targetPos.current.y,
-        fadeSpeed
-      );
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const currentSpotlightSize = spotlightSize;
-
-      // Use a normal gradient that fades outwards to 0 alpha
-      const gradient = ctx.createRadialGradient(
-        spotlightPos.current.x,
-        spotlightPos.current.y,
-        0,
-        spotlightPos.current.x,
-        spotlightPos.current.y,
-        currentSpotlightSize
-      );
-
-      gradient.addColorStop(0, `rgba(${glowColor}, ${spotlightIntensity})`);
-      gradient.addColorStop(1, `rgba(${glowColor}, 0)`); // Fully transparent at edge
-
-      ctx.globalCompositeOperation = 'source-over'; // Draw light over background
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(
-        spotlightPos.current.x,
-        spotlightPos.current.y,
-        currentSpotlightSize,
-        0,
-        Math.PI * 2
-      );
-      ctx.fill();
-
-      animationFrame = requestAnimationFrame(render);
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    handleResize();
+    window.addEventListener('resize', handleResize);
     document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('mousemove', setInitialMousePosition);
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
+      stop();
     };
-  }, [spotlightSize, spotlightIntensity, fadeSpeed, glowColor, pulseSpeed]);
+  }, [spotlightSize, spotlightIntensity, fadeSpeed, glowColor]);
 
   return canvasRef;
 };
