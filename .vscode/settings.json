@@ -6,5 +6,5 @@
   "prettier.prettierPath": "./node_modules/prettier",
   "prettier.configPath": ".prettierrc.js",
   "cSpell.words": ["satoshi", "tailwindcss"],
-  "prettier.documentSelectors": [" **/*.{mjs,ts}"]
+  "prettier.documentSelectors": ["**/*.{mjs,ts}"]
 }

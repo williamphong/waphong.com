@@ -31,8 +31,13 @@
       "service": "portfolio",
     },
   ],
+  // `enabled` is the master switch the dashboard reads. It said false while
+  // logs.enabled said true — wrangler resolves logs as
+  //   logs.enabled === true || (enabled === true && logs.enabled !== false)
+  // so logs were in fact recorded, but the dashboard reported observability
+  // off. (`wrangler tail` streams live regardless of either setting.)
   "observability": {
-    "enabled": false,
+    "enabled": true,
     "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
