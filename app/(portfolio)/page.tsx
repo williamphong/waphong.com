@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { ProjectList } from './_components/ProjectList';
-import { RightFooter } from './_components/Footers';
+import { RightFooter } from './_components/RightFooter';
 import { EducationList } from './_components/EducationList';
 import { ExperienceList } from './_components/ExperienceList';
 import { AboutMe } from './_components/AboutMe';
@@ -47,11 +47,12 @@ export default function Home() {
 
         <ExperienceList limit={3} />
 
+        {/* No aria-label: the visible text is already the accessible name.
+            An aria-label that omits the visible words breaks voice control. */}
         <Link
           className="group/link"
           href="/experience"
           rel="noreferrer noopener"
-          aria-label="employment history"
         >
           <span className="group link--color hover:underline-4 inline-block font-medium">
             Full employment history
@@ -74,12 +75,7 @@ export default function Home() {
 
         <ProjectList limit={3} />
 
-        <Link
-          className="group/link"
-          href="/projects"
-          rel="noreferrer noopener"
-          aria-label="resume"
-        >
+        <Link className="group/link" href="/projects" rel="noreferrer noopener">
           <span className="group link--color hover:underline-4 inline-block font-medium">
             More projects
             <ArrowIcon className="-translate-y-px transition-transform group-hover:translate-x-2" />

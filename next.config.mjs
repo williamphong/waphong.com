@@ -44,6 +44,11 @@ const nextConfig = {
     return [{ source: '/:path*', headers: securityHeaders }];
   },
   images: {
+    // OpenNext ships no image optimizer, so /_next/image returned the original
+    // bytes for every width — a Worker invocation per image that resized
+    // nothing and set no cache headers. Serving the files directly makes them
+    // static assets, which public/_headers can actually cache.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
