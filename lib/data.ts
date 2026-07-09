@@ -228,9 +228,7 @@ export const blogPosts = [
     title: 'Welcome to My Blog',
     date: 'Nov 17, 2025',
     excerpt: 'An introduction to my blog and what you can expect to find here.',
-    content: `# Welcome to My Blog
-
-This is my first blog post! I'm excited to share my thoughts, experiences, and learnings with you.
+    content: `This is my first blog post! I'm excited to share my thoughts, experiences, and learnings with you.
 
 ## What to Expect
 
@@ -247,9 +245,7 @@ Stay tuned for more content!`,
     title: 'Getting Started with Next.js',
     date: 'Nov 16, 2025',
     excerpt: 'A comprehensive guide to building modern web applications with Next.js.',
-    content: `# Getting Started with Next.js
-
-Next.js is a powerful React framework that makes building web applications a breeze.
+    content: `Next.js is a powerful React framework that makes building web applications a breeze.
 
 ## Why Next.js?
 
@@ -266,9 +262,7 @@ Let's dive in and explore what makes Next.js so great.`,
     title: 'Machine Learning Basics',
     date: 'Nov 15, 2025',
     excerpt: 'Understanding the fundamentals of machine learning and its applications.',
-    content: `# Machine Learning Basics
-
-Machine learning is transforming how we solve complex problems.
+    content: `Machine learning is transforming how we solve complex problems.
 
 ## Key Concepts
 

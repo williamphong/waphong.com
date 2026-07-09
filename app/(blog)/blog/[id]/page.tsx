@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Markdown from 'react-markdown';
 import { blogPosts } from '@/lib/data';
 
 type PageProps = { params: Promise<{ id: string }> };
@@ -50,10 +51,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           <p className="text-rpd-muted dark:text-rp-muted">{post.date}</p>
         </header>
         <section className="px-16 py-6">
-          <div className="prose prose-invert max-w-none">
-            <div className="text-rpd-subtle dark:text-rp-subtle leading-relaxed whitespace-pre-wrap">
-              {post.content}
-            </div>
+          {/* post.content is Markdown. Rendered in a Server Component, so this
+              costs no client JS. `whitespace-pre-wrap` must stay off — it would
+              preserve the source newlines inside the generated elements. */}
+          <div className="prose dark:prose-invert prose-headings:text-rpd-text dark:prose-headings:text-rp-text text-rpd-subtle dark:text-rp-subtle max-w-none leading-relaxed">
+            <Markdown>{post.content}</Markdown>
           </div>
         </section>
       </div>
