@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A superseded run tells you nothing useful.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # No version pin here: action-setup reads `packageManager` from
+      # package.json, which is the same field Cloudflare's builder uses.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm lint
+
+      - run: pnpm format
+
+      # The Cloudflare deploy runs `opennextjs-cloudflare build`, not
+      # `next build`. Only this step would have caught the incremental-cache
+      # misconfiguration that 404'd every blog post in production.
+      - run: pnpm exec opennextjs-cloudflare build
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      # webServer in playwright.config.ts runs `next build && next start`.
+      - run: pnpm test
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
