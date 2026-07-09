@@ -11,6 +11,13 @@
     // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
     "global_fetch_strictly_public",
   ],
+  // Copies the prerendered pages into .open-next/assets/cdn-cgi/_next_cache so
+  // they ship with the asset upload. `opennextjs-cloudflare deploy` does this
+  // itself, but a bare `wrangler deploy` does not, and without it every
+  // prerendered route of /blog/[id] misses the cache and 404s.
+  "build": {
+    "command": "npx opennextjs-cloudflare populateCache local",
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
