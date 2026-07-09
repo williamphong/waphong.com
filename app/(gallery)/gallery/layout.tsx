@@ -19,31 +19,25 @@ export const metadata: Metadata = {
     description: "William Phong's gallery",
     url: 'https://waphong.com/gallery',
     siteName: 'William Phong',
-    /*images: [
+    images: [
       {
-        url: 'https://nextjs.org/og.png', // Must be an absolute URL
+        url: 'https://waphong.com/images/xi_cat.jpg',
         width: 800,
-        height: 600,
-      },
-      {
-        url: 'https://nextjs.org/og-alt.png', // Must be an absolute URL
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
+        height: 800,
+        alt: "William Phong's gallery",
       },
     ],
-    */
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
+    // Was summary_large_image with the image commented out, which renders a
+    // blank card. `creator` must be an @handle, not a display name.
     card: 'summary_large_image',
     title: 'William Phong',
     description: "William Phong's gallery",
-    //siteId: '1467726470533754880',
-    creator: 'William Phong',
-    //creatorId: '1467726470533754880',
-    //images: ['https://nextjs.org/og.png'], // Must be an absolute URL
+    creator: '@1waphong',
+    images: ['https://waphong.com/images/xi_cat.jpg'],
   },
 };
 

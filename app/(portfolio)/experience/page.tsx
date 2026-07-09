@@ -6,6 +6,8 @@ import { BackButton } from '../_components/BackButton';
 
 export const metadata: Metadata = {
   title: 'Employment History',
+  description: 'Full employment history of William Phong.',
+  alternates: { canonical: '/experience' },
 };
 
 export default function WorkHistory() {

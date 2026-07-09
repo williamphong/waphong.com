@@ -24,6 +24,15 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${id}` },
+    // Without this the post inherits the blog layout's og:url, which is
+    // hardcoded to /blog, so every shared post pointed at the index.
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${id}`,
+      type: 'article',
+    },
   };
 }
 

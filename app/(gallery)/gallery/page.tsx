@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   // Same segment as the layout that owns title.template, so the template does
   // not apply. `absolute` sets the whole <title> explicitly.
   title: { absolute: 'Gallery | William Phong' },
+  alternates: { canonical: '/gallery' },
   description: '35mm film photography by William Phong.',
 };
 

@@ -10,6 +10,7 @@ import { AboutMe } from './_components/AboutMe';
 import { ArrowIcon } from './_components/ArrowIcon';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/' },
   // No `title` here on purpose. title.template only applies to *child* route
   // segments, never the segment that declares it — and page.tsx sits in the
   // same segment as the layout that owns the template. Setting `title: 'Home'`

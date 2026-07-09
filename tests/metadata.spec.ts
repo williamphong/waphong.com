@@ -21,4 +21,30 @@ for (const route of routes) {
     const description = page.locator('meta[name="description"]');
     await expect(description).toHaveAttribute('content', /.+/);
   });
+
+  test(`${route} declares a canonical URL`, async ({ page }) => {
+    await page.goto(route);
+
+    const canonical = page.locator('link[rel="canonical"]');
+    await expect(canonical).toHaveAttribute(
+      'href',
+      new RegExp(`^https://waphong\\.com${route === '/' ? '/?' : route}$`)
+    );
+  });
 }
+
+test('every route advertises an og:image', async ({ page }) => {
+  for (const route of ['/', '/blog', '/gallery']) {
+    await page.goto(route);
+    const image = page.locator('meta[property="og:image"]');
+    await expect(image).toHaveAttribute('content', /^https:\/\/waphong\.com\//);
+  }
+});
+
+test('a blog post points og:url at itself, not the index', async ({ page }) => {
+  await page.goto('/blog/welcome-to-my-blog');
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
+    'content',
+    /\/blog\/welcome-to-my-blog$/
+  );
+});

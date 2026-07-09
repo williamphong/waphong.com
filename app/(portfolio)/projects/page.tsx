@@ -6,6 +6,8 @@ import { ProjectList } from '../_components/ProjectList';
 
 export const metadata: Metadata = {
   title: 'Projects',
+  description: 'Software and research projects built by William Phong.',
+  alternates: { canonical: '/projects' },
 };
 
 export default function Projects() {
