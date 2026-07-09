@@ -1,2 +1,19 @@
+# Applies only to responses served by the Workers static asset server.
+# HTML pages come from the Worker; their headers live in next.config.mjs.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
+
+# Not content-hashed, so revalidate instead of freezing forever.
+/images/*
+  Cache-Control: public,max-age=86400,stale-while-revalidate=604800
+
+/files/*
+  Cache-Control: public,max-age=3600,must-revalidate
+
+/favicon.ico
+  Cache-Control: public,max-age=86400
