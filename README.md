@@ -1,28 +1,47 @@
 ## Personal Website
 
-Hi, my name is William Phong and this is my portfolio website! This is a project done to learn Next.js, Typescript, and Tailwind. Part of the design and css come from websites that have inspired me - https://brittanychiang.com and https://carlbeaverson.com. ESLint and Prettier were also utilized to streamline my development process. New features are developed on my test branch. This readme will go through my process and thoughts as I built this site.
+Hi, my name is William Phong and this is my portfolio website! This is a project done to learn Next.js, Typescript, and Tailwind. Part of the design and css come from websites that have inspired me - https://brittanychiang.com and https://carlbeaverson.com. ESLint and Prettier were also utilized to streamline my development process. New features are developed on my test branch.
 
-## Cloudflare Pages Deployment
+## Stack
 
-This site was published using Cloudflare workers, Cloudflare DNS, and Porkbun's domain registrar system. It was originally written and deployed on Vercel but has been migrated to Cloudflare workers.
+- **Next.js 16** (App Router, Turbopack) with **React 19** and **TypeScript**
+- **Tailwind CSS v4** (CSS-first config, no `tailwind.config.ts`), Rosé Pine palette
+- **pnpm** as the package manager — pinned via `packageManager` in `package.json`
+- **Playwright** for end-to-end tests
 
-Information below outdated
+The site is split into three route groups, each with its own root layout: `(portfolio)`, `(blog)`, and `(gallery)`. Because they are separate root layouts, navigating between them is a full document load rather than a client transition.
 
+## Deployment
 
-![porkbun](public/images/readme/domain.png)
+The site runs on **Cloudflare Workers** via [OpenNext](https://opennext.js.org/cloudflare), with Cloudflare DNS and a domain registered through Porkbun. It was originally deployed on Vercel and migrated to Workers.
 
-![vercel dns](public/images/readme/dns.png)
+Cloudflare Workers Builds watches `main` and runs:
 
-Adding the DNS settings from Vercel to Porkbun was relatively straightforward. In Porkbun, I needed to create two A records with the host of "www" and "" with the answer provided by Vercel. Everything else was left default and after adding the records, Vercel would automatically detect and route.
+```
+npx opennextjs-cloudflare build   # build command
+npx wrangler deploy               # deploy command
+```
 
-After connecting a GitHub repository to Vercel, Vercel handles the branches within the repo and creates deployments for each one. The production deployment utilizes the main branch, which shows up on waphong.com The test branch creates preview deployments that are accessible through a link provided by vercel.
-![deployments](public/images/readme/deployments.png)
+Two details make that work:
 
+- `open-next.config.ts` configures `staticAssetsIncrementalCache`. Prerendered pages of dynamic routes (`/blog/[id]`, which sets `dynamicParams = false`) are only reachable through the incremental cache — without one, every lookup misses and Next.js returns a 404.
+- `wrangler.jsonc` runs `opennextjs-cloudflare populateCache local` as a custom build step. That copies the prerendered pages into `.open-next/assets/cdn-cgi/_next_cache` so they ship with the asset upload. `opennextjs-cloudflare deploy` does this on its own; a bare `wrangler deploy` does not.
 
-## packages
+## Local development
 
-pqoqubbw, cursify spotlight, lucide, betterauth
-![shadcn](https://ui.shadcn.com/)
-![react tip tap editor](https://reactjs-tiptap-editor.vercel.app/guide/getting-started.html)
+```
+pnpm install
+pnpm dev          # next dev
+pnpm preview      # build + run the real Worker locally
+pnpm lint
+pnpm format:fix
+```
 
-https://transfonter.org/
+`.dev.vars` holds local Cloudflare bindings and is gitignored.
+
+## Credits
+
+- [pqoqubbw/icons](https://icons.pqoqubbw.dev/) — animated icons
+- [cursify](https://cursify.vercel.app/) — spotlight cursor
+- [shadcn/ui](https://ui.shadcn.com/) — button primitive
+- [transfonter](https://transfonter.org/) — font subsetting

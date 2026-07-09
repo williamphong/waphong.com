@@ -1,11 +1,9 @@
 'use client';
-import { svg } from '@/lib/data';
 import {
   AtSignIcon,
   GithubIcon,
   LinkedinIcon,
   InstagramIcon,
-  SpotifyIcon,
   AudioLinesIcon,
 } from '@/components/pqoqubbw/icons';
 

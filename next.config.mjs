@@ -9,10 +9,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'lh3.googleusercontent.co',
-      },
-      {
-        protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
       {
@@ -22,14 +18,9 @@ const nextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: [
-      'lucide-react',
-      'motion',
-      '@radix-ui/react-avatar',
-      '@radix-ui/react-collapsible',
-      '@radix-ui/react-dropdown-menu',
-      '@radix-ui/react-scroll-area',
-    ],
+    // Only list packages the app actually imports; entries for absent packages
+    // are silently inert and mislead about what is in the bundle.
+    optimizePackageImports: ['motion'],
   },
 };
 

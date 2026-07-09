@@ -1,2 +1,3 @@
-/* Self-hosted webfonts are loaded via next/font/local in app/(portfolio)/layout.tsx
-   and app/(gallery)/gallery/layout.tsx. Google fonts use next/font/google. */
+/* Intentionally empty. Inter and IBM Plex Mono are loaded with next/font/google
+   in the portfolio and blog layouts; the gallery uses the system font stack
+   (--font-sfpro in globals.css). No self-hosted webfonts. */

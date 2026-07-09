@@ -17,7 +17,7 @@ export const BlogSidebar = () => {
             href="/blog"
             className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love hover:underline-4"
           >
-            (insert blog name)
+            Blog
           </Link>
         </h1>
       </header>

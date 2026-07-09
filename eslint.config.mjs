@@ -57,13 +57,12 @@ export default defineConfig([
           caughtErrorsIgnorePattern: '^_',
         },
       ],
-      'import/no-unresolved': [
-        'error',
-        {
-          ignore: ['^@/'], // Ignore unresolved errors for @/ paths
-          caseSensitive: true, // Optional: enforce case sensitivity for other imports
-        },
-      ],
+      // TypeScript already resolves modules and validates named exports, and it
+      // understands package `exports` maps, which eslint-plugin-import does not.
+      // Left on, these flag real imports (motion/react, @opennextjs/cloudflare
+      // subpaths) as missing.
+      'import/no-unresolved': 'off',
+      'import/named': 'off',
 
       'import/no-dynamic-require': 'warn',
       'import/no-nodejs-modules': 'warn',
@@ -105,6 +104,15 @@ export default defineConfig([
   },
   prettierConfig,
   {
-    ignores: ['node_modules/', '.next/', 'out/', 'dist/', 'build/', '*.d.ts'],
+    ignores: [
+      'node_modules/',
+      '.next/',
+      '.open-next/',
+      '.wrangler/',
+      'out/',
+      'dist/',
+      'build/',
+      '*.d.ts',
+    ],
   },
 ]);

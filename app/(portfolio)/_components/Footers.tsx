@@ -5,7 +5,6 @@ import {
   GithubIcon,
   LinkedinIcon,
   InstagramIcon,
-  SpotifyIcon,
   AudioLinesIcon,
 } from '@/components/pqoqubbw/icons';
 
