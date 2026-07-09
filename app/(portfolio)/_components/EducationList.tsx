@@ -21,16 +21,13 @@ export const EducationList = () => {
                   {edu.degree}
                 </p>
 
-                <p className="text-rpd-iris dark:text-rp-iris mt-2 text-xs">
-                  {edu.awards}
-                </p>
-
-                {/*
-                <ScrollArea className="mt-2 w-96 whitespace-nowrap rounded-md border">
-                  <p className="py-2 text-xs leading-tight">{edu.classes}</p>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-                */}
+                {/* SDSU has awards: '' — an unconditional <p> renders an empty
+                    paragraph with a top margin. */}
+                {edu.awards && (
+                  <p className="text-rpd-iris dark:text-rp-iris mt-2 text-xs">
+                    {edu.awards}
+                  </p>
+                )}
               </div>
             </div>
           </li>

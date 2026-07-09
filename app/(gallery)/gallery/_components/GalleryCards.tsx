@@ -18,7 +18,10 @@ function GalleryCard({
     <button
       type="button"
       onClick={onClick}
-      className="group block w-full cursor-pointer overflow-hidden rounded-xl bg-neutral-100 text-left shadow-sm transition hover:shadow-md"
+      // bg-neutral-100 was hardcoded for both themes, so in dark mode the
+      // title inherited light body text onto a light card: 2.96:1. Using the
+      // existing rose-pine surface token takes it to 5.12:1.
+      className="group dark:bg-rp-surface block w-full cursor-pointer overflow-hidden rounded-xl bg-neutral-100 text-left shadow-sm transition hover:shadow-md"
     >
       {/* Square image container */}
       <div className="relative flex aspect-square items-center justify-center p-4">

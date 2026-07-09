@@ -51,6 +51,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
+        <a
+          href="#content"
+          className="focus:bg-rpd-surface focus:text-rpd-text dark:focus:bg-rp-surface dark:focus:text-rp-text sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:px-4 focus:py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+        >
+          Skip to content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -58,7 +64,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <header className="my-16 flex items-center justify-between text-center">
-            <h1 className="text-edge-outline text-rpd-text dark:text-rp-text flex-1 cursor-default bg-clip-text pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
+            <h1 className="text-rpd-text dark:text-rp-text flex-1 cursor-default pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
               <Link href="/" className="focus-visible:text-rpd-rose">
                 William Phong
               </Link>
@@ -69,9 +75,14 @@ export default function RootLayout({
             </div>
           </header>
 
-          <div className="mx-auto min-h-screen max-w-screen-xl px-1 py-2 md:px-2 md:py-4 lg:px-0 lg:py-0">
+          {/* The other two root layouts have <main id="content">; this one had
+              no landmark for the skip link to target. */}
+          <main
+            id="content"
+            className="mx-auto min-h-screen max-w-screen-xl px-1 py-2 md:px-2 md:py-4 lg:px-0 lg:py-0"
+          >
             {children}
-          </div>
+          </main>
         </ThemeProvider>
       </body>
     </html>

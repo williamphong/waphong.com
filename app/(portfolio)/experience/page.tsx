@@ -20,6 +20,10 @@ export default function WorkHistory() {
         <BackButton />
       </div>
 
+      {/* The only h1 is the site name in the layout and the entries below are
+          h3, so without this the heading level skips h2. */}
+      <h2 className="sr-only">Experience</h2>
+
       <ExperienceList />
     </section>
   );

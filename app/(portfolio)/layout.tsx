@@ -68,6 +68,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
+        <a
+          href="#content"
+          className="focus:bg-rpd-surface focus:text-rpd-text dark:focus:bg-rp-surface dark:focus:text-rp-text sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:px-4 focus:py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+        >
+          Skip to content
+        </a>
         <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
         <ThemeProvider
           attribute="class"
