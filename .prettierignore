@@ -1,3 +1,11 @@
-# Ignore artifacts:
+# The format scripts pass this file alongside .gitignore. A single
+# --ignore-path *replaces* the default, so this file used to be ignored itself.
+
+# Generated
+pnpm-lock.yaml
+.open-next
+.wrangler
 build
 coverage
+test-results
+playwright-report
