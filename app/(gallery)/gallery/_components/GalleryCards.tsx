@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 export type GalleryCardProps = {
@@ -48,6 +48,25 @@ function GalleryCard({
 
 export default function GalleryGrid() {
   const [selected, setSelected] = useState<GalleryCardProps | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  // `<dialog open>` renders inline: no top layer, no focus trap, no Escape,
+  // and the page behind it keeps scrolling. showModal() gives all of that.
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    if (selected && !dialog.open) {
+      dialog.showModal();
+      document.body.style.overflow = 'hidden';
+    } else if (!selected && dialog.open) {
+      dialog.close();
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selected]);
 
   const projects: GalleryCardProps[] = [
     {
@@ -95,39 +114,42 @@ export default function GalleryGrid() {
       </div>
 
       {/* Modal / Lightbox */}
-      {selected && (
-        <dialog
-          open
-          aria-label={selected.title}
-          className="fixed inset-0 z-50 flex h-full max-h-none w-full max-w-none items-center justify-center bg-black/80 p-4"
-        >
-          <button
-            type="button"
-            aria-label="Close"
-            onClick={() => setSelected(null)}
-            className="absolute inset-0 z-0 cursor-default bg-transparent"
-          />
-          <div className="relative z-10 flex h-[90vh] w-[90vw] items-center justify-center">
-            <Image
-              src={selected.image}
-              alt={selected.title}
-              fill
-              className="object-contain"
-              sizes="90vw"
-              priority
-            />
+      <dialog
+        ref={dialogRef}
+        aria-label={selected?.title}
+        // onClose fires for Escape and for close(), so state stays in sync.
+        onClose={() => setSelected(null)}
+        // Clicks land on the dialog itself only when they hit the backdrop.
+        onClick={(e) => {
+          if (e.target === dialogRef.current) setSelected(null);
+        }}
+        className="fixed inset-0 z-50 h-full max-h-none w-full max-w-none bg-transparent p-4 backdrop:bg-black/80"
+      >
+        {selected && (
+          <div className="flex h-full w-full items-center justify-center">
+            <div className="relative flex h-[90vh] w-[90vw] items-center justify-center">
+              <Image
+                src={selected.image}
+                alt={selected.title}
+                fill
+                className="object-contain"
+                sizes="90vw"
+                priority
+              />
 
-            <button
-              type="button"
-              aria-label="Close"
-              onClick={() => setSelected(null)}
-              className="absolute top-3 right-3 rounded-full bg-black/60 px-3 py-1 text-white hover:bg-black/80"
-            >
-              ✕
-            </button>
+              <button
+                type="button"
+                aria-label="Close"
+                autoFocus
+                onClick={() => setSelected(null)}
+                className="absolute top-3 right-3 rounded-full bg-black/60 px-3 py-1 text-white hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                ✕
+              </button>
+            </div>
           </div>
-        </dialog>
-      )}
+        )}
+      </dialog>
     </>
   );
 }

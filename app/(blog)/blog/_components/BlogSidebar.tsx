@@ -12,14 +12,16 @@ export const BlogSidebar = () => {
   return (
     <aside className="border-r-1 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/5 lg:flex-col lg:justify-start">
       <header className="flex items-center justify-center border-b py-6 text-center">
-        <h1 className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text text-xl font-normal tracking-normal whitespace-nowrap">
+        {/* Not an <h1>: every blog page already has one (the post or "Posts").
+            This is site chrome, so it must not compete as a page heading. */}
+        <p className="text-edge-outline text-rpd-text dark:text-rp-text cursor-default bg-clip-text text-xl font-normal tracking-normal whitespace-nowrap">
           <Link
             href="/blog"
             className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love hover:underline-4"
           >
             Blog
           </Link>
-        </h1>
+        </p>
       </header>
       <div className="flex h-full flex-col px-6 py-12 md:px-12 md:py-20 lg:px-4 lg:py-6">
         <nav className="space-y-4">

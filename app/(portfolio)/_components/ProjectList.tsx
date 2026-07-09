@@ -1,6 +1,5 @@
 import { ProjectImage } from './ProjectImage';
 import { ArrowIcon } from './ArrowIcon';
-import { Button } from '@/components/ui/button';
 import { projectsData } from '@/lib/data';
 
 type ProjectListProps = {
@@ -20,20 +19,28 @@ export const ProjectList = ({ limit }: ProjectListProps) => {
 
               <div className="z-10 sm:order-2 sm:col-span-6">
                 <h3>
-                  <a
-                    className="group/link text-rpd-text dark:text-rp-text dark:hover:text-rp-rose hover:text-rpd-love focus-visible:text-rpd-iris dark:focus-visible:text-rp-love inline-flex items-baseline text-base font-medium"
-                    href={project.link}
-                    aria-label={project.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                    <span>{project.title}</span>
-                    <ArrowIcon
-                      variant="up-right"
-                      className="translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1"
-                    />
-                  </a>
+                  {/* An empty link renders href="" — which resolves to the
+                      current page, so the project opened a new tab of itself.
+                      Projects without a URL render as plain text instead. */}
+                  {project.link ? (
+                    <a
+                      className="group/link text-rpd-text dark:text-rp-text dark:hover:text-rp-rose hover:text-rpd-love focus-visible:text-rpd-iris dark:focus-visible:text-rp-love inline-flex items-baseline text-base font-medium"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                      <span>{project.title}</span>
+                      <ArrowIcon
+                        variant="up-right"
+                        className="translate-y-px transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 group-focus-visible/link:translate-x-1 group-focus-visible/link:-translate-y-1"
+                      />
+                    </a>
+                  ) : (
+                    <span className="text-rpd-text dark:text-rp-text inline-flex items-baseline text-base font-medium">
+                      {project.title}
+                    </span>
+                  )}
                 </h3>
 
                 <p className="mt-2 text-sm tracking-wide">
@@ -42,14 +49,12 @@ export const ProjectList = ({ limit }: ProjectListProps) => {
 
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <Button
+                    <span
                       key={tag}
-                      variant="outline"
-                      size="sm"
-                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam pointer-events-none"
+                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam inline-flex h-8 items-center justify-center rounded-md border px-3 text-xs font-medium whitespace-nowrap shadow-sm"
                     >
                       {tag}
-                    </Button>
+                    </span>
                   ))}
                 </div>
               </div>

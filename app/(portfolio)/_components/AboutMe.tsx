@@ -36,7 +36,7 @@ export const AboutMe = () => {
           href="https://open.spotify.com/user/william.phong"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label="spotify"
+          aria-label="music on Spotify"
         >
           music
         </a>
@@ -46,7 +46,7 @@ export const AboutMe = () => {
           href="/gallery"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label="gallery"
+          aria-label="pictures in my gallery"
         >
           {' '}
           pictures
@@ -57,7 +57,7 @@ export const AboutMe = () => {
           href="https://letterboxd.com/andjuly/"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label="letterboxd"
+          aria-label="movies on Letterboxd"
         >
           movies
         </a>
@@ -69,13 +69,12 @@ export const AboutMe = () => {
           className="group/link"
           href="/files/resume.pdf"
           rel="noreferrer noopener"
-          aria-label="resume"
         >
           <span className="link--color hover:underline-4 inline-block font-medium">
             View my full resume here
             <ArrowIcon
               variant="up-right"
-              className="translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1"
+              className="translate-y-px transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 group-focus-visible/link:translate-x-1 group-focus-visible/link:-translate-y-1"
             />{' '}
           </span>
         </Link>

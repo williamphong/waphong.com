@@ -1,6 +1,12 @@
 'use client';
 import type { Transition, Variants } from 'motion/react';
-import { LazyMotion, domAnimation, m, useAnimation } from 'motion/react';
+import {
+  LazyMotion,
+  domAnimation,
+  m,
+  useAnimation,
+  useReducedMotion,
+} from 'motion/react';
 import type { HTMLAttributes, Ref } from 'react';
 import React, { useCallback, useImperativeHandle, useRef } from 'react';
 import { cn } from '@/lib/utils';
@@ -56,6 +62,8 @@ const delayedVariants: Variants = {
 const AtSignIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -67,10 +75,10 @@ const AtSignIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) controls.start('animate');
+        if (!isControlledRef.current && !reduced) controls.start('animate');
         onMouseEnter?.(e);
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -122,6 +130,8 @@ const GithubIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...
     const bodyControls = useAnimation();
     const tailControls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     const tailVariants: Variants = {
       normal: { pathLength: 1, rotate: 0, transition: { duration: 0.3 } },
@@ -150,14 +160,14 @@ const GithubIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...
 
     const handleMouseEnter = useCallback(
       async (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           bodyControls.start('animate');
           await tailControls.start('draw');
           tailControls.start('wag');
         }
         onMouseEnter?.(e);
       },
-      [bodyControls, tailControls, onMouseEnter]
+      [bodyControls, tailControls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -213,6 +223,8 @@ const LinkedinIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, .
     const rectControls = useAnimation();
     const circleControls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -232,14 +244,14 @@ const LinkedinIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, .
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           pathControls.start('animate');
           rectControls.start('animate');
           circleControls.start('animate');
         }
         onMouseEnter?.(e);
       },
-      [pathControls, rectControls, circleControls, onMouseEnter]
+      [pathControls, rectControls, circleControls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -307,6 +319,8 @@ const InstagramIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, 
     const pathControls = useAnimation();
     const lineControls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -326,14 +340,14 @@ const InstagramIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, 
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           rectControls.start('animate');
           pathControls.start('animate');
           lineControls.start('animate');
         }
         onMouseEnter?.(e);
       },
-      [rectControls, pathControls, lineControls, onMouseEnter]
+      [rectControls, pathControls, lineControls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -432,6 +446,8 @@ const spotifyVariants: Variants = {
 const SpotifyIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SpotifyIconProps & { ref?: Ref<SpotifyIconHandle> }) => {
     const pathControls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -448,13 +464,13 @@ const SpotifyIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ..
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           pathControls.start('animate');
         } else {
           onMouseEnter?.(e);
         }
       },
-      [pathControls, onMouseEnter]
+      [pathControls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -515,6 +531,8 @@ const pathVariants: Variants = {
 const SunMediumIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SunMediumIconProps & { ref?: Ref<SunMediumIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -527,13 +545,13 @@ const SunMediumIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, 
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           controls.start('animate');
         } else {
           onMouseEnter?.(e);
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -616,6 +634,8 @@ const svgTransition: Transition = {
 const MoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: MoonIconProps & { ref?: Ref<MoonIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -628,13 +648,13 @@ const MoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...pr
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           controls.start('animate');
         } else {
           onMouseEnter?.(e);
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -709,6 +729,8 @@ const SunMoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ..
     const sunControls = useAnimation();
     const moonControls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -727,14 +749,14 @@ const SunMoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ..
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           sunControls.start('animate');
           moonControls.start('animate');
         } else {
           onMouseEnter?.(e);
         }
       },
-      [sunControls, moonControls, onMouseEnter]
+      [sunControls, moonControls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -811,6 +833,8 @@ interface AudioLinesIconProps extends HTMLAttributes<HTMLDivElement> {
 const AudioLinesIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: AudioLinesIconProps & { ref?: Ref<AudioLinesIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -823,13 +847,13 @@ const AudioLinesIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref,
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           controls.start('animate');
         } else {
           onMouseEnter?.(e);
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(
@@ -958,6 +982,8 @@ const secondaryPathVariants: Variants = {
 const ArrowRightIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: ArrowRightIconProps & { ref?: Ref<ArrowRightIconHandle> }) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
+    // Several of these hover animations loop forever (repeat: Infinity).
+    const reduced = useReducedMotion();
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -970,13 +996,13 @@ const ArrowRightIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref,
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
+        if (!isControlledRef.current && !reduced) {
           controls.start('animate');
         } else {
           onMouseEnter?.(e);
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter, reduced]
     );
 
     const handleMouseLeave = useCallback(

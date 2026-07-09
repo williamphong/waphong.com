@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { experienceData } from '@/lib/data';
 
 type ExperienceListProps = {
@@ -33,15 +32,17 @@ export const ExperienceList = ({ limit }: ExperienceListProps) => {
 
                 <p className="mt-2 text-sm tracking-wide">{exp.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
+                  {/* Static labels, not controls. As <Button> they were real
+                      <button>s kept out of the mouse's way with
+                      pointer-events-none, which does not remove them from the
+                      tab order — every skill was a focus stop. */}
                   {exp.skills.map((skill) => (
-                    <Button
+                    <span
                       key={skill}
-                      variant="outline"
-                      size="sm"
-                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam pointer-events-none"
+                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam inline-flex h-8 items-center justify-center rounded-md border px-3 text-xs font-medium whitespace-nowrap shadow-sm"
                     >
                       {skill}
-                    </Button>
+                    </span>
                   ))}
                 </div>
               </div>
