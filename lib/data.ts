@@ -154,17 +154,34 @@ export const experienceData = [
     title: 'Graduate Research Assistant',
     company: 'SDSU Climate Informatics Laboratory',
     location: 'San Diego, CA',
-    description: 'Developing the iCharm climate analysis interface, incorporating over 200 GB of NOAA datasets for 3D-visualization and statistical analysis.',
+    description:
+      'Developing the iCharm climate analysis interface, incorporating over 200 GB of NOAA datasets for 3D-visualization and statistical analysis.',
     date: 'Present',
-    skills: ['Python', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
+    skills: [
+      'Python',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'Docker',
+    ],
   },
   {
     title: 'Graduate Research Intern',
     company: 'Pisces Lab @ SDSU',
     location: 'San Diego, CA',
-    description: 'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language conversion, autonomous entity control, and inferencing. ',
+    description:
+      'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language conversion, autonomous entity control, and inferencing. ',
     date: 'Present',
-    skills: ['Python', 'Gemini', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Docker' ],
+    skills: [
+      'Python',
+      'Gemini',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'Docker',
+    ],
   },
   {
     title: 'Data Science Intern',
@@ -244,7 +261,8 @@ Stay tuned for more content!`,
     id: 'getting-started-with-nextjs',
     title: 'Getting Started with Next.js',
     date: 'Nov 16, 2025',
-    excerpt: 'A comprehensive guide to building modern web applications with Next.js.',
+    excerpt:
+      'A comprehensive guide to building modern web applications with Next.js.',
     content: `Next.js is a powerful React framework that makes building web applications a breeze.
 
 ## Why Next.js?
@@ -261,7 +279,8 @@ Let's dive in and explore what makes Next.js so great.`,
     id: 'machine-learning-basics',
     title: 'Machine Learning Basics',
     date: 'Nov 15, 2025',
-    excerpt: 'Understanding the fundamentals of machine learning and its applications.',
+    excerpt:
+      'Understanding the fundamentals of machine learning and its applications.',
     content: `Machine learning is transforming how we solve complex problems.
 
 ## Key Concepts

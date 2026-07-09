@@ -59,38 +59,45 @@ const delayedVariants: Variants = {
 };
 
 // AtSignIcon Component
-const AtSignIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const AtSignIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: IconProps & { ref?: Ref<IconHandle> }) => {
+  const controls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
-      return {
-        startAnimation: () => controls.start('animate'),
-        stopAnimation: () => controls.start('normal'),
-      };
-    });
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
+    return {
+      startAnimation: () => controls.start('animate'),
+      stopAnimation: () => controls.start('normal'),
+    };
+  });
 
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) controls.start('animate');
-        onMouseEnter?.(e);
-      },
-      [controls, onMouseEnter, reduced]
-    );
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) controls.start('animate');
+      onMouseEnter?.(e);
+    },
+    [controls, onMouseEnter, reduced]
+  );
 
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) controls.start('normal');
-        onMouseLeave?.(e);
-      },
-      [controls, onMouseLeave]
-    );
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) controls.start('normal');
+      onMouseLeave?.(e);
+    },
+    [controls, onMouseLeave]
+  );
 
-    return (
-      <LazyMotion features={domAnimation}>
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -123,66 +130,73 @@ const AtSignIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 // GithubIcon Component
-const GithubIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
-    const bodyControls = useAnimation();
-    const tailControls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const GithubIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: IconProps & { ref?: Ref<IconHandle> }) => {
+  const bodyControls = useAnimation();
+  const tailControls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    const tailVariants: Variants = {
-      normal: { pathLength: 1, rotate: 0, transition: { duration: 0.3 } },
-      draw: { pathLength: [0, 1], rotate: 0, transition: { duration: 0.5 } },
-      wag: {
-        pathLength: 1,
-        rotate: [0, -15, 15, -10, 10, -5, 5],
-        transition: { duration: 2.5, ease: 'easeInOut', repeat: Infinity },
+  const tailVariants: Variants = {
+    normal: { pathLength: 1, rotate: 0, transition: { duration: 0.3 } },
+    draw: { pathLength: [0, 1], rotate: 0, transition: { duration: 0.5 } },
+    wag: {
+      pathLength: 1,
+      rotate: [0, -15, 15, -10, 10, -5, 5],
+      transition: { duration: 2.5, ease: 'easeInOut', repeat: Infinity },
+    },
+  };
+
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
+    return {
+      startAnimation: async () => {
+        bodyControls.start('animate');
+        await tailControls.start('draw');
+        tailControls.start('wag');
+      },
+      stopAnimation: () => {
+        bodyControls.start('normal');
+        tailControls.start('normal');
       },
     };
+  });
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
-      return {
-        startAnimation: async () => {
-          bodyControls.start('animate');
-          await tailControls.start('draw');
-          tailControls.start('wag');
-        },
-        stopAnimation: () => {
-          bodyControls.start('normal');
-          tailControls.start('normal');
-        },
-      };
-    });
+  const handleMouseEnter = useCallback(
+    async (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        bodyControls.start('animate');
+        await tailControls.start('draw');
+        tailControls.start('wag');
+      }
+      onMouseEnter?.(e);
+    },
+    [bodyControls, tailControls, onMouseEnter, reduced]
+  );
 
-    const handleMouseEnter = useCallback(
-      async (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          bodyControls.start('animate');
-          await tailControls.start('draw');
-          tailControls.start('wag');
-        }
-        onMouseEnter?.(e);
-      },
-      [bodyControls, tailControls, onMouseEnter, reduced]
-    );
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        bodyControls.start('normal');
+        tailControls.start('normal');
+      }
+      onMouseLeave?.(e);
+    },
+    [bodyControls, tailControls, onMouseLeave]
+  );
 
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          bodyControls.start('normal');
-          tailControls.start('normal');
-        }
-        onMouseLeave?.(e);
-      },
-      [bodyControls, tailControls, onMouseLeave]
-    );
-
-    return (
-      <LazyMotion features={domAnimation}>
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -215,59 +229,66 @@ const GithubIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 // LinkedinIcon Component
-const LinkedinIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
-    const pathControls = useAnimation();
-    const rectControls = useAnimation();
-    const circleControls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const LinkedinIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: IconProps & { ref?: Ref<IconHandle> }) => {
+  const pathControls = useAnimation();
+  const rectControls = useAnimation();
+  const circleControls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
-      return {
-        startAnimation: () => {
-          pathControls.start('animate');
-          rectControls.start('animate');
-          circleControls.start('animate');
-        },
-        stopAnimation: () => {
-          pathControls.start('normal');
-          rectControls.start('normal');
-          circleControls.start('normal');
-        },
-      };
-    });
-
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          pathControls.start('animate');
-          rectControls.start('animate');
-          circleControls.start('animate');
-        }
-        onMouseEnter?.(e);
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
+    return {
+      startAnimation: () => {
+        pathControls.start('animate');
+        rectControls.start('animate');
+        circleControls.start('animate');
       },
-      [pathControls, rectControls, circleControls, onMouseEnter, reduced]
-    );
-
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          pathControls.start('normal');
-          rectControls.start('normal');
-          circleControls.start('normal');
-        }
-        onMouseLeave?.(e);
+      stopAnimation: () => {
+        pathControls.start('normal');
+        rectControls.start('normal');
+        circleControls.start('normal');
       },
-      [pathControls, rectControls, circleControls, onMouseLeave]
-    );
+    };
+  });
 
-    return (
-      <LazyMotion features={domAnimation}>
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        pathControls.start('animate');
+        rectControls.start('animate');
+        circleControls.start('animate');
+      }
+      onMouseEnter?.(e);
+    },
+    [pathControls, rectControls, circleControls, onMouseEnter, reduced]
+  );
+
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        pathControls.start('normal');
+        rectControls.start('normal');
+        circleControls.start('normal');
+      }
+      onMouseLeave?.(e);
+    },
+    [pathControls, rectControls, circleControls, onMouseLeave]
+  );
+
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -311,59 +332,66 @@ const LinkedinIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, .
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 // InstagramIcon Component
-const InstagramIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: IconProps & { ref?: Ref<IconHandle> }) => {
-    const rectControls = useAnimation();
-    const pathControls = useAnimation();
-    const lineControls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const InstagramIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: IconProps & { ref?: Ref<IconHandle> }) => {
+  const rectControls = useAnimation();
+  const pathControls = useAnimation();
+  const lineControls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
-      return {
-        startAnimation: () => {
-          rectControls.start('animate');
-          pathControls.start('animate');
-          lineControls.start('animate');
-        },
-        stopAnimation: () => {
-          rectControls.start('normal');
-          pathControls.start('normal');
-          lineControls.start('normal');
-        },
-      };
-    });
-
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          rectControls.start('animate');
-          pathControls.start('animate');
-          lineControls.start('animate');
-        }
-        onMouseEnter?.(e);
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
+    return {
+      startAnimation: () => {
+        rectControls.start('animate');
+        pathControls.start('animate');
+        lineControls.start('animate');
       },
-      [rectControls, pathControls, lineControls, onMouseEnter, reduced]
-    );
-
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          rectControls.start('normal');
-          pathControls.start('normal');
-          lineControls.start('normal');
-        }
-        onMouseLeave?.(e);
+      stopAnimation: () => {
+        rectControls.start('normal');
+        pathControls.start('normal');
+        lineControls.start('normal');
       },
-      [rectControls, pathControls, lineControls, onMouseLeave]
-    );
+    };
+  });
 
-    return (
-      <LazyMotion features={domAnimation}>
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        rectControls.start('animate');
+        pathControls.start('animate');
+        lineControls.start('animate');
+      }
+      onMouseEnter?.(e);
+    },
+    [rectControls, pathControls, lineControls, onMouseEnter, reduced]
+  );
+
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        rectControls.start('normal');
+        pathControls.start('normal');
+        lineControls.start('normal');
+      }
+      onMouseLeave?.(e);
+    },
+    [rectControls, pathControls, lineControls, onMouseLeave]
+  );
+
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -410,8 +438,8 @@ const InstagramIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, 
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 export interface SpotifyIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -443,49 +471,56 @@ const spotifyVariants: Variants = {
   },
 };
 
-const SpotifyIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SpotifyIconProps & { ref?: Ref<SpotifyIconHandle> }) => {
-    const pathControls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const SpotifyIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: SpotifyIconProps & { ref?: Ref<SpotifyIconHandle> }) => {
+  const pathControls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
 
-      return {
-        startAnimation: () => {
-          pathControls.start('animate');
-        },
-        stopAnimation: () => {
-          pathControls.start('normal');
-        },
-      };
-    });
-
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          pathControls.start('animate');
-        } else {
-          onMouseEnter?.(e);
-        }
+    return {
+      startAnimation: () => {
+        pathControls.start('animate');
       },
-      [pathControls, onMouseEnter, reduced]
-    );
-
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          pathControls.start('normal');
-        } else {
-          onMouseLeave?.(e);
-        }
+      stopAnimation: () => {
+        pathControls.start('normal');
       },
-      [pathControls, onMouseLeave]
-    );
+    };
+  });
 
-    return (
-      <LazyMotion features={domAnimation}>
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        pathControls.start('animate');
+      } else {
+        onMouseEnter?.(e);
+      }
+    },
+    [pathControls, onMouseEnter, reduced]
+  );
+
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        pathControls.start('normal');
+      } else {
+        onMouseLeave?.(e);
+      }
+    },
+    [pathControls, onMouseLeave]
+  );
+
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -508,8 +543,8 @@ const SpotifyIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ..
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 
 export interface SunMediumIconHandle {
   startAnimation: () => void;
@@ -528,45 +563,52 @@ const pathVariants: Variants = {
   }),
 };
 
-const SunMediumIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SunMediumIconProps & { ref?: Ref<SunMediumIconHandle> }) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const SunMediumIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: SunMediumIconProps & { ref?: Ref<SunMediumIconHandle> }) => {
+  const controls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
 
-      return {
-        startAnimation: () => controls.start('animate'),
-        stopAnimation: () => controls.start('normal'),
-      };
-    });
+    return {
+      startAnimation: () => controls.start('animate'),
+      stopAnimation: () => controls.start('normal'),
+    };
+  });
 
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          controls.start('animate');
-        } else {
-          onMouseEnter?.(e);
-        }
-      },
-      [controls, onMouseEnter, reduced]
-    );
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        controls.start('animate');
+      } else {
+        onMouseEnter?.(e);
+      }
+    },
+    [controls, onMouseEnter, reduced]
+  );
 
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start('normal');
-        } else {
-          onMouseLeave?.(e);
-        }
-      },
-      [controls, onMouseLeave]
-    );
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        controls.start('normal');
+      } else {
+        onMouseLeave?.(e);
+      }
+    },
+    [controls, onMouseLeave]
+  );
 
-    return (
-      <LazyMotion features={domAnimation}>
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -606,8 +648,8 @@ const SunMediumIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, 
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 export interface MoonIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -631,44 +673,51 @@ const svgTransition: Transition = {
   ease: 'easeInOut',
 };
 
-const MoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: MoonIconProps & { ref?: Ref<MoonIconHandle> }) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const MoonIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: MoonIconProps & { ref?: Ref<MoonIconHandle> }) => {
+  const controls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
 
-      return {
-        startAnimation: () => controls.start('animate'),
-        stopAnimation: () => controls.start('normal'),
-      };
-    });
+    return {
+      startAnimation: () => controls.start('animate'),
+      stopAnimation: () => controls.start('normal'),
+    };
+  });
 
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          controls.start('animate');
-        } else {
-          onMouseEnter?.(e);
-        }
-      },
-      [controls, onMouseEnter, reduced]
-    );
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        controls.start('animate');
+      } else {
+        onMouseEnter?.(e);
+      }
+    },
+    [controls, onMouseEnter, reduced]
+  );
 
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start('normal');
-        } else {
-          onMouseLeave?.(e);
-        }
-      },
-      [controls, onMouseLeave]
-    );
-    return (
-      <LazyMotion features={domAnimation}>
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        controls.start('normal');
+      } else {
+        onMouseLeave?.(e);
+      }
+    },
+    [controls, onMouseLeave]
+  );
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -693,8 +742,8 @@ const MoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...pr
         </m.svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 export interface SunMoonIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -725,54 +774,61 @@ const moonVariants: Variants = {
   }),
 };
 
-const SunMoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: SunMoonIconProps & { ref?: Ref<SunMoonIconHandle> }) => {
-    const sunControls = useAnimation();
-    const moonControls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const SunMoonIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: SunMoonIconProps & { ref?: Ref<SunMoonIconHandle> }) => {
+  const sunControls = useAnimation();
+  const moonControls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
 
-      return {
-        startAnimation: () => {
-          sunControls.start('animate');
-          moonControls.start('animate');
-        },
-        stopAnimation: () => {
-          sunControls.start('normal');
-          moonControls.start('normal');
-        },
-      };
-    });
-
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          sunControls.start('animate');
-          moonControls.start('animate');
-        } else {
-          onMouseEnter?.(e);
-        }
+    return {
+      startAnimation: () => {
+        sunControls.start('animate');
+        moonControls.start('animate');
       },
-      [sunControls, moonControls, onMouseEnter, reduced]
-    );
-
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          sunControls.start('normal');
-          moonControls.start('normal');
-        } else {
-          onMouseLeave?.(e);
-        }
+      stopAnimation: () => {
+        sunControls.start('normal');
+        moonControls.start('normal');
       },
-      [sunControls, moonControls, onMouseLeave]
-    );
+    };
+  });
 
-    return (
-      <LazyMotion features={domAnimation}>
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        sunControls.start('animate');
+        moonControls.start('animate');
+      } else {
+        onMouseEnter?.(e);
+      }
+    },
+    [sunControls, moonControls, onMouseEnter, reduced]
+  );
+
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        sunControls.start('normal');
+        moonControls.start('normal');
+      } else {
+        onMouseLeave?.(e);
+      }
+    },
+    [sunControls, moonControls, onMouseLeave]
+  );
+
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -790,11 +846,7 @@ const SunMoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ..
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <m.g
-            variants={sunVariants}
-            animate={sunControls}
-            initial="normal"
-          >
+          <m.g variants={sunVariants} animate={sunControls} initial="normal">
             <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
           </m.g>
           {[
@@ -819,8 +871,8 @@ const SunMoonIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ..
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 export interface AudioLinesIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -830,45 +882,52 @@ interface AudioLinesIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-const AudioLinesIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: AudioLinesIconProps & { ref?: Ref<AudioLinesIconHandle> }) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const AudioLinesIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: AudioLinesIconProps & { ref?: Ref<AudioLinesIconHandle> }) => {
+  const controls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
 
-      return {
-        startAnimation: () => controls.start('animate'),
-        stopAnimation: () => controls.start('normal'),
-      };
-    });
+    return {
+      startAnimation: () => controls.start('animate'),
+      stopAnimation: () => controls.start('normal'),
+    };
+  });
 
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          controls.start('animate');
-        } else {
-          onMouseEnter?.(e);
-        }
-      },
-      [controls, onMouseEnter, reduced]
-    );
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        controls.start('animate');
+      } else {
+        onMouseEnter?.(e);
+      }
+    },
+    [controls, onMouseEnter, reduced]
+  );
 
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start('normal');
-        } else {
-          onMouseLeave?.(e);
-        }
-      },
-      [controls, onMouseLeave]
-    );
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        controls.start('normal');
+      } else {
+        onMouseLeave?.(e);
+      }
+    },
+    [controls, onMouseLeave]
+  );
 
-    return (
-      <LazyMotion features={domAnimation}>
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -947,8 +1006,8 @@ const AudioLinesIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref,
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 export interface ArrowRightIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -979,45 +1038,52 @@ const secondaryPathVariants: Variants = {
   },
 };
 
-const ArrowRightIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref, ...props }: ArrowRightIconProps & { ref?: Ref<ArrowRightIconHandle> }) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
-    // Several of these hover animations loop forever (repeat: Infinity).
-    const reduced = useReducedMotion();
+const ArrowRightIcon = ({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 28,
+  ref,
+  ...props
+}: ArrowRightIconProps & { ref?: Ref<ArrowRightIconHandle> }) => {
+  const controls = useAnimation();
+  const isControlledRef = useRef(false);
+  // Several of these hover animations loop forever (repeat: Infinity).
+  const reduced = useReducedMotion();
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
 
-      return {
-        startAnimation: () => controls.start('animate'),
-        stopAnimation: () => controls.start('normal'),
-      };
-    });
+    return {
+      startAnimation: () => controls.start('animate'),
+      stopAnimation: () => controls.start('normal'),
+    };
+  });
 
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current && !reduced) {
-          controls.start('animate');
-        } else {
-          onMouseEnter?.(e);
-        }
-      },
-      [controls, onMouseEnter, reduced]
-    );
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current && !reduced) {
+        controls.start('animate');
+      } else {
+        onMouseEnter?.(e);
+      }
+    },
+    [controls, onMouseEnter, reduced]
+  );
 
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start('normal');
-        } else {
-          onMouseLeave?.(e);
-        }
-      },
-      [controls, onMouseLeave]
-    );
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isControlledRef.current) {
+        controls.start('normal');
+      } else {
+        onMouseLeave?.(e);
+      }
+    },
+    [controls, onMouseLeave]
+  );
 
-    return (
-      <LazyMotion features={domAnimation}>
+  return (
+    <LazyMotion features={domAnimation}>
       <div
         className={cn(className)}
         onMouseEnter={handleMouseEnter}
@@ -1048,8 +1114,8 @@ const ArrowRightIcon = ({ onMouseEnter, onMouseLeave, className, size = 28, ref,
         </svg>
       </div>
     </LazyMotion>
-    );
-  };
+  );
+};
 export {
   AtSignIcon,
   GithubIcon,
