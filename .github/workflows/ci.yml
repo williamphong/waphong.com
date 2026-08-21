@@ -32,6 +32,17 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # The gate that makes automerged lockfile refreshes safe. A refresh that
+      # regressed a transitive dependency would restore a known-vulnerable
+      # version and nothing else in this job would notice -- nanoid sat under
+      # postcss with no direct dependency to bump.
+      #
+      # --ignore-unfixable reads like it belongs here and does not: on its own
+      # it exits 0 on a *fixable* high. If an unfixable advisory ever blocks a
+      # merge, add `--ignore GHSA-xxxx-xxxx-xxxx` so the exception shows up in
+      # the diff rather than hiding in a flag.
+      - run: pnpm audit --audit-level moderate --ignore-registry-errors
+
       - run: pnpm lint
 
       - run: pnpm format

@@ -53,10 +53,11 @@
     "schedule": ["before 5am on monday"],
   },
 
-  // GitHub's native auto-merge needs a branch protection rule on main and
-  // there isn't one. Renovate's own automerge waits for CI to go green by
-  // itself, which works on an unprotected branch.
-  "platformAutomerge": false,
+  // main requires the `verify` check, so GitHub's native auto-merge is
+  // available. It merges the moment CI turns green rather than waiting for
+  // Renovate's next cycle, which can be an hour away. Drop this back to false
+  // if the protection rule on main is ever removed.
+  "platformAutomerge": true,
 
   "packageRules": [
     {
