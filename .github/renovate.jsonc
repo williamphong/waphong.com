@@ -1,0 +1,115 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // config:best-practices is the maintainers' pick, but it bundles
+  // :pinDevDependencies, which rewrites every "^" range in package.json to an
+  // exact version. pnpm-lock.yaml already pins what actually gets built, so
+  // take the pieces that earn their keep and leave the manifest alone.
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":configMigration",
+    "abandonments:recommended",
+    ":semanticCommitsDisabled",
+  ],
+
+  "timezone": "America/Los_Angeles",
+  "dependencyDashboard": true,
+
+  // pnpm-workspace.yaml sets minimumReleaseAge: 10080 (7 days), and pnpm 11
+  // re-validates the whole lockfile on install rather than only fresh
+  // resolutions. A PR for anything younger than that dies at `pnpm install`
+  // before CI gets to say anything useful. Keep this >= the pnpm value:
+  // change both or neither.
+  "minimumReleaseAge": "7 days",
+  "internalChecksFilter": "strict",
+
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    // Same 7-day floor, deliberately. The usual advice is to drop the age
+    // floor so security fixes land immediately, but pnpm would then reject
+    // the install unless that exact version were hand-added to
+    // minimumReleaseAgeExclude -- which is the toil this file exists to
+    // delete. A 7-day-old fix that installs beats a same-day fix that can't.
+    "minimumReleaseAge": "7 days",
+    "labels": ["security"],
+    // Renovate does not document whether this beats the patch packageRule
+    // below for a security fix that happens to be a patch. If one ever does
+    // automerge, it got there through the full suite; drop "automerge" from
+    // that rule if you want the guarantee rather than the likelihood.
+    "automerge": false,
+  },
+
+  // The one that pays for this file. nanoid@3.3.16 -> 3.3.18 was a transitive
+  // bump under postcss with no direct dependency to touch; a weekly lockfile
+  // refresh floats those on its own instead of accreting another hand-written
+  // entry in the pnpm-workspace.yaml overrides block.
+  // Set outright rather than via :maintainLockFilesWeekly, which hides the
+  // schedule inside this same object -- overriding it here would leave whether
+  // the weekly window survives up to merge semantics.
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "schedule": ["before 5am on monday"],
+  },
+
+  // GitHub's native auto-merge needs a branch protection rule on main and
+  // there isn't one. Renovate's own automerge waits for CI to go green by
+  // itself, which works on an unprotected branch.
+  "platformAutomerge": false,
+
+  "packageRules": [
+    {
+      "description": "Patch bumps land themselves once lint, format, the Cloudflare build and Playwright all pass.",
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+    },
+    {
+      "description": "Majors always get a human.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["major"],
+    },
+    {
+      "description": "Next ships its first-party plugins on the same major line. Splitting them across PRs is how the tooling drifts out of sync with the framework.",
+      "groupName": "next",
+      "matchPackageNames": ["next", "@next/*", "eslint-config-next"],
+    },
+    {
+      "description": "react, react-dom and their types are one unit.",
+      "groupName": "react",
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom",
+      ],
+    },
+    {
+      "description": "The Cloudflare adapter tracks wrangler closely enough that a solo bump of either is a coin flip.",
+      "groupName": "cloudflare",
+      "matchPackageNames": ["@opennextjs/cloudflare", "wrangler"],
+    },
+    {
+      "description": "Lint tooling churns constantly and breaks together.",
+      "groupName": "eslint",
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/js",
+        "@typescript-eslint/*",
+        "eslint-plugin-*",
+        "eslint-config-prettier",
+        "globals",
+      ],
+    },
+    {
+      "description": "Tailwind v4 moved the PostCSS plugin out of core; the pieces expect matching versions.",
+      "groupName": "tailwind",
+      "matchPackageNames": [
+        "tailwindcss",
+        "@tailwindcss/*",
+        "prettier-plugin-tailwindcss",
+      ],
+    },
+  ],
+}
