@@ -119,5 +119,25 @@
         "prettier-plugin-tailwindcss",
       ],
     },
+    {
+      // Comes after the "majors always get a human" rule above, so it wins
+      // for just these packages. Lint tooling and Tailwind don't run in
+      // production the way Next/React/Cloudflare do -- a bad major fails
+      // lint or the build, it doesn't ship a broken page.
+      "description": "Dev-tooling majors are lower-stakes than framework majors -- let CI decide instead of waiting on a human.",
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/js",
+        "@typescript-eslint/*",
+        "eslint-plugin-*",
+        "eslint-config-prettier",
+        "globals",
+        "tailwindcss",
+        "@tailwindcss/*",
+        "prettier-plugin-tailwindcss",
+      ],
+      "matchUpdateTypes": ["major"],
+      "automerge": true,
+    },
   ],
 }
