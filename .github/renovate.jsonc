@@ -16,6 +16,13 @@
   "timezone": "America/Los_Angeles",
   "dependencyDashboard": true,
 
+  // Defaults are prConcurrentLimit: 10, prHourlyLimit: 2 -- built for repos
+  // where a flood of PRs is noise. This is a portfolio site with automerge
+  // already doing the triage (see packageRules below); let everything land
+  // at once instead of trickling in over days.
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+
   // pnpm-workspace.yaml sets minimumReleaseAge: 10080 (7 days), and pnpm 11
   // re-validates the whole lockfile on install rather than only fresh
   // resolutions. A PR for anything younger than that dies at `pnpm install`
