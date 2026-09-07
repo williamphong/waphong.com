@@ -36,3 +36,5 @@ minimumReleaseAgeExclude:
   - ws@8.21.0
   - form-data@4.0.6
   - js-yaml@4.3.1
+  # Renovate security update: pnpm@11.11.0
+  - pnpm@11.11.0
