@@ -1,18 +1,22 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { Button } from '@/components/ui/button';
 import { MoonIcon, SunMediumIcon, SunMoonIcon } from '../pqoqubbw/icons';
+
+const noopSubscribe = () => () => {};
 
 export function ModeToggle() {
   // `resolvedTheme` collapses 'system' to the theme actually in effect. Keying
   // off `theme` makes the first click a no-op for anyone on a dark system: it
   // swaps 'system' for 'dark', and nothing visibly changes.
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return (
