@@ -15,13 +15,22 @@ export const navigation = [
 
 export const projectsData = [
   {
+    title: 'PromptCARLA',
+    description:
+      "Agentic prompt-to-config interface that turns natural language into validated CARLA traffic simulation scenarios. Benchmarked four LLM backends across a 59-prompt, three-tier evaluation suite, reaching 98.31% schema validation success, on a multi-service architecture orchestrated with Docker Compose. First author on a paper accepted to IMNS'26 (IEEE proceedings).",
+    tags: ['Next.JS', 'TypeScript', 'Python', 'Docker', 'CARLA'],
+    link: 'https://github.com/PiscesLab/PromptCARLA',
+    imageUrl: '/images/projects/promptcarla.png',
+    date: 'Present',
+  },
+  {
     title: 'VR Earth Orbit Simulation',
     description:
       "Solves an educational issue explaining astronomical concepts by providing a visual, hands-on VR experience. Users can listen to lectures or walk around and interact with the Earth, Moon, and Sun's orbit.",
     tags: ['C#', 'MATLAB', 'Unity', 'SteamVR'],
     link: 'https://github.com/williamphong/CS490-VR-Orbit',
     imageUrl: '/images/projects/vrorbit.webm',
-    date: 'Jan 2024 - Present',
+    date: 'Jan 2024',
   },
   {
     title: 'Formula 1 Race Prediction Application',
@@ -38,7 +47,7 @@ export const projectsData = [
     ],
     link: 'https://github.com/williamphong/F1DataVisualization',
     imageUrl: '/images/projects/f1.jpg',
-    date: 'Jun 2024 - Present',
+    date: 'Jun 2024',
   },
   {
     title: 'Portfolio Website // waphong.com',
@@ -68,11 +77,11 @@ export const projectsData = [
   {
     title: 'Spotify Daylist Word Cloud',
     description:
-      "Dynamic word cloud generator visualizing musical preferences from Spotify daylist data. Phrases are parsed using Spotify's API and saved into a database.",
-    tags: ['Python', 'Matplotlib', 'Spotipy', 'Postgresql'],
+      "Generates word clouds over time from Spotify daylist titles. Implements the OAuth 2.0 authorization code flow against Spotify's API and persists the JSON responses in AWS RDS PostgreSQL.",
+    tags: ['Python', 'Matplotlib', 'Spotipy', 'AWS RDS', 'PostgreSQL'],
     link: 'https://github.com/williamphong/Spotify-Daylist-Word-Cloud',
     imageUrl: '/images/projects/wordcloud.png',
-    date: 'Jun 2024 - Present',
+    date: 'Jun 2024',
   },
   {
     title: 'Discord Bot',
@@ -84,9 +93,9 @@ export const projectsData = [
     date: 'Jan 2019 - Present',
   },
   {
-    title: 'Student Portal Application',
+    title: 'CSUSM Student Portal Application',
     description:
-      'Provides personalized and focused information to students. Developed front-end app with Java and Android Studio',
+      'Interviewed CSUSM faculty, admin, and students to determine customer requirements and feature scope. Delivered the application with a MySQL database and hashed credential storage, running agile scheduling and authoring the SRS.',
     tags: ['Java', 'Android Studio', 'MySQL'],
     link: 'https://github.com/williamphong/CSUSMStudentApp',
     imageUrl: '/images/projects/csusm.jpg',
@@ -96,35 +105,30 @@ export const projectsData = [
 
 export const experienceData = [
   {
-    title: 'Graduate Research Assistant',
-    company: 'SDSU Climate Informatics Laboratory',
+    title: 'Machine Learning Intern',
+    company: 'Sesh Incorporated',
     location: 'San Diego, CA',
     description:
-      'Developing the iCharm climate analysis interface, incorporating over 200 GB of NOAA datasets for 3D-visualization and statistical analysis.',
-    date: 'Present',
-    skills: [
-      'Python',
-      'Next.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'PostgreSQL',
-      'Docker',
-    ],
+      'Built a gradient-boosted decision tree model as a benchmark against internal models for immuno-oncology. Preprocessed and trained a pipeline over patient and alignment data in text and WIG formats, then analyzed model performance against internal baselines.',
+    date: 'Jun 2026 - Present',
+    skills: ['Python', 'Pandas'],
   },
   {
-    title: 'Graduate Research Intern',
-    company: 'Pisces Lab @ SDSU',
+    title: 'Graduate Research Assistant & Project Manager',
+    company: 'SDSU Research Foundation — Climate Informatics Lab',
     location: 'San Diego, CA',
     description:
-      'Building an agentic digital-twin system for smart city traffic using CARLA and Ruth simulators. Integrated Google Gemini for natural language conversion, autonomous entity control, and inferencing. ',
-    date: 'Present',
+      'Founding engineer on iCHARM, a full-stack platform for 3D visualization and statistical analysis of climate data, driven from prototype to production under Prof. Samuel Shen. Designed a data pipeline serving 6+ TB of NOAA datasets on self-hosted SDSU infrastructure, a Next.js frontend rendering climate rasters on an interactive 3D globe, five in-browser analysis tools, and a multi-tenant backend with per-site data isolation. Led 3 engineering teams through release while owning architecture and code review.',
+    date: 'Sep 2025 - Present',
     skills: [
       'Python',
-      'Gemini',
       'Next.js',
       'TypeScript',
       'Tailwind CSS',
+      'FastAPI',
       'PostgreSQL',
+      'Cesium.js',
+      'Zarr/NetCDF',
       'Docker',
     ],
   },
@@ -133,9 +137,9 @@ export const experienceData = [
     company: 'Tensor Therapeutics',
     location: 'San Diego, CA',
     description:
-      'Accelerated drug discovery processes by generating predictive models for RNA structures and molecular interactions. Deployed a scalable variant calling pipeline using Sarek (nf-core) for genomic data analysis. ',
-    date: '2025',
-    skills: ['Python', 'PyTorch', 'Tensorflow', 'Azure'],
+      'Built drug discovery workflows in Python with Boltz-2 to predict RNA structures and molecular interactions. Deployed a variant calling pipeline using nf-core/Sarek and Docker for genomic data analysis, and managed GPU virtual machines on Azure and Lambda.ai, including secure networking.',
+    date: 'Jun 2025 - Aug 2025',
+    skills: ['Python', 'Boltz-2', 'nf-core/Sarek', 'Docker', 'Azure'],
   },
   {
     title: 'HS Debate Coach / Judge',

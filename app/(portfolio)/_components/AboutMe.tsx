@@ -25,9 +25,9 @@ export const AboutMe = () => {
         I am now pursuing my M.S. at SDSU, focusing on machine learning and
         artificial intelligence. I am currently a Graduate Research Assistant
         with the SDSU Climate Informatics Lab, working on the iCharm interface.
-        I am also responsible for a research project with Dr. Jianshu Liu on
-        agentic digital twin systems, which has just obtained funding from the
-        SDSU Division of Research and Innovation.
+        I also research agentic digital twin systems, where I am first author on
+        PromptCARLA, a prompt-to-config agent for traffic simulation accepted to
+        IMNS’26.
       </p>
       <p className="mb-4">
         In my free time, I enjoy listening to{' '}
