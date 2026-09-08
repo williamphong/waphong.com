@@ -7,7 +7,17 @@ const THUMB_CLASS =
 export const ProjectImage = ({ url, alt }: { url: string; alt: string }) => {
   const isWebm = url.endsWith('.webm');
   if (isWebm) {
-    return <ProjectVideo url={url} alt={alt} className={THUMB_CLASS} />;
+    // Convention: a video's poster sits next to it as <name>-poster.webp, so
+    // lib/data.ts does not need a field that only one project would use.
+    const poster = url.replace(/\.webm$/, '-poster.webp');
+    return (
+      <ProjectVideo
+        url={url}
+        poster={poster}
+        alt={alt}
+        className={THUMB_CLASS}
+      />
+    );
   }
   return (
     <Image

@@ -28,3 +28,17 @@ test('the close button dismisses the lightbox', async ({ page }) => {
   await page.getByRole('button', { name: 'Close' }).click();
   await expect(page.getByRole('dialog')).toBeHidden();
 });
+
+test('clicking the dark area around the photo closes the lightbox', async ({
+  page,
+}) => {
+  // The old check compared against the dialog element, which its full-size
+  // child covered entirely, so only a 16px edge ring could dismiss it.
+  await page.goto('/gallery');
+  await page.getByRole('button', { name: /Del Mar Beach/ }).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toBeVisible();
+
+  await page.mouse.click(40, 400);
+  await expect(dialog).toBeHidden();
+});

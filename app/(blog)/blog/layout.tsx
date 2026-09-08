@@ -20,9 +20,6 @@ export const metadata: Metadata = {
     default: 'Blog | William Phong',
   },
   description: "William Phong's personal blog.",
-  icons: {
-    icon: '/favicon.ico',
-  },
   generator: 'Next.js',
   applicationName: 'William Phong Blog',
   referrer: 'origin-when-cross-origin',
@@ -72,10 +69,16 @@ export default function BlogLayout({
   return (
     <html
       lang="en"
-      className={`${ibm.className} scroll-smooth`}
+      className={`${ibm.className} scroll-smooth motion-reduce:scroll-auto`}
+      // Opts into Next's route-transition override: it swaps scroll-behavior
+      // to auto for the navigation, so changing route jumps to the top
+      // instead of animating the whole page past you. Same-page #hash links
+      // take an earlier return and keep scrolling smoothly, which is what
+      // scroll-smooth is here for.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
+      <body className="bg-rpd-base text-rpd-subtle-deep dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <a
           href="#content"
           className="focus:bg-rpd-surface focus:text-rpd-text dark:focus:bg-rp-surface dark:focus:text-rp-text sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:px-4 focus:py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
