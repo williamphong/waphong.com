@@ -48,6 +48,12 @@ export default function RootLayout({
     <html
       lang="en"
       className="font-sfpro scroll-smooth motion-reduce:scroll-auto"
+      // Opts into Next's route-transition override: it swaps scroll-behavior
+      // to auto for the navigation, so changing route jumps to the top
+      // instead of animating the whole page past you. Same-page #hash links
+      // take an earlier return and keep scrolling smoothly, which is what
+      // scroll-smooth is here for.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="bg-rpd-base text-rpd-subtle-deep dark:bg-rp-base dark:text-rp-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
