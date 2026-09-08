@@ -47,10 +47,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="font-sfpro scroll-smooth"
+      className="font-sfpro scroll-smooth motion-reduce:scroll-auto"
       suppressHydrationWarning
     >
-      <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
+      <body className="bg-rpd-base text-rpd-subtle-deep dark:bg-rp-base dark:text-rp-subtle selection:bg-rpd-highlightMed leading-relaxed antialiased">
         <a
           href="#content"
           className="focus:bg-rpd-surface focus:text-rpd-text dark:focus:bg-rp-surface dark:focus:text-rp-text sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:px-4 focus:py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
@@ -64,11 +64,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <header className="my-16 flex items-center justify-between text-center">
-            <h1 className="text-rpd-text dark:text-rp-text flex-1 cursor-default pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
-              <Link href="/" className="focus-visible:text-rpd-rose">
+            {/* Site chrome, not the page heading: the page supplies its own h1. */}
+            <p className="text-rpd-text dark:text-rp-text flex-1 cursor-default pb-4 text-xl font-bold tracking-wide whitespace-nowrap sm:text-2xl md:text-4xl">
+              <Link href="/" className="focus-visible:text-rpd-rose-deep">
                 William Phong
               </Link>
-            </h1>
+            </p>
             <div className="flex-1" aria-hidden="true" />
             <div className="flex flex-1 justify-center">
               <Socials />

@@ -1,16 +1,9 @@
 import { test, expect } from '@playwright/test';
+import { routes } from './routes';
 
 // title.template only decorates child segments. Pages that sit beside the
 // layout declaring the template silently get a bare title, which is easy to
 // miss and bad for search results. Assert the brand on every route.
-const routes = [
-  '/',
-  '/experience',
-  '/projects',
-  '/gallery',
-  '/blog',
-  '/blog/welcome-to-my-blog',
-];
 
 for (const route of routes) {
   test(`${route} has a branded title and a description`, async ({ page }) => {
@@ -47,4 +40,12 @@ test('a blog post points og:url at itself, not the index', async ({ page }) => {
     'content',
     /\/blog\/welcome-to-my-blog$/
   );
+});
+
+test('each root layout emits a single favicon link', async ({ page }) => {
+  // app/favicon.ico already emits one; metadata.icons emitted a second.
+  for (const route of ['/', '/blog', '/gallery']) {
+    await page.goto(route);
+    await expect(page.locator('link[rel="icon"]')).toHaveCount(1);
+  }
 });

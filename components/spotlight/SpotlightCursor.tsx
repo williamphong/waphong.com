@@ -1,5 +1,6 @@
 'use client';
 import { HTMLAttributes } from 'react';
+import { useTheme } from 'next-themes';
 import useSpotlightEffect from '@/components/spotlight/use-spotlight';
 
 // Define an interface for the spotlight configuration
@@ -23,10 +24,16 @@ const SpotlightCursor = ({
   className,
   ...rest
 }: SpotlightCursorProps) => {
+  // A white glow over the light theme lifts the text more than the page and
+  // pushes body copy below 4.5:1 wherever the cursor is. Glow in the text
+  // colour instead, which only darkens the background slightly.
+  const { resolvedTheme } = useTheme();
+  const themeGlow = resolvedTheme === 'light' ? '87, 82, 121' : '255, 255, 255';
+
   const {
     radius = 200,
     brightness = 0.15,
-    color = '255, 255, 255',
+    color = themeGlow,
     smoothing = 0.3,
   } = config;
 

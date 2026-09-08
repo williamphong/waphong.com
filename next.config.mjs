@@ -68,6 +68,9 @@ const nextConfig = {
     // Only list packages the app actually imports; entries for absent packages
     // are silently inert and mislead about what is in the bundle.
     optimizePackageImports: ['motion'],
+    // Three root layouts and no app/layout.tsx means an app/not-found.tsx has
+    // nothing to render inside. global-not-found supplies its own document.
+    globalNotFound: true,
   },
 };
 

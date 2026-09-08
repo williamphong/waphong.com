@@ -47,23 +47,25 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <article className="flex-col lg:flex lg:h-screen">
       <div className="h-full">
-        <header className="flex flex-row items-center justify-between border-b px-16 py-6">
+        <header className="flex flex-col gap-2 border-b px-6 py-6 md:flex-row md:items-center md:justify-between md:px-12 lg:px-16">
           <Link
             href="/blog"
-            className="text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text inline-block text-sm transition-colors"
+            className="text-rpd-subtle-deep dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text inline-block text-sm transition-colors"
           >
             ← All posts
           </Link>
           <h1 className="text-rpd-text dark:text-rp-text text-xl font-bold">
             {post.title}
           </h1>
-          <p className="text-rpd-muted dark:text-rp-muted">{post.date}</p>
+          <p className="text-rpd-subtle-deep dark:text-rp-subtle">
+            {post.date}
+          </p>
         </header>
-        <section className="px-16 py-6">
+        <section className="px-6 py-6 md:px-12 lg:px-16">
           {/* post.content is Markdown. Rendered in a Server Component, so this
               costs no client JS. `whitespace-pre-wrap` must stay off — it would
               preserve the source newlines inside the generated elements. */}
-          <div className="prose dark:prose-invert prose-headings:text-rpd-text dark:prose-headings:text-rp-text text-rpd-subtle dark:text-rp-subtle max-w-none leading-relaxed">
+          <div className="prose dark:prose-invert prose-headings:text-rpd-text dark:prose-headings:text-rp-text text-rpd-subtle-deep dark:text-rp-subtle max-w-none leading-relaxed">
             <Markdown>{post.content}</Markdown>
           </div>
         </section>
@@ -72,7 +74,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <footer className="border-rpd-muted/20 dark:border-rp-muted/20 flex flex-col items-center justify-center gap-y-4 border-t py-12 md:py-20 lg:py-8">
         <Link
           href="/blog"
-          className="text-rpd-rose dark:text-rp-love text-sm hover:underline"
+          className="text-rpd-rose-deep dark:text-rp-love text-sm hover:underline"
         >
           ← Back to all posts
         </Link>

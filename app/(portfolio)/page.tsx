@@ -54,11 +54,7 @@ export default function Home() {
 
         {/* No aria-label: the visible text is already the accessible name.
             An aria-label that omits the visible words breaks voice control. */}
-        <Link
-          className="group/link"
-          href="/experience"
-          rel="noreferrer noopener"
-        >
+        <Link className="group/link" href="/experience">
           <span className="group link--color hover:underline-4 inline-block font-medium">
             Full employment history
             <ArrowIcon className="-translate-y-px transition-transform group-hover:translate-x-2" />
@@ -80,7 +76,7 @@ export default function Home() {
 
         <ProjectList limit={3} />
 
-        <Link className="group/link" href="/projects" rel="noreferrer noopener">
+        <Link className="group/link" href="/projects">
           <span className="group link--color hover:underline-4 inline-block font-medium">
             More projects
             <ArrowIcon className="-translate-y-px transition-transform group-hover:translate-x-2" />

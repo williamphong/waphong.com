@@ -38,9 +38,11 @@ function GalleryCard({
 
       {/* Info */}
       <div className="px-4 py-3">
-        <h3 className="text-sm font-medium">{title}</h3>
+        <h2 className="text-sm font-medium">{title}</h2>
+        {/* Palette tokens, not raw neutrals: neutral-500 on the neutral-100
+            card is 4.35:1, just under AA. */}
         {subtitle && (
-          <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+          <p className="text-rpd-subtle-deep dark:text-rp-subtle mt-1 text-xs">
             {subtitle}
           </p>
         )}
@@ -122,14 +124,17 @@ export default function GalleryGrid() {
         aria-label={selected?.title}
         // onClose fires for Escape and for close(), so state stays in sync.
         onClose={() => setSelected(null)}
-        // Clicks land on the dialog itself only when they hit the backdrop.
-        onClick={(e) => {
-          if (e.target === dialogRef.current) setSelected(null);
-        }}
         className="fixed inset-0 z-50 h-full max-h-none w-full max-w-none bg-transparent p-4 backdrop:bg-black/80"
       >
         {selected && (
-          <div className="flex h-full w-full items-center justify-center">
+          // The dialog fills the viewport, so a click on the "backdrop" lands
+          // on this wrapper — never on the dialog element or its ::backdrop.
+          <div
+            className="flex h-full w-full items-center justify-center"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setSelected(null);
+            }}
+          >
             <div className="relative flex h-[90vh] w-[90vw] items-center justify-center">
               <Image
                 src={selected.image}

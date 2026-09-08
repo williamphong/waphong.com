@@ -9,3 +9,11 @@ build
 coverage
 test-results
 playwright-report
+
+# Vendored agent skills (tracked by skills-lock.json). Their formatting is
+# owned upstream; rewriting them would change the locked content hash.
+.agents
+.claude
+
+# Implementation plans: working documents, not shipped code.
+plans

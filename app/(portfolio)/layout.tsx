@@ -20,9 +20,6 @@ export const metadata: Metadata = {
     default: 'William Phong',
   },
   description: 'Personal portfolio of William Phong.',
-  icons: {
-    icon: '/favicon.ico',
-  },
   generator: 'Next.js',
   applicationName: 'William Phong Portfolio',
   referrer: 'origin-when-cross-origin',
@@ -64,23 +61,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} scroll-smooth`}
+      className={`${inter.className} scroll-smooth motion-reduce:scroll-auto`}
       suppressHydrationWarning
     >
-      <body className="bg-rpd-base text-rpd-subtle dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
+      <body className="bg-rpd-base text-rpd-subtle-deep dark:bg-rp-base dark:text-rp-subtle leading-relaxed antialiased">
         <a
           href="#content"
           className="focus:bg-rpd-surface focus:text-rpd-text dark:focus:bg-rp-surface dark:focus:text-rp-text sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:px-4 focus:py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
         >
           Skip to content
         </a>
-        <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <SpotlightCursor config={{ radius: 300, brightness: 0.1 }} />
           <div className="mx-auto min-h-screen max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-0">
             <div className="lg:flex lg:justify-between lg:gap-4">
               {/* Left side – static */}
