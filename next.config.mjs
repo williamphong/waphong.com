@@ -1,6 +1,11 @@
 // Documents are rendered by the Worker, so public/_headers cannot reach them —
 // those rules only decorate responses served by the static asset server. Page
 // headers have to be set here; asset headers stay in public/_headers.
+
+// Compared against 'development' rather than 'production' on purpose: if
+// NODE_ENV is ever unset, this must fall through to the strict policy.
+const isDev = process.env.NODE_ENV === 'development';
+
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
@@ -9,7 +14,12 @@ const securityHeaders = [
       // Next.js inlines its bootstrap and the next-themes anti-flash script.
       // Replacing 'unsafe-inline' with a nonce requires per-request rendering,
       // which would give up static generation for the whole site.
-      "script-src 'self' 'unsafe-inline'",
+      //
+      // React's development build calls eval() to rebuild call stacks across
+      // the server/client boundary; without it the error overlay loses those
+      // frames. The production build never evals, and allowing it there would
+      // undo much of what this policy exists for — so it is dev-only.
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https://i.scdn.co https://lh3.googleusercontent.com",
       "media-src 'self'",
