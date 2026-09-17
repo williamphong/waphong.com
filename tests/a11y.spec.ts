@@ -29,7 +29,7 @@ for (const route of ['/', '/blog', '/gallery']) {
   });
 }
 
-for (const route of ['/experience', '/projects']) {
+for (const route of ['/experience', '/projects', '/gallery']) {
   test(`${route} does not skip a heading level`, async ({ page }) => {
     await page.goto(route);
 
@@ -49,6 +49,7 @@ test('the project video autoplays normally', async ({ page }) => {
   await page.goto('/projects');
 
   const video = page.locator('video').first();
+  await video.scrollIntoViewIfNeeded();
   await expect(video).not.toHaveAttribute('controls', /.*/);
   await expect
     .poll(() => video.evaluate((v: HTMLVideoElement) => v.paused))
@@ -62,8 +63,15 @@ test('the project video is paused and controllable under reduced motion', async 
   await page.goto('/projects');
 
   const video = page.locator('video').first();
+  await video.scrollIntoViewIfNeeded();
   await expect(video).toHaveAttribute('controls', /.*/);
   await expect
     .poll(() => video.evaluate((v: HTMLVideoElement) => v.paused))
     .toBe(true);
+});
+
+test('/gallery has exactly one h1', async ({ page }) => {
+  // The layout's site title and the page title were both h1.
+  await page.goto('/gallery');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
 });

@@ -22,3 +22,22 @@ test('an unknown post returns a real 404', async ({ page }) => {
   const response = await page.goto('/blog/does-not-exist');
   expect(response?.status()).toBe(404);
 });
+
+test.describe('on a phone', () => {
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  test('blog pages use the responsive gutter', async ({ page }) => {
+    // px-16 at every breakpoint left ~247px for prose on a 375px screen.
+    await page.goto('/blog/welcome-to-my-blog');
+    await expect(page.locator('article section').first()).toHaveCSS(
+      'padding-left',
+      '24px'
+    );
+    const overflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth
+    );
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+});

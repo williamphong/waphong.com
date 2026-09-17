@@ -37,6 +37,20 @@
   --color-rpd-pine: #286983;
   --color-rpd-foam: #56949f;
   --color-rpd-iris: #907aa9;
+  /* Dawn's love/rose/gold/foam/iris and subtle/muted all sit below 4.5:1 on
+     the base background, so none of them is usable as text in light mode.
+     These keep each hue and darken it to ~4.8:1; the stock tokens above stay
+     for backgrounds, borders and the dark theme. `subtle-deep` also absorbs
+     `muted` as text: three neutral steps cannot all clear AA on a light
+     ground, so light mode has two — `text` for primary, this for secondary.
+     tests/axe.spec.ts enforces the result. */
+  --color-rpd-love-deep: #9d566a;
+  --color-rpd-gold-deep: #926220;
+  --color-rpd-rose-deep: #965b58;
+  --color-rpd-foam-deep: #43737c;
+  --color-rpd-iris-deep: #76648b;
+  --color-rpd-subtle-deep: #6d6984;
+
   --color-rpd-highlightLow: #f4ede8;
   --color-rpd-highlightMed: #dfdad9;
   --color-rpd-highlightHigh: #cecacd;
@@ -65,8 +79,8 @@
 }
 
 .light {
-  --link-color: var(--color-rpd-love);
-  --focus-color: var(--color-rpd-rose);
+  --link-color: var(--color-rpd-love-deep);
+  --focus-color: var(--color-rpd-rose-deep);
 }
 
 .dark {
