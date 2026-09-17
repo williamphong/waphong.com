@@ -3,12 +3,13 @@ import { education } from '@/lib/data';
 export const EducationList = () => {
   return (
     <div>
-      <ol>
+      {/* The cards' lg:group-hover/list:* classes need this parent marker. */}
+      <ol className="group/list">
         {education.map((edu) => (
           <li key={edu.title} className="mb-12">
             <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:group-hover/list:opacity-50 lg:hover:!opacity-100">
               <div className="lg:group-hover:bg-rpd-surface/75 dark:lg:group-hover:bg-rp-surface/75 absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-              <header className="text-rpd-gold dark:text-rp-gold z-10 mt-1 mb-2 text-xs font-semibold tracking-wide uppercase sm:col-span-2">
+              <header className="text-rpd-gold-deep dark:text-rp-gold z-10 mt-1 mb-2 text-xs font-semibold tracking-wide uppercase sm:col-span-2">
                 {edu.date}
               </header>
 
@@ -17,14 +18,14 @@ export const EducationList = () => {
                   {edu.title}
                 </h3>
 
-                <p className="text-rpd-foam dark:text-rp-foam mt-2 text-sm leading-tight">
+                <p className="text-rpd-foam-deep dark:text-rp-foam mt-2 text-sm leading-tight">
                   {edu.degree}
                 </p>
 
                 {/* SDSU has awards: '' — an unconditional <p> renders an empty
                     paragraph with a top margin. */}
                 {edu.awards && (
-                  <p className="text-rpd-iris dark:text-rp-iris mt-2 text-xs">
+                  <p className="text-rpd-iris-deep dark:text-rp-iris mt-2 text-xs">
                     {edu.awards}
                   </p>
                 )}

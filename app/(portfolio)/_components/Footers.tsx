@@ -43,27 +43,24 @@ const socials = [
 
 export const LeftFooter = () => {
   return (
-    <ul
-      className="my-4 flex items-center gap-5 md:my-4 lg:my-0"
-      aria-label="Social media"
-    >
-      <li>
-        <ModeToggle />
-      </li>
-      {socials.map(({ href, title, label, icon }) => (
-        <li key={title}>
-          <a
-            href={href}
-            title={title}
-            aria-label={label}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-rpd-gold dark:hover:text-rp-gold link--color transition-colors"
-          >
-            {icon}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="my-4 flex items-center gap-5 md:my-4 lg:my-0">
+      <ModeToggle />
+      <ul className="flex items-center gap-5" aria-label="Social media">
+        {socials.map(({ href, title, label, icon }) => (
+          <li key={title}>
+            <a
+              href={href}
+              title={title}
+              aria-label={label}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-rpd-gold-deep dark:hover:text-rp-gold link--color transition-colors"
+            >
+              {icon}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

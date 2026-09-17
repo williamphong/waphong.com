@@ -15,7 +15,7 @@ export default function BlogPage() {
   return (
     <div className="">
       <section className="mb-16">
-        <header className="flex items-center justify-start border-b px-16 py-6">
+        <header className="flex items-center justify-start border-b px-6 py-6 md:px-12 lg:px-16">
           <h1 className="text-rpd-text dark:text-rp-text cursor-default text-xl font-normal tracking-normal whitespace-nowrap">
             Posts
           </h1>
@@ -25,19 +25,19 @@ export default function BlogPage() {
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="border-rpd-muted/20 dark:border-rp-muted/20 border-b px-16 py-6 last:border-0"
+              className="border-rpd-muted/20 dark:border-rp-muted/20 border-b px-6 py-6 last:border-0 md:px-12 lg:px-16"
             >
               <Link href={`/blog/${post.id}`} className="group">
-                <h2 className="text-rpd-text dark:text-rp-text group-hover:text-rpd-rose dark:group-hover:text-rp-love mb-2 text-2xl font-semibold transition-colors">
+                <h2 className="text-rpd-text dark:text-rp-text group-hover:text-rpd-rose-deep dark:group-hover:text-rp-love mb-2 text-2xl font-semibold transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-rpd-muted dark:text-rp-muted mb-3 text-sm">
+                <p className="text-rpd-subtle-deep dark:text-rp-subtle mb-3 text-sm">
                   {post.date}
                 </p>
-                <p className="text-rpd-subtle dark:text-rp-subtle">
+                <p className="text-rpd-subtle-deep dark:text-rp-subtle">
                   {post.excerpt}
                 </p>
-                <span className="text-rpd-rose dark:text-rp-love mt-3 inline-block text-sm group-hover:underline">
+                <span className="text-rpd-rose-deep dark:text-rp-love mt-3 inline-block text-sm group-hover:underline">
                   Read more →
                 </span>
               </Link>

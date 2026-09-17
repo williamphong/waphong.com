@@ -43,7 +43,7 @@ const socialList = [
 export const Socials = () => {
   return (
     <ul
-      className="text-rpd-love dark:text-rp-rose my-4 flex items-center gap-5 md:my-4 lg:my-0"
+      className="text-rpd-love-deep dark:text-rp-rose my-4 flex items-center gap-5 md:my-4 lg:my-0"
       aria-label="Social media"
     >
       {socialList.map(({ href, title, label, icon }) => (
@@ -54,7 +54,7 @@ export const Socials = () => {
             aria-label={label}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-rpd-gold dark:hover:text-rp-gold transition-colors"
+            className="hover:text-rpd-gold-deep dark:hover:text-rp-gold transition-colors"
           >
             {icon}
           </a>

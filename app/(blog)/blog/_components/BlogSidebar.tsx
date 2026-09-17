@@ -17,7 +17,7 @@ export const BlogSidebar = () => {
         <p className="text-rpd-text dark:text-rp-text cursor-default text-xl font-normal tracking-normal whitespace-nowrap">
           <Link
             href="/blog"
-            className="focus-visible:text-rpd-rose dark:focus-visible:text-rp-love hover:underline-4"
+            className="focus-visible:text-rpd-rose-deep dark:focus-visible:text-rp-love hover:underline-4"
           >
             Blog
           </Link>
@@ -41,7 +41,7 @@ export const BlogSidebar = () => {
                     }`}
                   >
                     <h3 className="mb-1 text-sm font-medium">{post.title}</h3>
-                    <p className="text-xs opacity-70">{post.date}</p>
+                    <p className="text-xs">{post.date}</p>
                   </Link>
                 </li>
               );
@@ -52,7 +52,7 @@ export const BlogSidebar = () => {
       <div className="flex flex-col items-center justify-center gap-y-4 py-12 md:py-20 lg:py-20">
         <Link
           href="/"
-          className="text-rpd-subtle dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text mb-12 text-sm transition-colors"
+          className="text-rpd-subtle-deep dark:text-rp-subtle hover:text-rpd-text dark:hover:text-rp-text mb-12 text-sm transition-colors"
         >
           ← back to portfolio
         </Link>

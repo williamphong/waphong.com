@@ -9,18 +9,19 @@ export const ExperienceList = ({ limit }: ExperienceListProps) => {
 
   return (
     <div>
-      <ol>
+      {/* The cards' lg:group-hover/list:* classes need this parent marker. */}
+      <ol className="group/list">
         {experiences.map((exp) => (
           <li key={`${exp.company}-${exp.title}`} className="mb-12">
             <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:group-hover/list:opacity-50 lg:hover:!opacity-100">
               <div className="dark:lg:group-hover:bg-rp-surface/75 lg:group-hover:bg-rpd-surface/75 absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
               <header className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide uppercase sm:col-span-2">
-                <span className="dark:text-rp-gold text-rpd-gold">
+                <span className="dark:text-rp-gold text-rpd-gold-deep">
                   {exp.date}
                 </span>
                 <br />
                 <br />
-                <span className="dark:text-rp-subtle text-rpd-subtle">
+                <span className="dark:text-rp-subtle text-rpd-subtle-deep">
                   {exp.location}
                 </span>
               </header>
@@ -39,7 +40,7 @@ export const ExperienceList = ({ limit }: ExperienceListProps) => {
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam inline-flex h-8 items-center justify-center rounded-md border px-3 text-xs font-medium whitespace-nowrap shadow-sm"
+                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam-deep inline-flex h-8 items-center justify-center rounded-md border px-3 text-xs font-medium whitespace-nowrap shadow-sm"
                     >
                       {skill}
                     </span>

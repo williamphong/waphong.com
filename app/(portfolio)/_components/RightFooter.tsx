@@ -5,10 +5,10 @@ export const RightFooter = () => {
   return (
     <footer className="py-16 text-sm/tight sm:pb-0">
       <p>
-        Developed with Next.js, Typescript, Tailwind CSS, and deployed on
+        Developed with Next.js, TypeScript, Tailwind CSS, and deployed on
         Cloudflare Workers. Follows{' '}
         <a
-          className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+          className="text-rpd-love-deep focus-visible:text-rpd-love-deep dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
           href="https://rosepinetheme.com/palette/"
           target="_blank"
           rel="noreferrer noopener"
@@ -17,7 +17,7 @@ export const RightFooter = () => {
         </a>{' '}
         color palette conventions. Inspired by{' '}
         <a
-          className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+          className="text-rpd-love-deep focus-visible:text-rpd-love-deep dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
           href="https://brittanychiang.com"
           target="_blank"
           rel="noreferrer noopener"
@@ -26,7 +26,7 @@ export const RightFooter = () => {
         </a>
         ,{' '}
         <a
-          className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+          className="text-rpd-love-deep focus-visible:text-rpd-love-deep dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
           href="https://carlbeaverson.com"
           target="_blank"
           rel="noreferrer noopener"
@@ -35,7 +35,7 @@ export const RightFooter = () => {
         </a>
         , and my friends{' '}
         <a
-          className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+          className="text-rpd-love-deep focus-visible:text-rpd-love-deep dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
           href="https://derekwen.dev"
           target="_blank"
           rel="noreferrer noopener"
@@ -44,7 +44,7 @@ export const RightFooter = () => {
         </a>{' '}
         and{' '}
         <a
-          className="text-rpd-love focus-visible:text-rpd-love dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
+          className="text-rpd-love-deep focus-visible:text-rpd-love-deep dark:text-rp-rose dark:focus-visible:text-rp-love hover:underline-4 font-medium"
           href="https://aqcheng.github.io"
           target="_blank"
           rel="noreferrer noopener"

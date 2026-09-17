@@ -11,7 +11,8 @@ export const ProjectList = ({ limit }: ProjectListProps) => {
 
   return (
     <div>
-      <ol>
+      {/* The cards' lg:group-hover/list:* classes need this parent marker. */}
+      <ol className="group/list">
         {projects.map((project) => (
           <li key={project.title} className="mb-12">
             <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:group-hover/list:opacity-50 lg:hover:!opacity-100">
@@ -24,7 +25,7 @@ export const ProjectList = ({ limit }: ProjectListProps) => {
                       Projects without a URL render as plain text instead. */}
                   {project.link ? (
                     <a
-                      className="group/link text-rpd-text dark:text-rp-text dark:hover:text-rp-rose hover:text-rpd-love focus-visible:text-rpd-iris dark:focus-visible:text-rp-love inline-flex items-baseline text-base font-medium"
+                      className="group/link text-rpd-text dark:text-rp-text dark:hover:text-rp-rose hover:text-rpd-love-deep focus-visible:text-rpd-iris-deep dark:focus-visible:text-rp-love inline-flex items-baseline text-base font-medium"
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -51,7 +52,7 @@ export const ProjectList = ({ limit }: ProjectListProps) => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam inline-flex h-8 items-center justify-center rounded-md border px-3 text-xs font-medium whitespace-nowrap shadow-sm"
+                      className="dark:bg-rp-surface bg-rpd-surface dark:text-rp-foam text-rpd-foam-deep inline-flex h-8 items-center justify-center rounded-md border px-3 text-xs font-medium whitespace-nowrap shadow-sm"
                     >
                       {tag}
                     </span>
