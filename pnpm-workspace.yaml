@@ -38,3 +38,5 @@ minimumReleaseAgeExclude:
   - js-yaml@4.3.1
   # Renovate security update: pnpm@11.11.0
   - pnpm@11.11.0
+  # Renovate security update: next@16.3.6
+  - next@16.3.6
