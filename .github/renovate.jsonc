@@ -14,7 +14,9 @@
   ],
 
   "timezone": "America/Los_Angeles",
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true,
+  },
 
   // Defaults are prConcurrentLimit: 10, prHourlyLimit: 2 -- built for repos
   // where a flood of PRs is noise. This is a portfolio site with automerge
